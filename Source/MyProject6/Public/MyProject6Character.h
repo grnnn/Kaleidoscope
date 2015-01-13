@@ -30,6 +30,9 @@ public:
 	
 protected:
 
+	//Call when user pressed 'E' key to trigger extra mini map
+	void TriggerNewCameraOn();
+	void TriggerNewCameraOff();
 
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);

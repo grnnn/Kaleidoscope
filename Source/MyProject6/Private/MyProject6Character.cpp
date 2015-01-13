@@ -3,6 +3,7 @@
 #include "MyProject6.h"
 #include "MyProject6Character.h"
 #include "MyHUD.h"
+
 //////////////////////////////////////////////////////////////////////////
 // AMyProject6Character
 
@@ -53,7 +54,8 @@ void AMyProject6Character::SetupPlayerInputComponent(class UInputComponent* Inpu
 	check(InputComponent);
 
 	
-	//InputComponent->BindAction("EKey", IE_Pressed, this, &AMyProject6Character::makeNewCamera);
+	InputComponent->BindAction("EKey", IE_Pressed, this, &AMyProject6Character::TriggerNewCameraOn);
+	InputComponent->BindAction("EKey", IE_Released, this, &AMyProject6Character::TriggerNewCameraOff);
 	InputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	InputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
@@ -129,5 +131,32 @@ void AMyProject6Character::MoveRight(float Value)
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
+	}
+}
+void  AMyProject6Character::TriggerNewCameraOn()
+{
+	APlayerController* MyPC = Cast<APlayerController>(Controller);
+	if (MyPC)
+	{
+		AHUD *ahud = MyPC->GetHUD();
+		AMyHUD* MyChar = Cast<AMyHUD>(ahud);
+		if (MyChar)
+		{
+			MyChar->setIsTrigger(true);
+		}
+	}
+}
+
+void  AMyProject6Character::TriggerNewCameraOff()
+{
+	APlayerController* MyPC = Cast<APlayerController>(Controller);
+	if (MyPC)
+	{
+		AHUD *ahud = MyPC->GetHUD();
+		AMyHUD* MyChar = Cast<AMyHUD>(ahud);
+		if (MyChar)
+		{
+			MyChar->setIsTrigger(false);
+		}
 	}
 }

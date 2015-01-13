@@ -22,8 +22,10 @@ public:
 	//Draw mini screen
 	void drawTexture(UTexture*, float, float, float, float);
 	
+	//void drawText(float, float);
+
 	//Testing function, ignore it for now
-	void MakeNewCamera();
+	void setIsTrigger(bool);
 
 private:
 
@@ -31,8 +33,13 @@ private:
 	
 
 	/** Crosshair asset pointer */
-	class UTexture* MiniTexture;
+	class UTexture* MiniTexture1;
 	class UTexture* MiniTexture2;
+	class UTexture* MiniTexture3;
+	class UTexture* MiniTexture4;
+	class UTexture* MiniTexture5;
+	class UTexture* MiniTexture6;
+	bool isTrigger;
 	/** Camera feed pointer*/
 	//class UMaterial* feedMat;
 	

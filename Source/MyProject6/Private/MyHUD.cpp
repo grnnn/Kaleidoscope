@@ -9,15 +9,27 @@
 #include "UnrealClient.h"
 AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-	// Set the crosshair texture
+	isTrigger = false;
+
+	//Find the texture object in the game editor
 	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj(TEXT("/Game/Material/T_Map1"));
-	MiniTexture = CrosshiarTexObj.Object;
+	MiniTexture1 = CrosshiarTexObj.Object;
 
 	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj2(TEXT("/Game/Material/T_Map2"));
 	MiniTexture2 = CrosshiarTexObj2.Object;
-	//Get the camera feed material
-	//static ConstructorHelpers::FObjectFinder<UMaterial> cameraFeedMat(TEXT("/Game/Textures/camerafeed_Mat"));
-	//feedMat = cameraFeedMat.Object;
+	
+	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj3(TEXT("/Game/Material/T_Map3"));
+	MiniTexture3 = CrosshiarTexObj3.Object;
+
+	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj4(TEXT("/Game/Material/T_Map4"));
+	MiniTexture4 = CrosshiarTexObj4.Object;
+
+	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj5(TEXT("/Game/Material/T_Map5"));
+	MiniTexture5 = CrosshiarTexObj5.Object;
+
+	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj6(TEXT("/Game/Material/T_Map6"));
+	MiniTexture6 = CrosshiarTexObj6.Object;
+	
 }
 
 //Override DrawHUD
@@ -29,16 +41,31 @@ void AMyHUD::DrawHUD()
 
 	float ScreenX = 0;
 	float ScreenY = 0;
-	float ScreenW = 0;
-	float ScreenH = 0;
+	float ScreenW = 300;
+	float ScreenH = 300;
 	
-	
-	ScreenW = 300;
-	ScreenH = 300;
-	drawTexture(MiniTexture, ScreenX, ScreenY, ScreenW, ScreenH);
+	//UE_LOG(LogTemp, Warning, TEXT("Your message"));
+	ScreenX = 0;
+	ScreenY = 0;
+	drawTexture(MiniTexture1, ScreenX, ScreenY, ScreenW, ScreenH);
 	
 	ScreenX = 600;
+	ScreenY = 0;
 	drawTexture(MiniTexture2, ScreenX, ScreenY, ScreenW, ScreenH);
+
+	ScreenX = 0;
+	ScreenY = 320;
+	drawTexture(MiniTexture3, ScreenX, ScreenY, ScreenW, ScreenH);
+
+	ScreenX = 600;
+	ScreenY = 320;
+	drawTexture(MiniTexture4, ScreenX, ScreenY, ScreenW, ScreenH);
+
+	
+	ScreenX = 300;
+	ScreenY = 0;
+	if (isTrigger)
+		drawTexture(MiniTexture5, ScreenX, ScreenY, ScreenW, ScreenH);
 	
 }
 
@@ -58,7 +85,7 @@ void AMyHUD::drawTexture(UTexture* Texture, float ScreenX, float ScreenY, float 
 	float Rotation = 0;
 	FVector2D RotPivot = FVector2D(0, 0);
 
-	if (IsCanvasValid_WarnIfNot() && MiniTexture)
+	if (IsCanvasValid_WarnIfNot() && Texture)
 	{
 		FCanvasTileItem TileItem(FVector2D(ScreenX, ScreenY), Texture->Resource, FVector2D(ScreenW, ScreenH) * Scale, FVector2D(TextureU, TextureV), FVector2D(TextureU + TextureUWidth, TextureV + TextureVHeight), TintColor);
 		TileItem.Rotation = FRotator(0, Rotation, 0);
@@ -72,9 +99,9 @@ void AMyHUD::drawTexture(UTexture* Texture, float ScreenX, float ScreenY, float 
 	}
 }
 
-//Testing function, ignore for now
-void AMyHUD::MakeNewCamera()
+//call when user pressed 'E' key to draw extra screen
+//input: true or false
+void AMyHUD::setIsTrigger(bool isTrig)
 {
-	drawTexture(MiniTexture, 0, 300, 300, 300);
+	isTrigger = isTrig;
 }
-
