@@ -1,3 +1,4 @@
-/Binaries/*/*.pdb
-/Binaries/*/*Debug*
+/Binaries
+/DerivedDataCache
 /Intermediate
+/Saved
