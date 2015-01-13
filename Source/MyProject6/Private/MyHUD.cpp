@@ -10,7 +10,9 @@
 AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
 	isTrigger = false;
-
+	isTriggerF = false;
+	x_pos = 1;
+	y_pos = 1;
 	//Find the texture object in the game editor
 	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj(TEXT("/Game/Material/T_Map1"));
 	MiniTexture1 = CrosshiarTexObj.Object;
@@ -45,28 +47,43 @@ void AMyHUD::DrawHUD()
 	float ScreenH = 300;
 	
 	//UE_LOG(LogTemp, Warning, TEXT("Your message"));
-	ScreenX = 0;
-	ScreenY = 0;
-	drawTexture(MiniTexture1, ScreenX, ScreenY, ScreenW, ScreenH);
 	
-	ScreenX = 600;
-	ScreenY = 0;
-	drawTexture(MiniTexture2, ScreenX, ScreenY, ScreenW, ScreenH);
+	if (isTrigger)
+	{
+		ScreenX = 0;
+		ScreenY = 0;
+		//x_pos = 1;
+		//x_pos+= 50;
+		drawTexture(MiniTexture1, ScreenX, ScreenY, ScreenW, ScreenH);
 
-	ScreenX = 0;
-	ScreenY = 320;
-	drawTexture(MiniTexture3, ScreenX, ScreenY, ScreenW, ScreenH);
+		ScreenX = 600;
+		ScreenY = 0;
+		drawTexture(MiniTexture2, ScreenX, ScreenY, ScreenW, ScreenH);
 
-	ScreenX = 600;
-	ScreenY = 320;
-	drawTexture(MiniTexture4, ScreenX, ScreenY, ScreenW, ScreenH);
+		ScreenX = 0;
+		ScreenY = 320;
+		drawTexture(MiniTexture3, ScreenX, ScreenY, ScreenW, ScreenH);
+
+		ScreenX = 600;
+		ScreenY = 320;
+		drawTexture(MiniTexture4, ScreenX, ScreenY, ScreenW, ScreenH);
+	}
 
 	
-	ScreenX = 300;
+	/*ScreenX = 300;
 	ScreenY = 0;
 	if (isTrigger)
+	{ 
+		//x_pos = 300;
 		drawTexture(MiniTexture5, ScreenX, ScreenY, ScreenW, ScreenH);
+	}*/
 	
+	ScreenX = 300;
+	ScreenY = 320;
+	if (isTriggerF)
+	{
+		drawTexture(MiniTexture6, ScreenX, ScreenY, ScreenW, ScreenH);
+	}
 }
 
 //Draw mini screen onto the view
@@ -104,4 +121,18 @@ void AMyHUD::drawTexture(UTexture* Texture, float ScreenX, float ScreenY, float 
 void AMyHUD::setIsTrigger(bool isTrig)
 {
 	isTrigger = isTrig;
+}
+
+void AMyHUD::setIsTriggerF(bool isTrig)
+{
+	isTriggerF = isTrig;
+}
+
+
+void AMyHUD::Tick(float DeltaSeconds)
+{
+	if (x_pos > 0)
+		x_pos++;
+	if (y_pos > 0)
+		y_pos++;
 }
