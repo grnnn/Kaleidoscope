@@ -1,6 +1,7 @@
 // Copyright 1998-2014 Epic Games, Inc. All Rights Reserved.
 #pragma once
 #include "GameFramework/Character.h"
+#include "MyHUD.h"
 #include "MyProject6Character.generated.h"
 
 
@@ -33,6 +34,9 @@ protected:
 	//Call when user pressed 'E' key to trigger extra mini map
 	void TriggerNewCameraOn();
 	void TriggerNewCameraOff();
+
+	void TriggerNewCameraOnF();
+	void TriggerNewCameraOffF();
 
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
@@ -68,5 +72,8 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+private:
+	AMyHUD* MyHud;
 };
 

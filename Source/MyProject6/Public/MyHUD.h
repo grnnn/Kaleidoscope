@@ -26,6 +26,10 @@ public:
 
 	//Testing function, ignore it for now
 	void setIsTrigger(bool);
+	void setIsTriggerF(bool);
+
+	void Tick(float DeltaSeconds);
+	
 
 private:
 
@@ -40,6 +44,9 @@ private:
 	class UTexture* MiniTexture5;
 	class UTexture* MiniTexture6;
 	bool isTrigger;
+	bool isTriggerF;
+	float x_pos;
+	float y_pos;
 	/** Camera feed pointer*/
 	//class UMaterial* feedMat;
 	

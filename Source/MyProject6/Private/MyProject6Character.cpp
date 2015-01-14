@@ -11,6 +11,9 @@ AMyProject6Character::AMyProject6Character(const FObjectInitializer& ObjectIniti
 	: Super(ObjectInitializer)
 {
 
+
+	
+
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
@@ -56,6 +59,10 @@ void AMyProject6Character::SetupPlayerInputComponent(class UInputComponent* Inpu
 	
 	InputComponent->BindAction("EKey", IE_Pressed, this, &AMyProject6Character::TriggerNewCameraOn);
 	InputComponent->BindAction("EKey", IE_Released, this, &AMyProject6Character::TriggerNewCameraOff);
+
+	InputComponent->BindAction("FKey", IE_Pressed, this, &AMyProject6Character::TriggerNewCameraOnF);
+	InputComponent->BindAction("FKey", IE_Released, this, &AMyProject6Character::TriggerNewCameraOffF);
+
 	InputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	InputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
@@ -133,30 +140,47 @@ void AMyProject6Character::MoveRight(float Value)
 		AddMovementInput(Direction, Value);
 	}
 }
+
+
+
 void  AMyProject6Character::TriggerNewCameraOn()
 {
 	APlayerController* MyPC = Cast<APlayerController>(Controller);
 	if (MyPC)
 	{
 		AHUD *ahud = MyPC->GetHUD();
-		AMyHUD* MyChar = Cast<AMyHUD>(ahud);
-		if (MyChar)
-		{
-			MyChar->setIsTrigger(true);
-		}
+		MyHud = Cast<AMyHUD>(ahud);
 	}
+	if (MyHud)
+	{
+		MyHud->setIsTrigger(true);
+	}
+
 }
 
 void  AMyProject6Character::TriggerNewCameraOff()
 {
-	APlayerController* MyPC = Cast<APlayerController>(Controller);
-	if (MyPC)
+	if (MyHud)
 	{
-		AHUD *ahud = MyPC->GetHUD();
-		AMyHUD* MyChar = Cast<AMyHUD>(ahud);
-		if (MyChar)
-		{
-			MyChar->setIsTrigger(false);
-		}
+		MyHud->setIsTrigger(false);
+	}
+}
+
+
+void  AMyProject6Character::TriggerNewCameraOnF()
+{
+
+	if (MyHud)
+	{
+		MyHud->setIsTriggerF(true);
+	}
+
+}
+
+void  AMyProject6Character::TriggerNewCameraOffF()
+{
+	if (MyHud)
+	{
+		MyHud->setIsTriggerF(false);
 	}
 }
