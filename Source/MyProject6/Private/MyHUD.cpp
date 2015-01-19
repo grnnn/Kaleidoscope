@@ -7,12 +7,17 @@
 #include "CanvasItem.h"
 #include "CanvasTypes.h"
 #include "UnrealClient.h"
+
 AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
+	
+	
 	isTrigger = false;
 	isTriggerF = false;
 	x_pos = 1;
 	y_pos = 1;
+
+
 	//Find the texture object in the game editor
 	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj(TEXT("/Game/Material/T_Map1"));
 	MiniTexture1 = CrosshiarTexObj.Object;
@@ -32,6 +37,37 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj6(TEXT("/Game/Material/T_Map6"));
 	MiniTexture6 = CrosshiarTexObj6.Object;
 	
+	
+	
+	//Initialize scene1
+	//This variable should be initialized in MyGameMode so every class could access to it
+	// something like // currentScene = MyGameMode.getSceneName("scene1");
+	
+	//for now, we define scene1 here for quick testing.
+	
+	scene1 = new MyScene("s1", 4);
+	scene1->setIsActive(false); 
+	scene1->setXpost_atPaneNumber(0, 0);
+	scene1->setYpost_atPaneNumber(0, 0);
+
+	scene1->setXpost_atPaneNumber(1, 600);
+	scene1->setYpost_atPaneNumber(1, 0);
+
+	scene1->setXpost_atPaneNumber(2, 0);
+	scene1->setYpost_atPaneNumber(2, 300);
+
+	scene1->setXpost_atPaneNumber(3, 600);
+	scene1->setYpost_atPaneNumber(3, 300);
+
+	scene1->setIsOn_atPaneNumber(0, true);
+	scene1->setIsOn_atPaneNumber(1, true);
+	scene1->setIsOn_atPaneNumber(2, true);
+	scene1->setIsOn_atPaneNumber(3, true);
+
+	scene1->setTexture_atPaneNumber(0, MiniTexture1);
+	scene1->setTexture_atPaneNumber(1, MiniTexture2);
+	scene1->setTexture_atPaneNumber(2, MiniTexture3);
+	scene1->setTexture_atPaneNumber(3, MiniTexture4);
 }
 
 //Override DrawHUD
@@ -45,45 +81,23 @@ void AMyHUD::DrawHUD()
 	float ScreenY = 0;
 	float ScreenW = 300;
 	float ScreenH = 300;
-	
+	UTexture * nTexture;
 	//UE_LOG(LogTemp, Warning, TEXT("Your message"));
 	
-	if (isTrigger)
-	{
-		ScreenX = 0;
-		ScreenY = 0;
-		//x_pos = 1;
-		//x_pos+= 50;
-		drawTexture(MiniTexture1, ScreenX, ScreenY, ScreenW, ScreenH);
 
-		ScreenX = 600;
-		ScreenY = 0;
-		drawTexture(MiniTexture2, ScreenX, ScreenY, ScreenW, ScreenH);
+	if (scene1->getIsActive()) // check if we should draw scene1's panes
+		for (int i = 0; i < 4; i++)
+		{
+			if (scene1->getIsOn_atPaneNumber(i)) // only draw active pane
+			{
+				ScreenX = scene1->getXpos_atPaneNumber(i);
+				ScreenY = scene1->getYpos_atPaneNumber(i);
+				nTexture = scene1->getTexture_atPaneNumber(i);
+				drawTexture(nTexture, ScreenX, ScreenY, ScreenW, ScreenH);
 
-		ScreenX = 0;
-		ScreenY = 320;
-		drawTexture(MiniTexture3, ScreenX, ScreenY, ScreenW, ScreenH);
-
-		ScreenX = 600;
-		ScreenY = 320;
-		drawTexture(MiniTexture4, ScreenX, ScreenY, ScreenW, ScreenH);
-	}
-
+			}
+		}
 	
-	/*ScreenX = 300;
-	ScreenY = 0;
-	if (isTrigger)
-	{ 
-		//x_pos = 300;
-		drawTexture(MiniTexture5, ScreenX, ScreenY, ScreenW, ScreenH);
-	}*/
-	
-	ScreenX = 300;
-	ScreenY = 320;
-	if (isTriggerF)
-	{
-		drawTexture(MiniTexture6, ScreenX, ScreenY, ScreenW, ScreenH);
-	}
 }
 
 //Draw mini screen onto the view
@@ -120,15 +134,18 @@ void AMyHUD::drawTexture(UTexture* Texture, float ScreenX, float ScreenY, float 
 //input: true or false
 void AMyHUD::setIsTrigger(bool isTrig)
 {
-	isTrigger = isTrig;
+	scene1->setIsActive(isTrig);
 }
 
+//testing function
+//ignore
 void AMyHUD::setIsTriggerF(bool isTrig)
 {
 	isTriggerF = isTrig;
 }
 
-
+//testing
+//ignore
 void AMyHUD::Tick(float DeltaSeconds)
 {
 	if (x_pos > 0)

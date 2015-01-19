@@ -3,8 +3,11 @@
 #pragma once
 
 #include "GameFramework/HUD.h"
-#include "MyHUD.generated.h"
 
+#include <vector>
+#include "MyScene.h"
+#include "MyHUD.generated.h"
+using namespace std;
 /**
  * 
  */
@@ -33,7 +36,7 @@ public:
 
 private:
 
-
+	MyScene* scene1;
 	
 
 	/** Crosshair asset pointer */
