@@ -85,3 +85,12 @@ void Pane::setMyTexture(UTexture* nNew)
 {
 	myTexture = nNew;
 }
+
+void Pane::setMyFunction(int(*functocall)())
+{
+	updateFunction = functocall;
+}
+fptr Pane::getMyFunction()
+{
+	return updateFunction;
+}

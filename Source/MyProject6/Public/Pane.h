@@ -3,6 +3,7 @@
 //			isOn or not, and what to display 
 #pragma once
 
+typedef int(*fptr)();
 /**
  * 
  */
@@ -14,6 +15,7 @@ class MYPROJECT6_API Pane
 	float height;	// how big it's gonna look
 	bool isOn;		// should be display or not (isTrigger?)
 	class UTexture* myTexture; //the content to be display
+	int(*updateFunction)();
 
 public:
 	Pane();
@@ -37,4 +39,7 @@ public:
 
 	UTexture* getMyTexture();
 	void setMyTexture(UTexture*);
+
+	void setMyFunction(int(*functocall)());
+	fptr getMyFunction();
 };

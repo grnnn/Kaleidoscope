@@ -6,6 +6,8 @@
 #include <vector>
 #include "Pane.h"
 using namespace std;
+
+typedef int(*fptr)();
 /**
  * 
  */
@@ -15,6 +17,7 @@ class MYPROJECT6_API MyScene
 	int numberOfPane;
 	bool isActive;
 	std::vector<Pane> paneCollection;
+	int(*updateFunction)();
 	
 public:
 	MyScene();
@@ -40,5 +43,7 @@ public:
 	UTexture* getTexture_atPaneNumber(int);
 	void setTexture_atPaneNumber(int,UTexture*);
 
+	void setBehavior_atPaneNumber(int, int(*functocall)());
+	fptr getBehavior_atPaneNumber(int);
 
 };

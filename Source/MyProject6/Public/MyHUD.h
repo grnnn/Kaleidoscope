@@ -50,6 +50,7 @@ private:
 	bool isTriggerF;
 	float x_pos;
 	float y_pos;
+
 	/** Camera feed pointer*/
 	//class UMaterial* feedMat;
 	

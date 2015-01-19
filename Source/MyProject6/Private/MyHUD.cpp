@@ -8,6 +8,12 @@
 #include "CanvasTypes.h"
 #include "UnrealClient.h"
 
+int test1();
+float ScreenX = 0;
+float ScreenY = 0;
+float ScreenW = 300;
+float ScreenH = 300;
+
 AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
 	
@@ -68,6 +74,9 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	scene1->setTexture_atPaneNumber(1, MiniTexture2);
 	scene1->setTexture_atPaneNumber(2, MiniTexture3);
 	scene1->setTexture_atPaneNumber(3, MiniTexture4);
+
+	scene1->setBehavior_atPaneNumber(0, test1);
+	
 }
 
 //Override DrawHUD
@@ -77,10 +86,9 @@ void AMyHUD::DrawHUD()
 	Super::DrawHUD();
 	
 
-	float ScreenX = 0;
-	float ScreenY = 0;
-	float ScreenW = 300;
-	float ScreenH = 300;
+
+	ScreenW = 300;
+	ScreenH = 300;
 	UTexture * nTexture;
 	//UE_LOG(LogTemp, Warning, TEXT("Your message"));
 	
@@ -93,6 +101,16 @@ void AMyHUD::DrawHUD()
 				ScreenX = scene1->getXpos_atPaneNumber(i);
 				ScreenY = scene1->getYpos_atPaneNumber(i);
 				nTexture = scene1->getTexture_atPaneNumber(i);
+				if (i == 0)
+				{
+					auto temp1 = scene1->getBehavior_atPaneNumber(0);
+					int n1 = temp1();
+					scene1->setXpost_atPaneNumber(i, ScreenX);
+					scene1->setYpost_atPaneNumber(i, ScreenY);
+					//UE_LOG(YourLog, Warning, TEXT("My test n1 %d"), n1);
+					
+				}
+
 				drawTexture(nTexture, ScreenX, ScreenY, ScreenW, ScreenH);
 
 			}
@@ -152,4 +170,11 @@ void AMyHUD::Tick(float DeltaSeconds)
 		x_pos++;
 	if (y_pos > 0)
 		y_pos++;
+}
+
+int test1()
+{
+	ScreenX++;
+	ScreenY++;
+	return 10;
 }

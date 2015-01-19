@@ -87,3 +87,12 @@ void MyScene::setTexture_atPaneNumber(int panNumber, UTexture* nNew)
 	paneCollection.at(panNumber).setMyTexture(nNew);
 
 }
+void MyScene::setBehavior_atPaneNumber(int panNumber, int(*functocall)())
+{
+	paneCollection.at(panNumber).setMyFunction(functocall);
+}
+
+fptr MyScene::getBehavior_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getMyFunction();
+}
