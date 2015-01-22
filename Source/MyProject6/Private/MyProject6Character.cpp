@@ -142,7 +142,7 @@ void AMyProject6Character::MoveRight(float Value)
 }
 
 
-
+UFUNCTION(BlueprintCallable, Category = "Camera")
 void  AMyProject6Character::TriggerNewCameraOn()
 {
 	APlayerController* MyPC = Cast<APlayerController>(Controller);
