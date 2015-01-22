@@ -28,7 +28,8 @@ public:
 	//void drawText(float, float);
 
 	//Testing function, ignore it for now
-	void setIsTrigger(bool);
+	UFUNCTION(BlueprintCallable, Category = "Switch Functions")
+	void setIsTrigger(bool isTrig);
 	void setIsTriggerF(bool);
 
 	void Tick(float DeltaSeconds);
