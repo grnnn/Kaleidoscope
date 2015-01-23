@@ -32,6 +32,10 @@ public:
 	void setIsTrigger(bool isTrig);
 	void setIsTriggerF(bool);
 
+	UFUNCTION(BlueprintCallable, Category = "Switch Functions")
+	void setCamerNumberOn(bool isTrig, int32 cameNum);
+
+
 	void Tick(float DeltaSeconds);
 	
 

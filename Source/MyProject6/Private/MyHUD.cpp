@@ -52,7 +52,7 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	//for now, we define scene1 here for quick testing.
 	
 	scene1 = new MyScene("s1", 4);
-	scene1->setIsActive(false); 
+	scene1->setIsActive(true); 
 	scene1->setXpost_atPaneNumber(0, 0);
 	scene1->setYpost_atPaneNumber(0, 0);
 
@@ -60,22 +60,22 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	scene1->setYpost_atPaneNumber(1, 0);
 
 	scene1->setXpost_atPaneNumber(2, 0);
-	scene1->setYpost_atPaneNumber(2, 300);
+	scene1->setYpost_atPaneNumber(2, 400);
 
 	scene1->setXpost_atPaneNumber(3, 600);
-	scene1->setYpost_atPaneNumber(3, 300);
+	scene1->setYpost_atPaneNumber(3, 400);
 
-	scene1->setIsOn_atPaneNumber(0, true);
-	scene1->setIsOn_atPaneNumber(1, true);
-	scene1->setIsOn_atPaneNumber(2, true);
-	scene1->setIsOn_atPaneNumber(3, true);
+	scene1->setIsOn_atPaneNumber(0, false);
+	scene1->setIsOn_atPaneNumber(1, false);
+	scene1->setIsOn_atPaneNumber(2, false);
+	scene1->setIsOn_atPaneNumber(3, false);
 
 	scene1->setTexture_atPaneNumber(0, MiniTexture1);
 	scene1->setTexture_atPaneNumber(1, MiniTexture2);
 	scene1->setTexture_atPaneNumber(2, MiniTexture3);
 	scene1->setTexture_atPaneNumber(3, MiniTexture4);
 
-	scene1->setBehavior_atPaneNumber(0, test1);
+	//scene1->setBehavior_atPaneNumber(0, test1);
 	
 }
 
@@ -101,7 +101,7 @@ void AMyHUD::DrawHUD()
 				ScreenX = scene1->getXpos_atPaneNumber(i);
 				ScreenY = scene1->getYpos_atPaneNumber(i);
 				nTexture = scene1->getTexture_atPaneNumber(i);
-				if (i == 0)
+				/*if (i == 0)
 				{
 					auto temp1 = scene1->getBehavior_atPaneNumber(0);
 					int n1 = temp1();
@@ -109,7 +109,7 @@ void AMyHUD::DrawHUD()
 					scene1->setYpost_atPaneNumber(i, ScreenY);
 					//UE_LOG(YourLog, Warning, TEXT("My test n1 %d"), n1);
 					
-				}
+				}*/
 
 				drawTexture(nTexture, ScreenX, ScreenY, ScreenW, ScreenH);
 
@@ -153,6 +153,12 @@ void AMyHUD::drawTexture(UTexture* Texture, float ScreenX, float ScreenY, float 
 void AMyHUD::setIsTrigger(bool isTrig)
 {
 	scene1->setIsActive(isTrig);
+}
+
+void AMyHUD::setCamerNumberOn(bool isTrig, int32 cameNum)
+{
+	scene1->setIsOn_atPaneNumber((int)cameNum, isTrig);
+	//scene1->setIsActive(isTrig);
 }
 
 //testing function
