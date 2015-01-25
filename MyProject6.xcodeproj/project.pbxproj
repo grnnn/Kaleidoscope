@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D1CC7E2199A75E40BDE7696B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ECEEA9EC2004E8ED775D5ED /* UE4CmdLineRun.m */; };
+		A97C684D2E97456CFD1FCCE2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E7F796542CD23581EB9949 /* UE4CmdLineRun.m */; };
 		EB41FF261F9FC8B1D0C3E278 /* MyProject6.uproject in Sources */ = {isa = PBXBuildFile; fileRef = 15A34CDBDF6AF17442A5BC38 /* MyProject6.uproject */; };
 		0A3DDCAAADBB1E0F483C7C1C /* MyProject6.Target.cs in Sources */ = {isa = PBXBuildFile; fileRef = B64C3FA889BE2718F09D3BB4 /* MyProject6.Target.cs */; };
 		1603690C9E11E4DCF8C3AA03 /* MyProject6Editor.Target.cs in Sources */ = {isa = PBXBuildFile; fileRef = E87B71283A2450FDB3AFA02A /* MyProject6Editor.Target.cs */; };
@@ -41,17 +41,21 @@
 		6029578830DA638243DE8E0B /* MyProject6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85596FB6CE91F8C3DCE657E0 /* MyProject6.cpp */; };
 		B9DA2287E06D554F82C141CF /* MyProject6Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A3B692D8EC585BB3FD0F8FD /* MyProject6Character.cpp */; };
 		29A0CBF10248C211A6964760 /* MyProject6GameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6028181650C886C91A9FBED0 /* MyProject6GameMode.cpp */; };
-		6857F8EAE30E1EA7348C407F /* MyHUD.h in Sources */ = {isa = PBXBuildFile; fileRef = 0C2D366B707949B120CA6EBD /* MyHUD.h */; };
-		5C2DC354EDE9DF816C3EB183 /* MyProject6.h in Sources */ = {isa = PBXBuildFile; fileRef = 3B94DB3A25CD17AF074EA793 /* MyProject6.h */; };
-		6C5905C5B1D5F1E6EBB9395F /* MyProject6Character.h in Sources */ = {isa = PBXBuildFile; fileRef = D38ACCF96672675D26E8C3DD /* MyProject6Character.h */; };
-		0CEFAB5A1899CC75420A1B8D /* MyProject6GameMode.h in Sources */ = {isa = PBXBuildFile; fileRef = 1654B573D83F1CDE6DF27747 /* MyProject6GameMode.h */; };
-		C12804AC350EC6F717FBAA24 /* MyProject6.rc in Sources */ = {isa = PBXBuildFile; fileRef = BE9C3077E1F943F41CD9821F /* MyProject6.rc */; };
+		6857F8EAE30E1EA7348C407F /* MyScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0C2D366B707949B120CA6EBD /* MyScene.cpp */; };
+		5C2DC354EDE9DF816C3EB183 /* Pane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B94DB3A25CD17AF074EA793 /* Pane.cpp */; };
+		6C5905C5B1D5F1E6EBB9395F /* MyHUD.h in Sources */ = {isa = PBXBuildFile; fileRef = D38ACCF96672675D26E8C3DD /* MyHUD.h */; };
+		0CEFAB5A1899CC75420A1B8D /* MyProject6.h in Sources */ = {isa = PBXBuildFile; fileRef = 1654B573D83F1CDE6DF27747 /* MyProject6.h */; };
+		C12804AC350EC6F717FBAA24 /* MyProject6Character.h in Sources */ = {isa = PBXBuildFile; fileRef = BE9C3077E1F943F41CD9821F /* MyProject6Character.h */; };
+		B03F597AB2B51615D8B0AFF4 /* MyProject6GameMode.h in Sources */ = {isa = PBXBuildFile; fileRef = DA2F44CA29214A2137DCF1B8 /* MyProject6GameMode.h */; };
+		8EDC84F240C130AC4F53FC41 /* MyScene.h in Sources */ = {isa = PBXBuildFile; fileRef = 3397B24CD189DA9D64548528 /* MyScene.h */; };
+		6B676F2A98C0EE04EF057E70 /* Pane.h in Sources */ = {isa = PBXBuildFile; fileRef = 827F628BDE26193DCAF04501 /* Pane.h */; };
+		B6E3B10D4331CA89EC7F74CF /* MyProject6.rc in Sources */ = {isa = PBXBuildFile; fileRef = 3FB149C375D527F5CCC206D0 /* MyProject6.rc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		49E3819C9451B63FB240A287 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		8ECEEA9EC2004E8ED775D5ED /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		43FF059A291EA3F7D26D7626 /* libUE4XcodeHelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUE4XcodeHelper.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B931A0EF40C998D15607A772 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		29E7F796542CD23581EB9949 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		83E49F832E856FD17DB68599 /* libUE4XcodeHelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUE4XcodeHelper.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		15A34CDBDF6AF17442A5BC38 /* MyProject6.uproject */ = {isa = PBXFileReference; lastKnownFileType = file.text; name = "MyProject6.uproject"; path = "MyProject6.uproject"; sourceTree = SOURCE_ROOT; };
 		B64C3FA889BE2718F09D3BB4 /* MyProject6.Target.cs */ = {isa = PBXFileReference; lastKnownFileType = file.text; name = "MyProject6.Target.cs"; path = "Source/MyProject6.Target.cs"; sourceTree = SOURCE_ROOT; };
 		E87B71283A2450FDB3AFA02A /* MyProject6Editor.Target.cs */ = {isa = PBXFileReference; lastKnownFileType = file.text; name = "MyProject6Editor.Target.cs"; path = "Source/MyProject6Editor.Target.cs"; sourceTree = SOURCE_ROOT; };
@@ -85,69 +89,73 @@
 		85596FB6CE91F8C3DCE657E0 /* MyProject6.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "MyProject6.cpp"; path = "Source/MyProject6/Private/MyProject6.cpp"; sourceTree = SOURCE_ROOT; };
 		7A3B692D8EC585BB3FD0F8FD /* MyProject6Character.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "MyProject6Character.cpp"; path = "Source/MyProject6/Private/MyProject6Character.cpp"; sourceTree = SOURCE_ROOT; };
 		6028181650C886C91A9FBED0 /* MyProject6GameMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "MyProject6GameMode.cpp"; path = "Source/MyProject6/Private/MyProject6GameMode.cpp"; sourceTree = SOURCE_ROOT; };
-		0C2D366B707949B120CA6EBD /* MyHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MyHUD.h"; path = "Source/MyProject6/Public/MyHUD.h"; sourceTree = SOURCE_ROOT; };
-		3B94DB3A25CD17AF074EA793 /* MyProject6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MyProject6.h"; path = "Source/MyProject6/Public/MyProject6.h"; sourceTree = SOURCE_ROOT; };
-		D38ACCF96672675D26E8C3DD /* MyProject6Character.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MyProject6Character.h"; path = "Source/MyProject6/Public/MyProject6Character.h"; sourceTree = SOURCE_ROOT; };
-		1654B573D83F1CDE6DF27747 /* MyProject6GameMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MyProject6GameMode.h"; path = "Source/MyProject6/Public/MyProject6GameMode.h"; sourceTree = SOURCE_ROOT; };
-		BE9C3077E1F943F41CD9821F /* MyProject6.rc */ = {isa = PBXFileReference; lastKnownFileType = file.text; name = "MyProject6.rc"; path = "Source/MyProject6/Resources/Windows/MyProject6.rc"; sourceTree = SOURCE_ROOT; };
-		C6B2FF7FBB0C6ED89AB58424 /* UE4CmdLineRun.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Engine/Binaries/IOS/Payload/UE4CmdLineRun.xctest; sourceTree = "<group>"; };
-		3F7CD6CC49BA280E621CC9F1 /* MyProject6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyProject6/Binaries/IOS/Payload/MyProject6.app; sourceTree = "<group>"; };
-		505847E2316D4B8ADC78E4C5 /* MyProject6-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MyProject6-Info.plist"; path = MyProject6/Build/IOS/MyProject6-Info.plist; sourceTree = "<group>"; };
+		0C2D366B707949B120CA6EBD /* MyScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "MyScene.cpp"; path = "Source/MyProject6/Private/MyScene.cpp"; sourceTree = SOURCE_ROOT; };
+		3B94DB3A25CD17AF074EA793 /* Pane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "Pane.cpp"; path = "Source/MyProject6/Private/Pane.cpp"; sourceTree = SOURCE_ROOT; };
+		D38ACCF96672675D26E8C3DD /* MyHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MyHUD.h"; path = "Source/MyProject6/Public/MyHUD.h"; sourceTree = SOURCE_ROOT; };
+		1654B573D83F1CDE6DF27747 /* MyProject6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MyProject6.h"; path = "Source/MyProject6/Public/MyProject6.h"; sourceTree = SOURCE_ROOT; };
+		BE9C3077E1F943F41CD9821F /* MyProject6Character.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MyProject6Character.h"; path = "Source/MyProject6/Public/MyProject6Character.h"; sourceTree = SOURCE_ROOT; };
+		DA2F44CA29214A2137DCF1B8 /* MyProject6GameMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MyProject6GameMode.h"; path = "Source/MyProject6/Public/MyProject6GameMode.h"; sourceTree = SOURCE_ROOT; };
+		3397B24CD189DA9D64548528 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MyScene.h"; path = "Source/MyProject6/Public/MyScene.h"; sourceTree = SOURCE_ROOT; };
+		827F628BDE26193DCAF04501 /* Pane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Pane.h"; path = "Source/MyProject6/Public/Pane.h"; sourceTree = SOURCE_ROOT; };
+		3FB149C375D527F5CCC206D0 /* MyProject6.rc */ = {isa = PBXFileReference; lastKnownFileType = file.text; name = "MyProject6.rc"; path = "Source/MyProject6/Resources/Windows/MyProject6.rc"; sourceTree = SOURCE_ROOT; };
+		C39DBEF837505267F32005E7 /* UE4CmdLineRun.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Engine/Binaries/IOS/Payload/UE4CmdLineRun.xctest; sourceTree = "<group>"; };
+		42C091BCCD9B3D4604F4B6F4 /* MyProject6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyProject6/Binaries/IOS/Payload/MyProject6.app; sourceTree = "<group>"; };
+		E4DF8556CF34FBBAABC90F77 /* MyProject6-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MyProject6-Info.plist"; path = MyProject6/Build/IOS/MyProject6-Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXContainerItemProxy section */
-		A4D32B104BE749A39DA457B5 /* PBXContainerItemProxy */ = {
+		3F7CD6CC49BA280E621CC9F1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B03F597AB2B51615D8B0AFF4 /* Project object */;
+			containerPortal = D3F7EB5710545DE17AF0B5C9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C39DBEF837505267F32005E7;
+			remoteGlobalIDString = E2DB2220F04DCA7BF3222605;
 			remoteInfo = "MyProject6 - Mac";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXTargetDependency section */
-		171293B424B44A22B5F14177 /* PBXTargetDependency */ = {
+		72FBD525AC2139B37DEB4390 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C39DBEF837505267F32005E7 /* MyProject6 - Mac */;
-			targetProxy = A4D32B104BE749A39DA457B5 /* PBXContainerItemProxy */;
+			target = E2DB2220F04DCA7BF3222605 /* MyProject6 - Mac */;
+			targetProxy = 3F7CD6CC49BA280E621CC9F1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXGroup section */
-		A7B3BB11DA5AE002F9F5B98F = {
+		69A824385F771821966F0169 = {
 			isa = PBXGroup;
 			children = (
-				9E9CDC9D8655CAD28E229460 /* Source */,
-				62D7E298C570D96C98D8B07E /* Plugins */,
-				5B7302EAECCFC7F5765BE4EC /* Products */,
-				762F92ABF8D74048BD13BC36 /* Frameworks */,
+				50167989F6123F5B5FE47DC7 /* Source */,
+				E0791388261DE24DBCD33220 /* Plugins */,
+				CD0CCEFEF2515DF4E171EFA6 /* Products */,
+				4F4776E4A6E2C8755F2D1C33 /* Frameworks */,
 				15A34CDBDF6AF17442A5BC38 /* MyProject6.uproject */,
 			);
 			sourceTree = "<group>";
 		};
-		5B7302EAECCFC7F5765BE4EC = {
+		CD0CCEFEF2515DF4E171EFA6 = {
 			isa = PBXGroup;
 			children = (
-				43FF059A291EA3F7D26D7626 /* libUE4XcodeHelper.a */,
-				C6B2FF7FBB0C6ED89AB58424 /* UE4CmdLineRun.xctest */,
-				3F7CD6CC49BA280E621CC9F1 /* MyProject6.app */,
+				83E49F832E856FD17DB68599 /* libUE4XcodeHelper.a */,
+				C39DBEF837505267F32005E7 /* UE4CmdLineRun.xctest */,
+				42C091BCCD9B3D4604F4B6F4 /* MyProject6.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		762F92ABF8D74048BD13BC36 = {
+		4F4776E4A6E2C8755F2D1C33 = {
 			isa = PBXGroup;
 			children = (
-				49E3819C9451B63FB240A287 /* OpenGLES.framework */,
-				8ECEEA9EC2004E8ED775D5ED /* XCTest.framework */,
+				B931A0EF40C998D15607A772 /* OpenGLES.framework */,
+				29E7F796542CD23581EB9949 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9E9CDC9D8655CAD28E229460 = {
+		50167989F6123F5B5FE47DC7 = {
 			isa = PBXGroup;
 			children = (
-				38BF8BD55AF26BC387A036E1 /* MyProject6 */,
+				808D4B3297009FC056FC900B /* MyProject6 */,
 				B64C3FA889BE2718F09D3BB4 /* MyProject6.Target.cs */,
 				E87B71283A2450FDB3AFA02A /* MyProject6Editor.Target.cs */,
 			);
@@ -155,100 +163,104 @@
 			path = "Source";
 			sourceTree = "<group>";
 		};
-		38BF8BD55AF26BC387A036E1 = {
+		808D4B3297009FC056FC900B = {
 			isa = PBXGroup;
 			children = (
-				50167989F6123F5B5FE47DC7 /* Private */,
-				E0791388261DE24DBCD33220 /* Public */,
-				4AB70876C6DC004E1C83CF66 /* Resources */,
+				38D05857BFCBF95FF5A854A3 /* Private */,
+				D952B7C75DB9F09B1C0659E0 /* Public */,
+				96F69C1E9C19F31639E95655 /* Resources */,
 				B055C80CF81A0379101047B9 /* MyProject6.Build.cs */,
 			);
 			name = "MyProject6";
 			path = "Source/MyProject6";
 			sourceTree = "<group>";
 		};
-		50167989F6123F5B5FE47DC7 = {
+		38D05857BFCBF95FF5A854A3 = {
 			isa = PBXGroup;
 			children = (
 				7F1BB64FDEE27BED79E2B518 /* MyHUD.cpp */,
 				85596FB6CE91F8C3DCE657E0 /* MyProject6.cpp */,
 				7A3B692D8EC585BB3FD0F8FD /* MyProject6Character.cpp */,
 				6028181650C886C91A9FBED0 /* MyProject6GameMode.cpp */,
+				0C2D366B707949B120CA6EBD /* MyScene.cpp */,
+				3B94DB3A25CD17AF074EA793 /* Pane.cpp */,
 			);
 			name = "Private";
 			path = "Source/MyProject6/Private";
 			sourceTree = "<group>";
 		};
-		E0791388261DE24DBCD33220 = {
+		D952B7C75DB9F09B1C0659E0 = {
 			isa = PBXGroup;
 			children = (
-				0C2D366B707949B120CA6EBD /* MyHUD.h */,
-				3B94DB3A25CD17AF074EA793 /* MyProject6.h */,
-				D38ACCF96672675D26E8C3DD /* MyProject6Character.h */,
-				1654B573D83F1CDE6DF27747 /* MyProject6GameMode.h */,
+				D38ACCF96672675D26E8C3DD /* MyHUD.h */,
+				1654B573D83F1CDE6DF27747 /* MyProject6.h */,
+				BE9C3077E1F943F41CD9821F /* MyProject6Character.h */,
+				DA2F44CA29214A2137DCF1B8 /* MyProject6GameMode.h */,
+				3397B24CD189DA9D64548528 /* MyScene.h */,
+				827F628BDE26193DCAF04501 /* Pane.h */,
 			);
 			name = "Public";
 			path = "Source/MyProject6/Public";
 			sourceTree = "<group>";
 		};
-		4AB70876C6DC004E1C83CF66 = {
+		96F69C1E9C19F31639E95655 = {
 			isa = PBXGroup;
 			children = (
-				B6CC5875F8AEFFEB03B8A339 /* Windows */,
+				FEED91F6B50346E57145D8B7 /* Windows */,
 			);
 			name = "Resources";
 			path = "Source/MyProject6/Resources";
 			sourceTree = "<group>";
 		};
-		B6CC5875F8AEFFEB03B8A339 = {
+		FEED91F6B50346E57145D8B7 = {
 			isa = PBXGroup;
 			children = (
-				BE9C3077E1F943F41CD9821F /* MyProject6.rc */,
+				3FB149C375D527F5CCC206D0 /* MyProject6.rc */,
 			);
 			name = "Windows";
 			path = "Source/MyProject6/Resources/Windows";
 			sourceTree = "<group>";
 		};
-		62D7E298C570D96C98D8B07E = {
+		E0791388261DE24DBCD33220 = {
 			isa = PBXGroup;
 			children = (
-				0B5BA0DC2F4903FF3E5B8D39 /* GitSourceControl */,
+				4AB70876C6DC004E1C83CF66 /* GitSourceControl */,
 			);
 			name = "Plugins";
 			path = "Plugins";
 			sourceTree = "<group>";
 		};
-		0B5BA0DC2F4903FF3E5B8D39 = {
+		4AB70876C6DC004E1C83CF66 = {
 			isa = PBXGroup;
 			children = (
-				44875E2521F992E1D725A985 /* Source */,
-				A97C684D2E97456CFD1FCCE2 /* Resources */,
+				B6CC5875F8AEFFEB03B8A339 /* Source */,
+				762F92ABF8D74048BD13BC36 /* Resources */,
 				71691D23B02BEEDBB5650509 /* GitSourceControl.uplugin */,
 			);
 			name = "GitSourceControl";
 			path = "Plugins/GitSourceControl";
 			sourceTree = "<group>";
 		};
-		44875E2521F992E1D725A985 = {
+		B6CC5875F8AEFFEB03B8A339 = {
 			isa = PBXGroup;
 			children = (
-				C75D034AA919389F5D81104D /* GitSourceControl */,
+				A7B3BB11DA5AE002F9F5B98F /* GitSourceControl */,
 			);
 			name = "Source";
 			path = "Plugins/GitSourceControl/Source";
 			sourceTree = "<group>";
 		};
-		C75D034AA919389F5D81104D = {
+		A7B3BB11DA5AE002F9F5B98F = {
 			isa = PBXGroup;
 			children = (
-				11437468019BCE81FFBDEE40 /* Private */,
+				5B7302EAECCFC7F5765BE4EC /* Private */,
 				D2A29D200257CBB89990085E /* GitSourceControl.Build.cs */,
 			);
 			name = "GitSourceControl";
 			path = "Plugins/GitSourceControl/Source/GitSourceControl";
 			sourceTree = "<group>";
 		};
-		11437468019BCE81FFBDEE40 = {
+		5B7302EAECCFC7F5765BE4EC = {
 			isa = PBXGroup;
 			children = (
 				3F423ED8C0523730E2E120DB /* GitSourceControlCommand.cpp */,
@@ -278,7 +290,7 @@
 			path = "Plugins/GitSourceControl/Source/GitSourceControl/Private";
 			sourceTree = "<group>";
 		};
-		A97C684D2E97456CFD1FCCE2 = {
+		762F92ABF8D74048BD13BC36 = {
 			isa = PBXGroup;
 			children = (
 				6689F3FDD131EFF7580CDBF7 /* Icon128.png */,
@@ -290,7 +302,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C9593CE068915DC38157E739 /* ShellScript */ = {
+		C07DCF5AAAB848C47CD221DD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -299,7 +311,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ $DEPLOYMENT_LOCATION = \"YES\" ]\nthen\ncp -R Engine/Binaries/IOS/Payload/libUE4XcodeHelper.a/ $DSTROOT/$LOCAL_APPS_DIR/libUE4XcodeHelper.a\nfi";
 		};
-		21D9D0723294109053C165D6 /* ShellScript */ = {
+		8ECEEA9EC2004E8ED775D5ED /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -308,7 +320,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ $DEPLOYMENT_LOCATION = \"YES\" ]\nthen\ncp -R Engine/Binaries/IOS/Payload/UE4CmdLineRun.xctest/ $DSTROOT/$LOCAL_APPS_DIR/UE4CmdLineRun.xctest\nfi";
 		};
-		8C1DEA4C19D52798DE0DD1BA /* ShellScript */ = {
+		11B1B3FC1F37E336072531F6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -320,29 +332,29 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2543E95ABE6FE1549428744A /* Sources */ = {
+		6625E8CDC53215948FA96C65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83E49F832E856FD17DB68599 /* Sources */ = {
+		A7A660A86F7E71ADB7EF07CA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				134B0AFECCB047DFF2C94291 /* UE4CmdLineRun.m in Sources */,
+				C75D034AA919389F5D81104D /* UE4CmdLineRun.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E0D5E37E44FE18C071C6F760 /* Sources */ = {
+		D1E06C9BBAD545796AB45E8E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2543E95ABE6FE1549428744A /* Sources */ = {
+		6625E8CDC53215948FA96C65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -360,28 +372,30 @@
 				6029578830DA638243DE8E0B /* MyProject6.cpp in Sources */,
 				B9DA2287E06D554F82C141CF /* MyProject6Character.cpp in Sources */,
 				29A0CBF10248C211A6964760 /* MyProject6GameMode.cpp in Sources */,
+				6857F8EAE30E1EA7348C407F /* MyScene.cpp in Sources */,
+				5C2DC354EDE9DF816C3EB183 /* Pane.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A642C9A4EACF852E707BE498 /* Frameworks */ = {
+		7CC7A084A4947195A832482C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F196C5FC16156EAB49EAFE0A /* Frameworks */ = {
+		49E3819C9451B63FB240A287 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1CC7E2199A75E40BDE7696B /* XCTest.framework in Frameworks */,
+				A97C684D2E97456CFD1FCCE2 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4743E36AC425ED173C6B453 /* Frameworks */ = {
+		505847E2316D4B8ADC78E4C5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -391,10 +405,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXLegacyTarget section */
-		C39DBEF837505267F32005E7 /* MyProject6 - Mac */ = {
+		E2DB2220F04DCA7BF3222605 /* MyProject6 - Mac */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "$(ACTION) MyProject6 $(PLATFORM_NAME) $(CONFIGURATION) \"$(PROJECT_DIR)/MyProject6.uproject\"";
-			buildConfigurationList = EFA2C2182C067BCABEB8875F /* Build configuration list for PBXLegacyTarget "MyProject6 - Mac" */;
+			buildConfigurationList = 93DFE9180935B8B8BCFFBFC2 /* Build configuration list for PBXLegacyTarget "MyProject6 - Mac" */;
 			buildPhases = (
 			);
 			buildToolPath = "/Users/Shared/UnrealEngine/4.6/Engine/Build/BatchFiles/Mac/RocketBuild.sh";
@@ -405,10 +419,10 @@
 			passBuildSettingsInEnvironment = 0;
 			productName = "MyProject6 - Mac";
 		};
-		11B1B3FC1F37E336072531F6 /* MyProject6Editor - Mac */ = {
+		8F6087BF4131614217C31961 /* MyProject6Editor - Mac */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "$(ACTION) MyProject6Editor $(PLATFORM_NAME) $(CONFIGURATION) \"$(PROJECT_DIR)/MyProject6.uproject\"";
-			buildConfigurationList = 42C091BCCD9B3D4604F4B6F4 /* Build configuration list for PBXLegacyTarget "MyProject6Editor - Mac" */;
+			buildConfigurationList = D839D69DF6E41888206558A6 /* Build configuration list for PBXLegacyTarget "MyProject6Editor - Mac" */;
 			buildPhases = (
 			);
 			buildToolPath = "/Users/Shared/UnrealEngine/4.6/Engine/Build/BatchFiles/Mac/RocketBuild.sh";
@@ -422,84 +436,84 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		8205A358E2152CFE8E29FF95 /* UE4XcodeHelper */ = {
+		2A38DBB491B423AF6F5B2EC3 /* UE4XcodeHelper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A4D012BA00E942CE3E13ED28 /* Build configuration list for PBXNativeTarget "UE4XcodeHelper" */;
+			buildConfigurationList = 29FC17BCBC00AB4007D219E1 /* Build configuration list for PBXNativeTarget "UE4XcodeHelper" */;
 			buildPhases = (
-				2543E95ABE6FE1549428744A /* Sources */,
-				A642C9A4EACF852E707BE498 /* Frameworks */,
-				C9593CE068915DC38157E739 /* ShellScript */,
+				6625E8CDC53215948FA96C65 /* Sources */,
+				7CC7A084A4947195A832482C /* Frameworks */,
+				C07DCF5AAAB848C47CD221DD /* ShellScript */,
 			);
 			dependencies = (
 			);
 			name = "UE4XcodeHelper";
 			productName = "UE4XcodeHelper";
-			productReference = 43FF059A291EA3F7D26D7626 /* libUE4XcodeHelper.a */;
+			productReference = 83E49F832E856FD17DB68599 /* libUE4XcodeHelper.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		7CC7A084A4947195A832482C /* UE4CmdLineRun */ = {
+		ED6930AA51E76419FB1077F1 /* UE4CmdLineRun */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C07DCF5AAAB848C47CD221DD /* Build configuration list for PBXNativeTarget "UE4CmdLineRun" */;
+			buildConfigurationList = B2D9AA3E670D813F94CCA209 /* Build configuration list for PBXNativeTarget "UE4CmdLineRun" */;
 			buildPhases = (
-				83E49F832E856FD17DB68599 /* Sources */,
-				F196C5FC16156EAB49EAFE0A /* Frameworks */,
-				21D9D0723294109053C165D6 /* ShellScript */,
+				A7A660A86F7E71ADB7EF07CA /* Sources */,
+				49E3819C9451B63FB240A287 /* Frameworks */,
+				8ECEEA9EC2004E8ED775D5ED /* ShellScript */,
 			);
 			dependencies = (
 			);
 			name = "UE4CmdLineRun";
 			productName = "UE4CmdLineRun";
-			productReference = C6B2FF7FBB0C6ED89AB58424 /* UE4CmdLineRun.xctest */;
+			productReference = C39DBEF837505267F32005E7 /* UE4CmdLineRun.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		91E58DACB3D879E4616519EA /* MyProject6 - iOS */ = {
+		04462C4353FC75C512216DBB /* MyProject6 - iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9BEDAA895814F11402F6FD86 /* Build configuration list for PBXNativeTarget "MyProject6 - iOS" */;
+			buildConfigurationList = CF63FC4D1A9319D89FFF0988 /* Build configuration list for PBXNativeTarget "MyProject6 - iOS" */;
 			buildPhases = (
-				E0D5E37E44FE18C071C6F760 /* Sources */,
-				D4743E36AC425ED173C6B453 /* Frameworks */,
-				8C1DEA4C19D52798DE0DD1BA /* ShellScript */,
+				D1E06C9BBAD545796AB45E8E /* Sources */,
+				505847E2316D4B8ADC78E4C5 /* Frameworks */,
+				11B1B3FC1F37E336072531F6 /* ShellScript */,
 			);
 			dependencies = (
-				171293B424B44A22B5F14177 /* PBXTargetDependency */
+				72FBD525AC2139B37DEB4390 /* PBXTargetDependency */
 			);
 			name = "MyProject6 - iOS";
 			productName = "MyProject6 - iOS";
-			productReference = 3F7CD6CC49BA280E621CC9F1 /* MyProject6.app */;
+			productReference = 42C091BCCD9B3D4604F4B6F4 /* MyProject6.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B03F597AB2B51615D8B0AFF4 /* Project object */ = {
+		D3F7EB5710545DE17AF0B5C9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = EpicGames;
 			};
-			buildConfigurationList = DA2F44CA29214A2137DCF1B8 /* Build configuration list for PBXProject "UE4" */;
+			buildConfigurationList = 813DBB2C8FA8488CB2A0850E /* Build configuration list for PBXProject "UE4" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = A7B3BB11DA5AE002F9F5B98F;
-			productRefGroup = 5B7302EAECCFC7F5765BE4EC /* Products */;
+			mainGroup = 69A824385F771821966F0169;
+			productRefGroup = CD0CCEFEF2515DF4E171EFA6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8205A358E2152CFE8E29FF95 /* UE4XcodeHelper */,
-				7CC7A084A4947195A832482C /* UE4CmdLineRun */,
-				C39DBEF837505267F32005E7 /* MyProject6 - Mac */,
-				91E58DACB3D879E4616519EA /* MyProject6 - iOS */,
-				11B1B3FC1F37E336072531F6 /* MyProject6Editor - Mac */,
+				2A38DBB491B423AF6F5B2EC3 /* UE4XcodeHelper */,
+				ED6930AA51E76419FB1077F1 /* UE4CmdLineRun */,
+				E2DB2220F04DCA7BF3222605 /* MyProject6 - Mac */,
+				04462C4353FC75C512216DBB /* MyProject6 - iOS */,
+				8F6087BF4131614217C31961 /* MyProject6Editor - Mac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin XCBuildConfiguration section */
-		AF8DCEC0EFCB86B2FEA83E67 /* DebugGame */ = {
+		A58817B4BFE3EC885169C687 /* DebugGame */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -809,7 +823,7 @@
 			};
 			name = DebugGame;
 		};
-		D3F7EB5710545DE17AF0B5C9 /* Development */ = {
+		A642C9A4EACF852E707BE498 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1119,7 +1133,7 @@
 			};
 			name = Development;
 		};
-		813DBB2C8FA8488CB2A0850E /* Shipping */ = {
+		C9593CE068915DC38157E739 /* Shipping */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1429,7 +1443,7 @@
 			};
 			name = Shipping;
 		};
-		59952E5C4D77A32301346879 /* DebugGame */ = {
+		EE3EEA590C6ADA2C929100CA /* DebugGame */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1475,7 +1489,7 @@
 			};
 			name = DebugGame;
 		};
-		ED6930AA51E76419FB1077F1 /* Development */ = {
+		B3056409FD1826E2EF6196AD /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1521,7 +1535,7 @@
 			};
 			name = Development;
 		};
-		B2D9AA3E670D813F94CCA209 /* Shipping */ = {
+		62147C9A139B0CC310311762 /* Shipping */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1567,7 +1581,7 @@
 			};
 			name = Shipping;
 		};
-		36B8E73EFE71BA712AF8D691 /* DebugGame */ = {
+		8C1DEA4C19D52798DE0DD1BA /* DebugGame */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1588,7 +1602,7 @@
 			};
 			name = DebugGame;
 		};
-		E2DB2220F04DCA7BF3222605 /* Development */ = {
+		E0D5E37E44FE18C071C6F760 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1609,7 +1623,7 @@
 			};
 			name = Development;
 		};
-		93DFE9180935B8B8BCFFBFC2 /* Shipping */ = {
+		4B5CF9144B43C3020F9DB79E /* Shipping */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1630,7 +1644,7 @@
 			};
 			name = Shipping;
 		};
-		EBC412150236D8995CD61C23 /* DebugGame */ = {
+		F185829511FADB67A0005481 /* DebugGame */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"PRODUCT_NAME[sdk=iphoneos*]" = "MyProject6";
@@ -1657,7 +1671,7 @@
 			};
 			name = DebugGame;
 		};
-		04462C4353FC75C512216DBB /* Development */ = {
+		F317079F0880E60A54532C3C /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"PRODUCT_NAME[sdk=iphoneos*]" = "MyProject6";
@@ -1684,7 +1698,7 @@
 			};
 			name = Development;
 		};
-		CF63FC4D1A9319D89FFF0988 /* Shipping */ = {
+		A9B7C46EE2BC195CF3C61813 /* Shipping */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"PRODUCT_NAME[sdk=iphoneos*]" = "MyProject6";
@@ -1711,7 +1725,7 @@
 			};
 			name = Shipping;
 		};
-		21A19003096F695BBF20FD29 /* DebugGame */ = {
+		44875E2521F992E1D725A985 /* DebugGame */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1724,7 +1738,7 @@
 			};
 			name = DebugGame;
 		};
-		8F6087BF4131614217C31961 /* Development */ = {
+		9E9CDC9D8655CAD28E229460 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1737,7 +1751,7 @@
 			};
 			name = Development;
 		};
-		D839D69DF6E41888206558A6 /* Shipping */ = {
+		62D7E298C570D96C98D8B07E /* Shipping */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1750,7 +1764,7 @@
 			};
 			name = Shipping;
 		};
-		F4A6E015B1757A6580449ADE /* DebugGame */ = {
+		6395010B83F189E14504CF28 /* DebugGame */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1771,7 +1785,7 @@
 			};
 			name = DebugGame;
 		};
-		2A38DBB491B423AF6F5B2EC3 /* Development */ = {
+		F196C5FC16156EAB49EAFE0A /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1792,7 +1806,7 @@
 			};
 			name = Development;
 		};
-		29FC17BCBC00AB4007D219E1 /* Shipping */ = {
+		21D9D0723294109053C165D6 /* Shipping */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1816,62 +1830,62 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DA2F44CA29214A2137DCF1B8 /* Build configuration list for PBXProject "UE4" */ = {
+		813DBB2C8FA8488CB2A0850E /* Build configuration list for PBXProject "UE4" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AF8DCEC0EFCB86B2FEA83E67 /* DebugGame */,
-				D3F7EB5710545DE17AF0B5C9 /* Development */,
-				813DBB2C8FA8488CB2A0850E /* Shipping */,
+				A58817B4BFE3EC885169C687 /* DebugGame */,
+				A642C9A4EACF852E707BE498 /* Development */,
+				C9593CE068915DC38157E739 /* Shipping */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
 		};
-		C07DCF5AAAB848C47CD221DD /* Build configuration list for PBXNativeTarget "UE4CmdLineRun" */ = {
+		B2D9AA3E670D813F94CCA209 /* Build configuration list for PBXNativeTarget "UE4CmdLineRun" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				59952E5C4D77A32301346879 /* DebugGame */,
-				ED6930AA51E76419FB1077F1 /* Development */,
-				B2D9AA3E670D813F94CCA209 /* Shipping */,
+				EE3EEA590C6ADA2C929100CA /* DebugGame */,
+				B3056409FD1826E2EF6196AD /* Development */,
+				62147C9A139B0CC310311762 /* Shipping */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
 		};
-		EFA2C2182C067BCABEB8875F /* Build configuration list for PBXLegacyTarget "MyProject6 - Mac" */ = {
+		93DFE9180935B8B8BCFFBFC2 /* Build configuration list for PBXLegacyTarget "MyProject6 - Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				36B8E73EFE71BA712AF8D691 /* DebugGame */,
-				E2DB2220F04DCA7BF3222605 /* Development */,
-				93DFE9180935B8B8BCFFBFC2 /* Shipping */,
+				8C1DEA4C19D52798DE0DD1BA /* DebugGame */,
+				E0D5E37E44FE18C071C6F760 /* Development */,
+				4B5CF9144B43C3020F9DB79E /* Shipping */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
 		};
-		9BEDAA895814F11402F6FD86 /* Build configuration list for PBXNativeTarget "MyProject6 - iOS" */ = {
+		CF63FC4D1A9319D89FFF0988 /* Build configuration list for PBXNativeTarget "MyProject6 - iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EBC412150236D8995CD61C23 /* DebugGame */,
-				04462C4353FC75C512216DBB /* Development */,
-				CF63FC4D1A9319D89FFF0988 /* Shipping */,
+				F185829511FADB67A0005481 /* DebugGame */,
+				F317079F0880E60A54532C3C /* Development */,
+				A9B7C46EE2BC195CF3C61813 /* Shipping */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
 		};
-		42C091BCCD9B3D4604F4B6F4 /* Build configuration list for PBXLegacyTarget "MyProject6Editor - Mac" */ = {
+		D839D69DF6E41888206558A6 /* Build configuration list for PBXLegacyTarget "MyProject6Editor - Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21A19003096F695BBF20FD29 /* DebugGame */,
-				8F6087BF4131614217C31961 /* Development */,
-				D839D69DF6E41888206558A6 /* Shipping */,
+				44875E2521F992E1D725A985 /* DebugGame */,
+				9E9CDC9D8655CAD28E229460 /* Development */,
+				62D7E298C570D96C98D8B07E /* Shipping */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
 		};
-		A4D012BA00E942CE3E13ED28 /* Build configuration list for PBXNativeTarget "UE4XcodeHelper" */ = {
+		29FC17BCBC00AB4007D219E1 /* Build configuration list for PBXNativeTarget "UE4XcodeHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F4A6E015B1757A6580449ADE /* DebugGame */,
-				2A38DBB491B423AF6F5B2EC3 /* Development */,
-				29FC17BCBC00AB4007D219E1 /* Shipping */,
+				6395010B83F189E14504CF28 /* DebugGame */,
+				F196C5FC16156EAB49EAFE0A /* Development */,
+				21D9D0723294109053C165D6 /* Shipping */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
@@ -1879,5 +1893,5 @@
 /* End XCConfigurationList section */
 
 	};
-	rootObject = B03F597AB2B51615D8B0AFF4 /* Project object */;
+	rootObject = D3F7EB5710545DE17AF0B5C9 /* Project object */;
 }
