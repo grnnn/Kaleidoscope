@@ -2,7 +2,7 @@
 /DerivedDataCache
 /Intermediate
 /Saved
-MyProject6.opensdf
-MyProject6.sdf
-MyProject6.sln
-MyProject6.v12.suo
+*.opensdf
+*.sdf
+*.sln
+*.v12.suo
