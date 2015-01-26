@@ -2,7 +2,6 @@
 
 #include "MyProject6.h"
 #include "MyProject6Character.h"
-#include "UMG.h"
 #include "MyHUD.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -188,25 +187,3 @@ void  AMyProject6Character::TriggerNewCameraOffF()
 	}
 }
 
-/*
-void AMyProject6Character::TriggerPauseMenu()
-{
-
-	if (!widgetInstance->GetIsVisible()){
-		widgetInstance->AddToViewport();
-		FInputModeUIOnly Mode;
-		Mode.SetWidgetToFocus(widgetInstance->GetCachedWidget());
-		InputMode
-		bShowMouseCursor = true
-
-
-
-	} 
-	else {
-		widgetInstance->RemoveFromViewport();
-
-
-
-	}
-}
-*/

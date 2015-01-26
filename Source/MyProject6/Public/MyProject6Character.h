@@ -18,13 +18,6 @@ class AMyProject6Character : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
 
-	/** widget menu*/
-	//UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = UI, meta = (AllowPrivateAccess = "true"))
-	//TSubclassOf<UUserWidget> WidgetTemplate;
-
-	/** widget menu instance*/
-	//UPROPERTY()
-	//UUserWidget* widgetInstance;
 
 
 public:
