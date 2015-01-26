@@ -20,7 +20,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>348DDEF4AA68B7FC73C79E848222CFA11A70008F</key>
-		<string>../..Plugins/GitSourceControl/</string>
+		<string>../..Plugins/GitSourceControl</string>
 		<key>F7A100B6F824F3AD68AD7527CAB10750101D28B7</key>
 		<string>../..</string>
 	</dict>

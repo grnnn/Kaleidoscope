@@ -17,6 +17,9 @@ class AMyProject6Character : public ACharacter
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
+
+
+
 public:
 	AMyProject6Character(const FObjectInitializer& ObjectInitializer);
 
@@ -43,6 +46,9 @@ protected:
 
 	/** Called for side to side input */
 	void MoveRight(float Value);
+
+	/** Called to open the Pause Menu*/
+	void TriggerPauseMenu();
 
 	/** 
 	 * Called via input to turn at a given rate. 

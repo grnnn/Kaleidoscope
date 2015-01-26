@@ -14,7 +14,7 @@
            buildForAnalyzing = "YES">
            <BuildableReference
               BuildableIdentifier = "primary"
-              BlueprintIdentifier = "91E58DACB3D879E4616519EA"
+              BlueprintIdentifier = "505847E2316D4B8ADC78E4C5"
               BuildableName = "MyProject6.app"
               BlueprintName = "MyProject6 - iOS"
               ReferencedContainer = "container:MyProject6.xcodeproj">
@@ -32,7 +32,7 @@
            skipped = "NO">
            <BuildableReference
               BuildableIdentifier = "primary"
-              BlueprintIdentifier = "7CC7A084A4947195A832482C"
+              BlueprintIdentifier = "49E3819C9451B63FB240A287"
               BuildableName = "UE4CmdLineRun.xctest"
               BlueprintName = "UE4CmdLineRun"
               ReferencedContainer = "container:MyProject6.xcodeproj">
@@ -42,7 +42,7 @@
      <MacroExpansion>
         <BuildableReference
            BuildableIdentifier = "primary"
-           BlueprintIdentifier = "91E58DACB3D879E4616519EA"
+           BlueprintIdentifier = "505847E2316D4B8ADC78E4C5"
            BuildableName = "MyProject6.app"
            BlueprintName = "MyProject6 - iOS"
            ReferencedContainer = "container:MyProject6.xcodeproj">
@@ -61,7 +61,7 @@
      <BuildableProductRunnable>
         <BuildableReference
            BuildableIdentifier = "primary"
-           BlueprintIdentifier = "91E58DACB3D879E4616519EA"
+           BlueprintIdentifier = "505847E2316D4B8ADC78E4C5"
            BuildableName = "MyProject6.app"
            BlueprintName = "MyProject6 - iOS"
            ReferencedContainer = "container:MyProject6.xcodeproj">
@@ -92,7 +92,7 @@
      <BuildableProductRunnable>
          <BuildableReference
              BuildableIdentifier = "primary"
-	          BlueprintIdentifier = "91E58DACB3D879E4616519EA"
+	          BlueprintIdentifier = "505847E2316D4B8ADC78E4C5"
              BuildableName = "MyProject6.app"
              BlueprintName = "MyProject6"
              ReferencedContainer = "container:UE4.xcodeproj">
