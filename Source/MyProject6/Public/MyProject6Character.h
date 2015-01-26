@@ -17,6 +17,16 @@ class AMyProject6Character : public ACharacter
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
+
+	/** widget menu*/
+	//UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = UI, meta = (AllowPrivateAccess = "true"))
+	//TSubclassOf<UUserWidget> WidgetTemplate;
+
+	/** widget menu instance*/
+	//UPROPERTY()
+	//UUserWidget* widgetInstance;
+
+
 public:
 	AMyProject6Character(const FObjectInitializer& ObjectInitializer);
 
@@ -43,6 +53,9 @@ protected:
 
 	/** Called for side to side input */
 	void MoveRight(float Value);
+
+	/** Called to open the Pause Menu*/
+	void TriggerPauseMenu();
 
 	/** 
 	 * Called via input to turn at a given rate. 
