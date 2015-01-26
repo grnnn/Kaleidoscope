@@ -9,10 +9,12 @@
 #include "UnrealClient.h"
 
 int test1();
+int biggerBehavior();
 float ScreenX = 0;
 float ScreenY = 0;
 float ScreenW = 300;
 float ScreenH = 300;
+int cMove;
 
 AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
@@ -22,7 +24,7 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	isTriggerF = false;
 	x_pos = 1;
 	y_pos = 1;
-
+	//characterMove = 0;
 
 	//Find the texture object in the game editor
 	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj(TEXT("/Game/Material/T_Map1"));
@@ -55,15 +57,23 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	scene1->setIsActive(true); 
 	scene1->setXpost_atPaneNumber(0, 0);
 	scene1->setYpost_atPaneNumber(0, 0);
+	scene1->setWidth_atPaneNumber(0, 300);
+	scene1->setHeight_atPaneNumber(0, 300);
 
 	scene1->setXpost_atPaneNumber(1, 600);
 	scene1->setYpost_atPaneNumber(1, 0);
+	scene1->setWidth_atPaneNumber(1, 300);
+	scene1->setHeight_atPaneNumber(1, 300);
 
 	scene1->setXpost_atPaneNumber(2, 0);
 	scene1->setYpost_atPaneNumber(2, 400);
+	scene1->setWidth_atPaneNumber(2, 300);
+	scene1->setHeight_atPaneNumber(2, 300);
 
 	scene1->setXpost_atPaneNumber(3, 600);
-	scene1->setYpost_atPaneNumber(3, 400);
+	scene1->setYpost_atPaneNumber(3, 450);
+	scene1->setWidth_atPaneNumber(3, 300);
+	scene1->setHeight_atPaneNumber(3, 300);
 
 	scene1->setIsOn_atPaneNumber(0, false);
 	scene1->setIsOn_atPaneNumber(1, false);
@@ -75,7 +85,7 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	scene1->setTexture_atPaneNumber(2, MiniTexture3);
 	scene1->setTexture_atPaneNumber(3, MiniTexture4);
 
-	//scene1->setBehavior_atPaneNumber(0, test1);
+	scene1->setBehavior_atPaneNumber(2, biggerBehavior);
 	
 }
 
@@ -87,8 +97,7 @@ void AMyHUD::DrawHUD()
 	
 
 
-	ScreenW = 300;
-	ScreenH = 300;
+	
 	UTexture * nTexture;
 	//UE_LOG(LogTemp, Warning, TEXT("Your message"));
 	
@@ -100,16 +109,19 @@ void AMyHUD::DrawHUD()
 			{
 				ScreenX = scene1->getXpos_atPaneNumber(i);
 				ScreenY = scene1->getYpos_atPaneNumber(i);
+				ScreenW = scene1->getWidth_atPaneNumber(i);
+				ScreenH = scene1->getHeight_atPaneNumber(i);
 				nTexture = scene1->getTexture_atPaneNumber(i);
-				/*if (i == 0)
+				if (i == 2)
 				{
-					auto temp1 = scene1->getBehavior_atPaneNumber(0);
+					auto temp1 = scene1->getBehavior_atPaneNumber(i);
 					int n1 = temp1();
-					scene1->setXpost_atPaneNumber(i, ScreenX);
+					scene1->setWidth_atPaneNumber(i, ScreenW);
+					scene1->setHeight_atPaneNumber(i, ScreenH);
 					scene1->setYpost_atPaneNumber(i, ScreenY);
 					//UE_LOG(YourLog, Warning, TEXT("My test n1 %d"), n1);
 					
-				}*/
+				}
 
 				drawTexture(nTexture, ScreenX, ScreenY, ScreenW, ScreenH);
 
@@ -177,10 +189,26 @@ void AMyHUD::Tick(float DeltaSeconds)
 	if (y_pos > 0)
 		y_pos++;
 }
+/*
+void AMyHUD::characterwalk(int w)
+{
 
+	characterMove = w;
+	cMove = characterMove;
+}*/
 int test1()
 {
 	ScreenX++;
 	ScreenY++;
 	return 10;
+}
+int biggerBehavior()
+{
+	if (ScreenW < 350 && ScreenH < 350)
+	{
+		ScreenY -= cMove;
+		ScreenW += cMove;
+		ScreenH += cMove;
+	}
+	return 0;
 }

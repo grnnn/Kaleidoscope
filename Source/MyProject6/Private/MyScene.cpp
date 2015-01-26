@@ -68,6 +68,26 @@ void MyScene::setYpost_atPaneNumber(int panNumber, int nNew)
 	return paneCollection.at(panNumber).setY_pos(nNew);
 }
 
+int MyScene::getWidth_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getWidth();
+}
+
+void MyScene::setWidth_atPaneNumber(int panNumber, int nNew)
+{
+	return paneCollection.at(panNumber).setWidth(nNew);
+}
+
+int MyScene::getHeight_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getHeight();
+}
+
+void MyScene::setHeight_atPaneNumber(int panNumber, int nNew)
+{
+	return paneCollection.at(panNumber).setHeight(nNew);
+}
+
 bool MyScene::getIsOn_atPaneNumber(int panNumber)
 {
 	return paneCollection.at(panNumber).getIsOn();
