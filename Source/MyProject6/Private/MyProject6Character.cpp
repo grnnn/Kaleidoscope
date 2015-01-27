@@ -13,7 +13,7 @@ AMyProject6Character::AMyProject6Character(const FObjectInitializer& ObjectIniti
 
 
 	
-
+	walkStep = 0;
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
@@ -126,6 +126,7 @@ void AMyProject6Character::MoveForward(float Value)
 		// get forward vector
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 		AddMovementInput(Direction, Value);
+		increaseWalkStep();
 	}
 }
 
@@ -161,11 +162,24 @@ void  AMyProject6Character::TriggerNewCameraOn()
 
 }
 
+
 void  AMyProject6Character::TriggerNewCameraOff()
 {
+	
+}
+
+void AMyProject6Character::increaseWalkStep()
+{
+	walkStep++;
+	APlayerController* MyPC = Cast<APlayerController>(Controller);
+	if (MyPC)
+	{
+		AHUD *ahud = MyPC->GetHUD();
+		MyHud = Cast<AMyHUD>(ahud);
+	}
 	if (MyHud)
 	{
-		MyHud->setIsTrigger(false);
+		MyHud->setWalkStep(walkStep);
 	}
 }
 

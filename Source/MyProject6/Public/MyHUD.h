@@ -35,6 +35,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Switch Functions")
 	void setCamerNumberOn(bool isTrig, int32 cameNum);
 
+	void setWalkStep(int);
 
 	void Tick(float DeltaSeconds);
 	
@@ -55,7 +56,7 @@ private:
 	bool isTriggerF;
 	float x_pos;
 	float y_pos;
-
+	float walk;
 	/** Camera feed pointer*/
 	//class UMaterial* feedMat;
 	

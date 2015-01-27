@@ -41,6 +41,8 @@ protected:
 	void TriggerNewCameraOnF();
 	void TriggerNewCameraOffF();
 
+	void increaseWalkStep();
+
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
 
@@ -81,5 +83,6 @@ public:
 
 private:
 	AMyHUD* MyHud;
+	int walkStep;
 };
 

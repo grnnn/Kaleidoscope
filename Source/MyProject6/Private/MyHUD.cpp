@@ -20,11 +20,12 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 {
 	
 	
+	cMove = 0;
 	isTrigger = false;
 	isTriggerF = false;
 	x_pos = 1;
 	y_pos = 1;
-	//characterMove = 0;
+	
 
 	//Find the texture object in the game editor
 	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj(TEXT("/Game/Material/T_Map1"));
@@ -189,13 +190,12 @@ void AMyHUD::Tick(float DeltaSeconds)
 	if (y_pos > 0)
 		y_pos++;
 }
-/*
-void AMyHUD::characterwalk(int w)
-{
 
-	characterMove = w;
-	cMove = characterMove;
-}*/
+
+void AMyHUD::setWalkStep(int w)
+{
+	cMove = w;
+}
 int test1()
 {
 	ScreenX++;
@@ -206,9 +206,9 @@ int biggerBehavior()
 {
 	if (ScreenW < 350 && ScreenH < 350)
 	{
-		ScreenY -= cMove;
-		ScreenW += cMove;
-		ScreenH += cMove;
+		ScreenY = 300 - cMove;
+		ScreenW = 300 + cMove;
+		ScreenH = 300 + cMove;
 	}
 	return 0;
 }
