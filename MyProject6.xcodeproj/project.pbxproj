@@ -10,11 +10,12 @@
 		29A0CBF10248C211A6964760 /* MyProject6GameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6028181650C886C91A9FBED0 /* MyProject6GameMode.cpp */; };
 		4AB70876C6DC004E1C83CF66 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B8E73EFE71BA712AF8D691 /* XCTest.framework */; };
 		5398D4EC0E13B1437FE44C78 /* GitSourceControlRevision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB393D8791A3E41315F82216 /* GitSourceControlRevision.cpp */; };
-		5C2DC354EDE9DF816C3EB183 /* MyScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B94DB3A25CD17AF074EA793 /* MyScene.cpp */; };
+		5C2DC354EDE9DF816C3EB183 /* Pane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B94DB3A25CD17AF074EA793 /* Pane.cpp */; };
 		6029578830DA638243DE8E0B /* MyProject6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85596FB6CE91F8C3DCE657E0 /* MyProject6.cpp */; };
 		63F8E93B4F26364282679766 /* GitSourceControlProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B062016257A479AC48AD30A /* GitSourceControlProvider.cpp */; };
+		6857F8EAE30E1EA7348C407F /* MyScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0C2D366B707949B120CA6EBD /* MyScene.cpp */; };
 		6A390DB9969161E8BE4F0CF4 /* GitSourceControlCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F423ED8C0523730E2E120DB /* GitSourceControlCommand.cpp */; };
-		6C5905C5B1D5F1E6EBB9395F /* Pane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D38ACCF96672675D26E8C3DD /* Pane.cpp */; };
+		6C5905C5B1D5F1E6EBB9395F /* SaveLoad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D38ACCF96672675D26E8C3DD /* SaveLoad.cpp */; };
 		74E195EBBEEA5EFC93AC001F /* GitSourceControlState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5BED3BA91583CD0B049CF /* GitSourceControlState.cpp */; };
 		9DB3C79F76F994FE0A529084 /* GitSourceControlModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2550F952F75F829C8282D79A /* GitSourceControlModule.cpp */; };
 		A0F2B9613D802C986390EF91 /* GitSourceControlUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56F3EA26B079EBBD04D58035 /* GitSourceControlUtils.cpp */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C2D366B707949B120CA6EBD /* MyScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MyScene.cpp; path = Source/MyProject6/Private/MyScene.cpp; sourceTree = SOURCE_ROOT; };
 		0F1C8B2C8EC6F456C28CBD39 /* GitSourceControlOperations.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GitSourceControlOperations.cpp; path = Plugins/GitSourceControl/Source/GitSourceControl/Private/GitSourceControlOperations.cpp; sourceTree = SOURCE_ROOT; };
 		13ACA80B3B6D4F7F8DAE3AEA /* IGitSourceControlWorker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IGitSourceControlWorker.h; path = Plugins/GitSourceControl/Source/GitSourceControl/Private/IGitSourceControlWorker.h; sourceTree = SOURCE_ROOT; };
 		15A34CDBDF6AF17442A5BC38 /* MyProject6.uproject */ = {isa = PBXFileReference; lastKnownFileType = file.text; path = MyProject6.uproject; sourceTree = SOURCE_ROOT; };
@@ -48,11 +50,11 @@
 		3397B24CD189DA9D64548528 /* MyProject6GameMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MyProject6GameMode.h; path = Source/MyProject6/Public/MyProject6GameMode.h; sourceTree = SOURCE_ROOT; };
 		36B8E73EFE71BA712AF8D691 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3B062016257A479AC48AD30A /* GitSourceControlProvider.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GitSourceControlProvider.cpp; path = Plugins/GitSourceControl/Source/GitSourceControl/Private/GitSourceControlProvider.cpp; sourceTree = SOURCE_ROOT; };
-		3B94DB3A25CD17AF074EA793 /* MyScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MyScene.cpp; path = Source/MyProject6/Private/MyScene.cpp; sourceTree = SOURCE_ROOT; };
+		3B94DB3A25CD17AF074EA793 /* Pane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Pane.cpp; path = Source/MyProject6/Private/Pane.cpp; sourceTree = SOURCE_ROOT; };
 		3F423ED8C0523730E2E120DB /* GitSourceControlCommand.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GitSourceControlCommand.cpp; path = Plugins/GitSourceControl/Source/GitSourceControl/Private/GitSourceControlCommand.cpp; sourceTree = SOURCE_ROOT; };
-		3FB149C375D527F5CCC206D0 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MyScene.h; path = Source/MyProject6/Public/MyScene.h; sourceTree = SOURCE_ROOT; };
-		43CB2E671DB010386B3E9091 /* MyProject6/Binaries/IOS/Payload/MyProject6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MyProject6/Binaries/IOS/Payload/MyProject6.app; path = MyProject6.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D492ACE78BDC7E1AE5D618A /* Engine/Binaries/IOS/Payload/UE4CmdLineRun.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Engine/Binaries/IOS/Payload/UE4CmdLineRun.xctest; path = UE4CmdLineRun.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FB149C375D527F5CCC206D0 /* Pane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Pane.h; path = Source/MyProject6/Public/Pane.h; sourceTree = SOURCE_ROOT; };
+		43CB2E671DB010386B3E9091 /* MyProject6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyProject6.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D492ACE78BDC7E1AE5D618A /* UE4CmdLineRun.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UE4CmdLineRun.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F3EA26B079EBBD04D58035 /* GitSourceControlUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GitSourceControlUtils.cpp; path = Plugins/GitSourceControl/Source/GitSourceControl/Private/GitSourceControlUtils.cpp; sourceTree = SOURCE_ROOT; };
 		5AF5BED3BA91583CD0B049CF /* GitSourceControlState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GitSourceControlState.cpp; path = Plugins/GitSourceControl/Source/GitSourceControl/Private/GitSourceControlState.cpp; sourceTree = SOURCE_ROOT; };
 		5AFC04FBD5F38228F027F30F /* GitSourceControlProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GitSourceControlProvider.h; path = Plugins/GitSourceControl/Source/GitSourceControl/Private/GitSourceControlProvider.h; sourceTree = SOURCE_ROOT; };
@@ -63,7 +65,8 @@
 		71691D23B02BEEDBB5650509 /* GitSourceControl.uplugin */ = {isa = PBXFileReference; lastKnownFileType = file.text; name = GitSourceControl.uplugin; path = Plugins/GitSourceControl/GitSourceControl.uplugin; sourceTree = SOURCE_ROOT; };
 		7A3B692D8EC585BB3FD0F8FD /* MyProject6Character.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MyProject6Character.cpp; path = Source/MyProject6/Private/MyProject6Character.cpp; sourceTree = SOURCE_ROOT; };
 		7F1BB64FDEE27BED79E2B518 /* MyHUD.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MyHUD.cpp; path = Source/MyProject6/Private/MyHUD.cpp; sourceTree = SOURCE_ROOT; };
-		813DBB2C8FA8488CB2A0850E /* Pane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Pane.h; path = Source/MyProject6/Public/Pane.h; sourceTree = SOURCE_ROOT; };
+		813DBB2C8FA8488CB2A0850E /* SaveLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SaveLoad.h; path = Source/MyProject6/Public/SaveLoad.h; sourceTree = SOURCE_ROOT; };
+		827F628BDE26193DCAF04501 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MyScene.h; path = Source/MyProject6/Public/MyScene.h; sourceTree = SOURCE_ROOT; };
 		85596FB6CE91F8C3DCE657E0 /* MyProject6.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MyProject6.cpp; path = Source/MyProject6/Private/MyProject6.cpp; sourceTree = SOURCE_ROOT; };
 		87FF0971A0B2FF3E3D7DC93B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		946A116CFB87339CF0E95285 /* GitSourceControlState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GitSourceControlState.h; path = Plugins/GitSourceControl/Source/GitSourceControl/Private/GitSourceControlState.h; sourceTree = SOURCE_ROOT; };
@@ -77,7 +80,7 @@
 		CB393D8791A3E41315F82216 /* GitSourceControlRevision.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GitSourceControlRevision.cpp; path = Plugins/GitSourceControl/Source/GitSourceControl/Private/GitSourceControlRevision.cpp; sourceTree = SOURCE_ROOT; };
 		D2A29D200257CBB89990085E /* GitSourceControl.Build.cs */ = {isa = PBXFileReference; lastKnownFileType = file.text; name = GitSourceControl.Build.cs; path = Plugins/GitSourceControl/Source/GitSourceControl/GitSourceControl.Build.cs; sourceTree = SOURCE_ROOT; };
 		D30D71E001591145B07C34E6 /* SGitSourceControlSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SGitSourceControlSettings.h; path = Plugins/GitSourceControl/Source/GitSourceControl/Private/SGitSourceControlSettings.h; sourceTree = SOURCE_ROOT; };
-		D38ACCF96672675D26E8C3DD /* Pane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Pane.cpp; path = Source/MyProject6/Private/Pane.cpp; sourceTree = SOURCE_ROOT; };
+		D38ACCF96672675D26E8C3DD /* SaveLoad.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SaveLoad.cpp; path = Source/MyProject6/Private/SaveLoad.cpp; sourceTree = SOURCE_ROOT; };
 		D4EC617B37E0C926B965EFD1 /* SGitInitDialog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SGitInitDialog.h; path = Plugins/GitSourceControl/Source/GitSourceControl/Private/SGitInitDialog.h; sourceTree = SOURCE_ROOT; };
 		D9C0999C542D97A8C7B043A0 /* GitSourceControlSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GitSourceControlSettings.h; path = Plugins/GitSourceControl/Source/GitSourceControl/Private/GitSourceControlSettings.h; sourceTree = SOURCE_ROOT; };
 		DA2F44CA29214A2137DCF1B8 /* MyProject6Character.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MyProject6Character.h; path = Source/MyProject6/Public/MyProject6Character.h; sourceTree = SOURCE_ROOT; };
@@ -116,8 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				C6B2FF7FBB0C6ED89AB58424 /* libUE4XcodeHelper.a */,
-				4D492ACE78BDC7E1AE5D618A /* Engine/Binaries/IOS/Payload/UE4CmdLineRun.xctest */,
-				43CB2E671DB010386B3E9091 /* MyProject6/Binaries/IOS/Payload/MyProject6.app */,
+				4D492ACE78BDC7E1AE5D618A /* UE4CmdLineRun.xctest */,
+				43CB2E671DB010386B3E9091 /* MyProject6.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,8 +168,9 @@
 				85596FB6CE91F8C3DCE657E0 /* MyProject6.cpp */,
 				7A3B692D8EC585BB3FD0F8FD /* MyProject6Character.cpp */,
 				6028181650C886C91A9FBED0 /* MyProject6GameMode.cpp */,
-				3B94DB3A25CD17AF074EA793 /* MyScene.cpp */,
-				D38ACCF96672675D26E8C3DD /* Pane.cpp */,
+				0C2D366B707949B120CA6EBD /* MyScene.cpp */,
+				3B94DB3A25CD17AF074EA793 /* Pane.cpp */,
+				D38ACCF96672675D26E8C3DD /* SaveLoad.cpp */,
 			);
 			name = Private;
 			path = Source/MyProject6/Private;
@@ -238,8 +242,9 @@
 				BE9C3077E1F943F41CD9821F /* MyProject6.h */,
 				DA2F44CA29214A2137DCF1B8 /* MyProject6Character.h */,
 				3397B24CD189DA9D64548528 /* MyProject6GameMode.h */,
-				3FB149C375D527F5CCC206D0 /* MyScene.h */,
-				813DBB2C8FA8488CB2A0850E /* Pane.h */,
+				827F628BDE26193DCAF04501 /* MyScene.h */,
+				3FB149C375D527F5CCC206D0 /* Pane.h */,
+				813DBB2C8FA8488CB2A0850E /* SaveLoad.h */,
 			);
 			name = Public;
 			path = Source/MyProject6/Public;
@@ -335,7 +340,7 @@
 			);
 			name = UE4CmdLineRun;
 			productName = UE4CmdLineRun;
-			productReference = 4D492ACE78BDC7E1AE5D618A /* Engine/Binaries/IOS/Payload/UE4CmdLineRun.xctest */;
+			productReference = 4D492ACE78BDC7E1AE5D618A /* UE4CmdLineRun.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		505847E2316D4B8ADC78E4C5 /* MyProject6 - iOS */ = {
@@ -353,7 +358,7 @@
 			);
 			name = "MyProject6 - iOS";
 			productName = "MyProject6 - iOS";
-			productReference = 43CB2E671DB010386B3E9091 /* MyProject6/Binaries/IOS/Payload/MyProject6.app */;
+			productReference = 43CB2E671DB010386B3E9091 /* MyProject6.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7CC7A084A4947195A832482C /* UE4XcodeHelper */ = {
@@ -459,8 +464,9 @@
 				6029578830DA638243DE8E0B /* MyProject6.cpp in Sources */,
 				B9DA2287E06D554F82C141CF /* MyProject6Character.cpp in Sources */,
 				29A0CBF10248C211A6964760 /* MyProject6GameMode.cpp in Sources */,
-				5C2DC354EDE9DF816C3EB183 /* MyScene.cpp in Sources */,
-				6C5905C5B1D5F1E6EBB9395F /* Pane.cpp in Sources */,
+				6857F8EAE30E1EA7348C407F /* MyScene.cpp in Sources */,
+				5C2DC354EDE9DF816C3EB183 /* Pane.cpp in Sources */,
+				6C5905C5B1D5F1E6EBB9395F /* SaveLoad.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
