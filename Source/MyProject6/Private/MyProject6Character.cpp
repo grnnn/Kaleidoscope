@@ -68,8 +68,8 @@ void AMyProject6Character::SetupPlayerInputComponent(class UInputComponent* Inpu
 	InputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	InputComponent->BindAxis("MoveForward", this, &AMyProject6Character::MoveForward);
-	//InputComponent->BindAxis("MoveRight", this, &APawn::AddControllerYawInput);
-	InputComponent->BindAxis("MoveRight", this, &AMyProject6Character::MoveRight);
+	InputComponent->BindAxis("MoveRight", this, &APawn::AddControllerYawInput);
+	//InputComponent->BindAxis("MoveRight", this, &AMyProject6Character::MoveRight);
 
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "turn" handles devices that provide an absolute delta, such as a mouse.
