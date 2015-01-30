@@ -36,6 +36,12 @@ public:
 	int getYpos_atPaneNumber(int);
 	void setYpost_atPaneNumber(int,int);
 
+	int getWidth_atPaneNumber(int);
+	void setWidth_atPaneNumber(int, int);
+
+	int getHeight_atPaneNumber(int);
+	void setHeight_atPaneNumber(int, int);
+
 	bool getIsOn_atPaneNumber(int);
 	void setIsOn_atPaneNumber(int, bool);
 
