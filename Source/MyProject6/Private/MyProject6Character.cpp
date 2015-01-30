@@ -68,14 +68,14 @@ void AMyProject6Character::SetupPlayerInputComponent(class UInputComponent* Inpu
 	InputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	InputComponent->BindAxis("MoveForward", this, &AMyProject6Character::MoveForward);
-	InputComponent->BindAxis("MoveRight", this, &APawn::AddControllerYawInput);
-	//InputComponent->BindAxis("MoveRight", this, &AMyProject6Character::MoveRight);
+	//InputComponent->BindAxis("MoveRight", this, &APawn::AddControllerYawInput);
+	InputComponent->BindAxis("MoveRight", this, &AMyProject6Character::MoveRight);
 
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "turn" handles devices that provide an absolute delta, such as a mouse.
 	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
-	//InputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
-	//InputComponent->BindAxis("TurnRate", this, &AMyProject6Character::TurnAtRate);
+	InputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
+	InputComponent->BindAxis("TurnRate", this, &AMyProject6Character::TurnAtRate);
 	InputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	InputComponent->BindAxis("LookUpRate", this, &AMyProject6Character::LookUpAtRate);
 
