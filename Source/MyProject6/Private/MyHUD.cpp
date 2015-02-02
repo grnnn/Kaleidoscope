@@ -58,22 +58,22 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	scene1->setIsActive(true); 
 	scene1->setXpost_atPaneNumber(0, 0);
 	scene1->setYpost_atPaneNumber(0, 0);
-	scene1->setWidth_atPaneNumber(0, 300);
+	scene1->setWidth_atPaneNumber(0, 510);
 	scene1->setHeight_atPaneNumber(0, 300);
 
 	scene1->setXpost_atPaneNumber(1, 600);
 	scene1->setYpost_atPaneNumber(1, 0);
-	scene1->setWidth_atPaneNumber(1, 300);
+	scene1->setWidth_atPaneNumber(1, 510);
 	scene1->setHeight_atPaneNumber(1, 300);
 
 	scene1->setXpost_atPaneNumber(2, 0);
-	scene1->setYpost_atPaneNumber(2, 400);
-	scene1->setWidth_atPaneNumber(2, 300);
+	scene1->setYpost_atPaneNumber(2, 300);
+	scene1->setWidth_atPaneNumber(2, 510);
 	scene1->setHeight_atPaneNumber(2, 300);
 
 	scene1->setXpost_atPaneNumber(3, 600);
 	scene1->setYpost_atPaneNumber(3, 450);
-	scene1->setWidth_atPaneNumber(3, 300);
+	scene1->setWidth_atPaneNumber(3, 510);
 	scene1->setHeight_atPaneNumber(3, 300);
 
 	scene1->setIsOn_atPaneNumber(0, false);
@@ -204,10 +204,10 @@ int test1()
 }
 int biggerBehavior()
 {
-	if (ScreenW < 350 && ScreenH < 350)
+	if ( ScreenH < 350)
 	{
 		ScreenY = 300 - cMove;
-		ScreenW = 300 + cMove;
+		ScreenW = 510 + cMove;
 		ScreenH = 300 + cMove;
 	}
 	return 0;
