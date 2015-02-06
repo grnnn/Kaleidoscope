@@ -176,6 +176,7 @@ void AMyHUD::setPaneNumberOnOff(bool isOn, int32 paneNumber)
 void AMyHUD::setWalkStep(int w)
 {
 	//cMove = w;
-	CurrentScene->setNumberOfWalk_atPaneNumber(1, w);
+	if (CurrentScene != NULL)
+		CurrentScene->setNumberOfWalk_atPaneNumber(1, w);
 }
 
