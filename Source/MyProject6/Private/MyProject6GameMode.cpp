@@ -16,12 +16,10 @@ AMyProject6GameMode::AMyProject6GameMode(const FObjectInitializer& ObjectInitial
 
 	//Use C++ custom HUD
 	static ConstructorHelpers::FObjectFinder<UClass> PlayerHUDBPClass(TEXT("Class'/Game/Blueprints/newHUD.newHUD_C'"));
-	
-	//Use Blueprint custom HUD
-	//static ConstructorHelpers::FObjectFinder<UClass> PlayerHUDBPClass(TEXT("Class'/Game/Blueprints/HUD1.HUD1_C'"));
-	
-	
 	HUDClass = PlayerHUDBPClass.Object;
 	
-	
+
+	//Initialize scene
+	sceneOpenning = new UMyScene("Openning scene", 4); //openning scene with 4 panes
+	sceneOpenning->setIsActive(true);
 }

@@ -8,23 +8,15 @@
 #include "CanvasTypes.h"
 #include "UnrealClient.h"
 
-int test1();
-int biggerBehavior();
-float ScreenX = 0;
-float ScreenY = 0;
-float ScreenW = 300;
-float ScreenH = 300;
-int cMove;
+
+
+
+
 
 AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
 	
 	
-	cMove = 0;
-	isTrigger = false;
-	isTriggerF = false;
-	x_pos = 1;
-	y_pos = 1;
 	
 
 	//Find the texture object in the game editor
@@ -47,47 +39,6 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	MiniTexture6 = CrosshiarTexObj6.Object;
 	
 	
-	
-	//Initialize scene1
-	//This variable should be initialized in MyGameMode so every class could access to it
-	// something like // currentScene = MyGameMode.getSceneName("scene1");
-	
-	//for now, we define scene1 here for quick testing.
-	
-	scene1 = new MyScene("s1", 4);
-	scene1->setIsActive(true); 
-	scene1->setXpost_atPaneNumber(0, 0);
-	scene1->setYpost_atPaneNumber(0, 0);
-	scene1->setWidth_atPaneNumber(0, 510);
-	scene1->setHeight_atPaneNumber(0, 300);
-
-	scene1->setXpost_atPaneNumber(1, 600);
-	scene1->setYpost_atPaneNumber(1, 0);
-	scene1->setWidth_atPaneNumber(1, 510);
-	scene1->setHeight_atPaneNumber(1, 300);
-
-	scene1->setXpost_atPaneNumber(2, 0);
-	scene1->setYpost_atPaneNumber(2, 300);
-	scene1->setWidth_atPaneNumber(2, 510);
-	scene1->setHeight_atPaneNumber(2, 300);
-
-	scene1->setXpost_atPaneNumber(3, 600);
-	scene1->setYpost_atPaneNumber(3, 450);
-	scene1->setWidth_atPaneNumber(3, 510);
-	scene1->setHeight_atPaneNumber(3, 300);
-
-	scene1->setIsOn_atPaneNumber(0, false);
-	scene1->setIsOn_atPaneNumber(1, false);
-	scene1->setIsOn_atPaneNumber(2, false);
-	scene1->setIsOn_atPaneNumber(3, false);
-
-	scene1->setTexture_atPaneNumber(0, MiniTexture1);
-	scene1->setTexture_atPaneNumber(1, MiniTexture2);
-	scene1->setTexture_atPaneNumber(2, MiniTexture3);
-	scene1->setTexture_atPaneNumber(3, MiniTexture4);
-
-	scene1->setBehavior_atPaneNumber(2, biggerBehavior);
-	
 }
 
 //Override DrawHUD
@@ -96,45 +47,39 @@ void AMyHUD::DrawHUD()
 {
 	Super::DrawHUD();
 	
-
-
-	
+	float ScreenX = 0;
+	float ScreenY = 0;
+	float ScreenW = 0;
+	float ScreenH = 0;
 	UTexture * nTexture;
 	//UE_LOG(LogTemp, Warning, TEXT("Your message"));
-	
 
-	if (scene1->getIsActive()) // check if we should draw scene1's panes
+	if (CurrentScene != NULL && CurrentScene->getIsActive()) // check if we should draw scene1's panes
 		for (int i = 0; i < 4; i++)
 		{
-			if (scene1->getIsOn_atPaneNumber(i)) // only draw active pane
+			if (CurrentScene->getIsOn_atPaneNumber(i)) // only draw active pane
 			{
-				ScreenX = scene1->getXpos_atPaneNumber(i);
-				ScreenY = scene1->getYpos_atPaneNumber(i);
-				ScreenW = scene1->getWidth_atPaneNumber(i);
-				ScreenH = scene1->getHeight_atPaneNumber(i);
-				nTexture = scene1->getTexture_atPaneNumber(i);
-				if (i == 2)
+				ScreenX = CurrentScene->getXpos_atPaneNumber(i);
+				ScreenY = CurrentScene->getYpos_atPaneNumber(i);
+				ScreenW = CurrentScene->getWidth_atPaneNumber(i);
+				ScreenH = CurrentScene->getHeight_atPaneNumber(i);
+				nTexture = CurrentScene->getTexture_atPaneNumber(i);
+				if (CurrentScene->getHasBahavior_atPaneNumber(i) == true)
 				{
-					auto temp1 = scene1->getBehavior_atPaneNumber(i);
-					int n1 = temp1();
-					scene1->setWidth_atPaneNumber(i, ScreenW);
-					scene1->setHeight_atPaneNumber(i, ScreenH);
-					scene1->setYpost_atPaneNumber(i, ScreenY);
-					//UE_LOG(YourLog, Warning, TEXT("My test n1 %d"), n1);
-					
+					CurrentScene->updateOnBehavior_atPaneNumber(i);
 				}
 
-				drawTexture(nTexture, ScreenX, ScreenY, ScreenW, ScreenH);
+				drawPane(nTexture, ScreenX, ScreenY, ScreenW, ScreenH);
 
 			}
 		}
 	
 }
 
-//Draw mini screen onto the view
+//Draw a pane onto the view
 //Input: texture object to draw, X coordinate on the view, Y coordinate, width of the mini screen, height of the mini screen
 //Ouput: none
-void AMyHUD::drawTexture(UTexture* Texture, float ScreenX, float ScreenY, float ScreenW, float ScreenH)
+void AMyHUD::drawPane(UTexture* Texture, float ScreenX, float ScreenY, float ScreenW, float ScreenH)
 {
 	float TextureU = 0;
 	float TextureV = 0;
@@ -161,54 +106,76 @@ void AMyHUD::drawTexture(UTexture* Texture, float ScreenX, float ScreenY, float 
 	}
 }
 
-//call when user pressed 'E' key to draw extra screen
-//input: true or false
-void AMyHUD::setIsTrigger(bool isTrig)
+
+//Blueprint function
+//Initialize a new pane
+//Will be called in level blueprint when we want to show a new pane
+void AMyHUD::InitializePane(int32 PaneNumber, int32 CameraNumber, float x, float y, float width, float height, bool isOn, EBehavior Behavior)
 {
-	scene1->setIsActive(isTrig);
+	
+	CurrentScene->setXpost_atPaneNumber(PaneNumber, x);
+	CurrentScene->setYpost_atPaneNumber(PaneNumber, y);
+	CurrentScene->setWidth_atPaneNumber(PaneNumber, width);
+	CurrentScene->setHeight_atPaneNumber(PaneNumber, height);
+	CurrentScene->setIsOn_atPaneNumber(PaneNumber, isOn);
+
+	UTexture* customeTextureMap = NULL;
+	switch (CameraNumber)
+	{
+	case 0:
+		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture1);
+		break;
+	case 1:
+		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture1);
+		break;
+	case 2:
+		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture2);
+		break;
+	case 3:
+		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture3);
+		break;
+	case 4:
+		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture4);
+		break;
+	case 5:
+		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture5);
+		break;
+	case 6:
+		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture6);
+		break;
+	default:
+		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture1);
+		break;
+	
+	}
+
+	
+	if (Behavior != None)
+	{
+		CurrentScene->setHasBehavior_atPaneNumber(PaneNumber, true);
+		CurrentScene->setBehaviorType_atPaneNumber(PaneNumber, Behavior);
+	}
+
+	return;
+	
 }
 
-void AMyHUD::setCamerNumberOn(bool isTrig, int32 cameNum)
+//Blueprint function
+//Toggle on/off on specific pane number
+//input: bool on/off, pane number
+void AMyHUD::setPaneNumberOnOff(bool isOn, int32 paneNumber)
 {
-	scene1->setIsOn_atPaneNumber((int)cameNum, isTrig);
-	//scene1->setIsActive(isTrig);
-}
-
-//testing function
-//ignore
-void AMyHUD::setIsTriggerF(bool isTrig)
-{
-	isTriggerF = isTrig;
-}
-
-//testing
-//ignore
-void AMyHUD::Tick(float DeltaSeconds)
-{
-	if (x_pos > 0)
-		x_pos++;
-	if (y_pos > 0)
-		y_pos++;
+	CurrentScene->setIsOn_atPaneNumber((int)paneNumber, isOn);
 }
 
 
+//Helper function to count how many step player has walked
+//Called in MyChracter class when player moving forward/backward
+//then pass to specific pane to calculate behavior
+//input: number of step player has walked
 void AMyHUD::setWalkStep(int w)
 {
-	cMove = w;
+	//cMove = w;
+	CurrentScene->setNumberOfWalk_atPaneNumber(1, w);
 }
-int test1()
-{
-	ScreenX++;
-	ScreenY++;
-	return 10;
-}
-int biggerBehavior()
-{
-	if ( ScreenH < 350)
-	{
-		ScreenY = 300 - cMove;
-		ScreenW = 510 + cMove;
-		ScreenH = 300 + cMove;
-	}
-	return 0;
-}
+

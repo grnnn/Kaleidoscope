@@ -58,11 +58,11 @@ void AMyProject6Character::SetupPlayerInputComponent(class UInputComponent* Inpu
 	check(InputComponent);
 
 	
-	InputComponent->BindAction("EKey", IE_Pressed, this, &AMyProject6Character::TriggerNewCameraOn);
-	InputComponent->BindAction("EKey", IE_Released, this, &AMyProject6Character::TriggerNewCameraOff);
+	//InputComponent->BindAction("EKey", IE_Pressed, this, &AMyProject6Character::TriggerNewCameraOn);
+	//InputComponent->BindAction("EKey", IE_Released, this, &AMyProject6Character::TriggerNewCameraOff);
 
-	InputComponent->BindAction("FKey", IE_Pressed, this, &AMyProject6Character::TriggerNewCameraOnF);
-	InputComponent->BindAction("FKey", IE_Released, this, &AMyProject6Character::TriggerNewCameraOffF);
+	//InputComponent->BindAction("FKey", IE_Pressed, this, &AMyProject6Character::TriggerNewCameraOnF);
+	//InputComponent->BindAction("FKey", IE_Released, this, &AMyProject6Character::TriggerNewCameraOffF);
 
 	InputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	InputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
@@ -146,7 +146,7 @@ void AMyProject6Character::MoveRight(float Value)
 }
 
 
-
+/*
 void  AMyProject6Character::TriggerNewCameraOn()
 {
 	APlayerController* MyPC = Cast<APlayerController>(Controller);
@@ -161,12 +161,14 @@ void  AMyProject6Character::TriggerNewCameraOn()
 	}
 
 }
+*/
 
-
+/*
 void  AMyProject6Character::TriggerNewCameraOff()
 {
 	
 }
+*/
 
 void AMyProject6Character::increaseWalkStep()
 {
@@ -183,22 +185,4 @@ void AMyProject6Character::increaseWalkStep()
 	}
 }
 
-
-void  AMyProject6Character::TriggerNewCameraOnF()
-{
-
-	if (MyHud)
-	{
-		MyHud->setIsTriggerF(true);
-	}
-
-}
-
-void  AMyProject6Character::TriggerNewCameraOffF()
-{
-	if (MyHud)
-	{
-		MyHud->setIsTriggerF(false);
-	}
-}
 

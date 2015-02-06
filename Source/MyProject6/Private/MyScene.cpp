@@ -4,13 +4,13 @@
 #include "MyScene.h"
 
 //Default contructor
-MyScene::MyScene()
+UMyScene::UMyScene()
 {
 
 }
 
 //Contructor with scene name, and number of Pane in this scene
-MyScene::MyScene(string name, int size)
+UMyScene::UMyScene(string name, int size)
 {
 	sceneName = name;
 	numberOfPane = size;
@@ -18,101 +18,125 @@ MyScene::MyScene(string name, int size)
 		paneCollection.push_back(Pane());
 }
 
-MyScene::~MyScene()
+UMyScene::~UMyScene()
 {
 }
 
 //Below are GET and SET functions for each variable in MyScene's class and Pane's class
 //
-string MyScene::getSceneName()
+string UMyScene::getSceneName()
 {
 	return sceneName;
 }
 
-void MyScene::setSceneName(string newSceneName)
+void UMyScene::setSceneName(string newSceneName)
 {
 	sceneName = newSceneName;
 }
-Pane MyScene::getPaneNumber(int num)
+Pane UMyScene::getPaneNumber(int num)
 {
 	return paneCollection.at(num);
 }
 
-bool MyScene::getIsActive()
+bool UMyScene::getIsActive()
 {
 	return isActive;
 }
 
-void MyScene::setIsActive(bool isAct)
+void UMyScene::setIsActive(bool isAct)
 {
 	isActive = isAct;
 }
 
-int MyScene::getXpos_atPaneNumber(int panNumber)
+int UMyScene::getXpos_atPaneNumber(int panNumber)
 {
 	return paneCollection.at(panNumber).getX_pos();
 }
 
-void MyScene::setXpost_atPaneNumber(int panNumber, int nNew)
+void UMyScene::setXpost_atPaneNumber(int panNumber, int nNew)
 {
 	return paneCollection.at(panNumber).setX_pos(nNew);
 }
 
-int MyScene::getYpos_atPaneNumber(int panNumber)
+int UMyScene::getYpos_atPaneNumber(int panNumber)
 {
 	return paneCollection.at(panNumber).getY_pos();
 }
 
-void MyScene::setYpost_atPaneNumber(int panNumber, int nNew)
+void UMyScene::setYpost_atPaneNumber(int panNumber, int nNew)
 {
 	return paneCollection.at(panNumber).setY_pos(nNew);
 }
 
-int MyScene::getWidth_atPaneNumber(int panNumber)
+int UMyScene::getWidth_atPaneNumber(int panNumber)
 {
 	return paneCollection.at(panNumber).getWidth();
 }
 
-void MyScene::setWidth_atPaneNumber(int panNumber, int nNew)
+void UMyScene::setWidth_atPaneNumber(int panNumber, int nNew)
 {
 	return paneCollection.at(panNumber).setWidth(nNew);
 }
 
-int MyScene::getHeight_atPaneNumber(int panNumber)
+int UMyScene::getHeight_atPaneNumber(int panNumber)
 {
 	return paneCollection.at(panNumber).getHeight();
 }
 
-void MyScene::setHeight_atPaneNumber(int panNumber, int nNew)
+void UMyScene::setHeight_atPaneNumber(int panNumber, int nNew)
 {
 	return paneCollection.at(panNumber).setHeight(nNew);
 }
 
-bool MyScene::getIsOn_atPaneNumber(int panNumber)
+bool UMyScene::getIsOn_atPaneNumber(int panNumber)
 {
 	return paneCollection.at(panNumber).getIsOn();
 }
 
-void MyScene::setIsOn_atPaneNumber(int panNumber, bool nNew)
+void UMyScene::setIsOn_atPaneNumber(int panNumber, bool nNew)
 {
 	return paneCollection.at(panNumber).setIsOn(nNew);
 }
 
-UTexture* MyScene::getTexture_atPaneNumber(int panNumber)
+bool UMyScene::getHasBahavior_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getHasBehavior();
+}
+
+void UMyScene::setHasBehavior_atPaneNumber(int panNumber, bool nNew)
+{
+	return paneCollection.at(panNumber).setHasBehavior(nNew);
+}
+
+int UMyScene::getBahaviorType_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getBehaviorType();
+}
+
+void UMyScene::setBehaviorType_atPaneNumber(int panNumber, int nNew)
+{
+	return paneCollection.at(panNumber).setBehaviorType(nNew);
+}
+
+UTexture* UMyScene::getTexture_atPaneNumber(int panNumber)
 {
 	return paneCollection.at(panNumber).getMyTexture();
 }
-void MyScene::setTexture_atPaneNumber(int panNumber, UTexture* nNew)
+void UMyScene::setTexture_atPaneNumber(int panNumber, UTexture* nNew)
 {
 	paneCollection.at(panNumber).setMyTexture(nNew);
 
 }
-void MyScene::setBehavior_atPaneNumber(int panNumber, int(*functocall)())
+
+
+void UMyScene::setNumberOfWalk_atPaneNumber(int panNumber,int nNew)
 {
-	paneCollection.at(panNumber).setMyFunction(functocall);
+	paneCollection.at(panNumber).setNumberOfWalk(nNew);
+}
+void UMyScene::updateOnBehavior_atPaneNumber(int panNumber)
+{
+	paneCollection.at(panNumber).updateOnBehavior();
 }
 
-fptr MyScene::getBehavior_atPaneNumber(int panNumber)
-{
-	return paneCollection.at(panNumber).getMyFunction();
-}
+
+

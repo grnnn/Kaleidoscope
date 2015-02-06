@@ -3,19 +3,30 @@
 //			isOn or not, and what to display 
 #pragma once
 
-typedef int(*fptr)();
+
+
+
 /**
  * 
  */
-class MYPROJECT6_API Pane
+class MYPROJECT6_API Pane 
 {
 	float x_pos;	// x position on the view port
 	float y_pos;	// y position on the view port
 	float width;	// how big it's gonna look
 	float height;	// how big it's gonna look
+
+	float Oldx_pos; 
+	float Oldy_pos;
+	float Oldwidth;
+	float Oldheight;
+
 	bool isOn;		// should be display or not (isTrigger?)
+	bool hasBehavior;
+	int behaviorType;
+	int numberOfWalk;
 	class UTexture* myTexture; //the content to be display
-	int(*updateFunction)();
+	
 
 public:
 	Pane();
@@ -37,9 +48,17 @@ public:
 	float getHeight();
 	void setHeight(float);
 
+	bool getHasBehavior();
+	void setHasBehavior(bool);
+
+	int getBehaviorType();
+	void setBehaviorType(int);
+
 	UTexture* getMyTexture();
 	void setMyTexture(UTexture*);
 
-	void setMyFunction(int(*functocall)());
-	fptr getMyFunction();
+	void setNumberOfWalk(int);
+	void updateOnBehavior();
+
+	
 };

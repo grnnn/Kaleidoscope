@@ -5,24 +5,27 @@
 #include <string>
 #include <vector>
 #include "Pane.h"
+#include "MyScene.generated.h"
 using namespace std;
 
-typedef int(*fptr)();
+
 /**
  * 
  */
-class MYPROJECT6_API MyScene
+UCLASS(Blueprintable, BlueprintType)
+class MYPROJECT6_API UMyScene :public UObject
 {
+	GENERATED_BODY()
 	string sceneName;	
 	int numberOfPane;
 	bool isActive;
 	std::vector<Pane> paneCollection;
-	int(*updateFunction)();
+	
 	
 public:
-	MyScene();
-	MyScene(string, int);
-	~MyScene();
+	UMyScene();
+	UMyScene(string, int);
+	~UMyScene();
 
 	void setSceneName(string);
 	string getSceneName();
@@ -45,11 +48,18 @@ public:
 	bool getIsOn_atPaneNumber(int);
 	void setIsOn_atPaneNumber(int, bool);
 
+	bool getHasBahavior_atPaneNumber(int);
+	void setHasBehavior_atPaneNumber(int, bool);
+
+	int getBahaviorType_atPaneNumber(int);
+	void setBehaviorType_atPaneNumber(int, int);
+
+	void setNumberOfWalk_atPaneNumber(int,int);
+	void updateOnBehavior_atPaneNumber(int);
 
 	UTexture* getTexture_atPaneNumber(int);
 	void setTexture_atPaneNumber(int,UTexture*);
 
-	void setBehavior_atPaneNumber(int, int(*functocall)());
-	fptr getBehavior_atPaneNumber(int);
 
+	
 };

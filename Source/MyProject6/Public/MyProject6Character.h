@@ -28,18 +28,18 @@ public:
 	float BaseTurnRate;
 
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category=Camera)
 	float BaseLookUpRate;
 
 	
 protected:
 
 	//Call when user pressed 'E' key to trigger extra mini map
-	void TriggerNewCameraOn();
-	void TriggerNewCameraOff();
+	//void TriggerNewCameraOn();
+	//void TriggerNewCameraOff();
 
-	void TriggerNewCameraOnF();
-	void TriggerNewCameraOffF();
+	//void TriggerNewCameraOnF();
+	//void TriggerNewCameraOffF();
 
 	void increaseWalkStep();
 
