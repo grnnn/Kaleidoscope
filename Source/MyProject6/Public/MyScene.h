@@ -30,6 +30,8 @@ public:
 	void setSceneName(string);
 	string getSceneName();
 	Pane getPaneNumber(int);
+	int getNumberOfPane();
+
 	bool getIsActive();
 	void setIsActive(bool);
 
@@ -54,7 +56,7 @@ public:
 	int getBahaviorType_atPaneNumber(int);
 	void setBehaviorType_atPaneNumber(int, int);
 
-	void setNumberOfWalk_atPaneNumber(int,int);
+	void setNumberOfWalk_atPaneNumber(int);
 	void updateOnBehavior_atPaneNumber(int);
 
 	UTexture* getTexture_atPaneNumber(int);

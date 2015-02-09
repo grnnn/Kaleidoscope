@@ -33,6 +33,11 @@ void UMyScene::setSceneName(string newSceneName)
 {
 	sceneName = newSceneName;
 }
+int UMyScene::getNumberOfPane()
+{
+	return numberOfPane;
+}
+
 Pane UMyScene::getPaneNumber(int num)
 {
 	return paneCollection.at(num);
@@ -129,9 +134,12 @@ void UMyScene::setTexture_atPaneNumber(int panNumber, UTexture* nNew)
 }
 
 
-void UMyScene::setNumberOfWalk_atPaneNumber(int panNumber,int nNew)
+void UMyScene::setNumberOfWalk_atPaneNumber(int nNew)
 {
-	paneCollection.at(panNumber).setNumberOfWalk(nNew);
+	
+	for (int i = 0; i < numberOfPane; i++)
+		paneCollection.at(i).setNumberOfWalk(nNew);
+	
 }
 void UMyScene::updateOnBehavior_atPaneNumber(int panNumber)
 {

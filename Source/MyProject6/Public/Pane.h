@@ -24,6 +24,7 @@ class MYPROJECT6_API Pane
 	bool isOn;		// should be display or not (isTrigger?)
 	bool hasBehavior;
 	int behaviorType;
+	bool isStartCountingWalk;
 	int numberOfWalk;
 	class UTexture* myTexture; //the content to be display
 	

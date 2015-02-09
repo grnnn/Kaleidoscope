@@ -54,7 +54,7 @@ void AMyHUD::DrawHUD()
 	UTexture * nTexture;
 	//UE_LOG(LogTemp, Warning, TEXT("Your message"));
 
-	if (CurrentScene != NULL && CurrentScene->getIsActive()) // check if we should draw scene1's panes
+	if (CurrentScene != NULL && CurrentScene->getIsActive()) // check if CurrentScene is active
 		for (int i = 0; i < 4; i++)
 		{
 			if (CurrentScene->getIsOn_atPaneNumber(i)) // only draw active pane
@@ -112,6 +112,11 @@ void AMyHUD::drawPane(UTexture* Texture, float ScreenX, float ScreenY, float Scr
 //Will be called in level blueprint when we want to show a new pane
 void AMyHUD::InitializePane(int32 PaneNumber, int32 CameraNumber, float x, float y, float width, float height, bool isOn, EBehavior Behavior)
 {
+	if (PaneNumber > CurrentScene->getNumberOfPane())
+	{
+		//Pane number is Out of range
+		return;
+	}
 	
 	CurrentScene->setXpost_atPaneNumber(PaneNumber, x);
 	CurrentScene->setYpost_atPaneNumber(PaneNumber, y);
@@ -165,7 +170,9 @@ void AMyHUD::InitializePane(int32 PaneNumber, int32 CameraNumber, float x, float
 //input: bool on/off, pane number
 void AMyHUD::setPaneNumberOnOff(bool isOn, int32 paneNumber)
 {
-	CurrentScene->setIsOn_atPaneNumber((int)paneNumber, isOn);
+	if (CurrentScene != NULL)
+		if (paneNumber <= CurrentScene->getNumberOfPane())
+			CurrentScene->setIsOn_atPaneNumber((int)paneNumber, isOn);
 }
 
 
@@ -175,8 +182,7 @@ void AMyHUD::setPaneNumberOnOff(bool isOn, int32 paneNumber)
 //input: number of step player has walked
 void AMyHUD::setWalkStep(int w)
 {
-	//cMove = w;
 	if (CurrentScene != NULL)
-		CurrentScene->setNumberOfWalk_atPaneNumber(1, w);
+		CurrentScene->setNumberOfWalk_atPaneNumber(w);
 }
 

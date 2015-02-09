@@ -11,6 +11,7 @@ Pane::Pane()
 	y_pos = 0;
 	numberOfWalk = 0;
 	isOn = false;
+	isStartCountingWalk = false;
 }
 
 //Contructor with UTexture
@@ -123,24 +124,31 @@ void Pane::updateOnBehavior()
 		Bigger,
 		Smaller
 	};
-	
+	isStartCountingWalk = true;
 	//behaviorType = nBahaviorType;
 	switch (behaviorType)
 	{
+	case None:
+		isStartCountingWalk = false;
+		break;
 	case MoveRight:
-		x_pos++;
+		if (x_pos < Oldx_pos + 20)
+			x_pos++;
 		break;
 	case MoveLeft:
-		x_pos--;
+		if (x_pos > 0)
+			x_pos--;
 		break;
 	case MoveUp:
-		y_pos++;
+		if (y_pos > 0)
+			y_pos--;
 		break;
 	case MoveDown:
-		x_pos++;
+		if (y_pos < Oldy_pos + 20)
+			x_pos++;
 		break;
 	case Bigger:
-		if (height < 350)
+		if (height < Oldheight*4/3)
 		{
 			y_pos = Oldy_pos - numberOfWalk;
 			width = Oldwidth + numberOfWalk;
@@ -148,14 +156,19 @@ void Pane::updateOnBehavior()
 		}
 		break;
 	case Smaller:
-		width--;
-		height--;
+		if (height > Oldheight * 3 / 4)
+		{
+			y_pos = Oldy_pos + numberOfWalk;
+			width = Oldwidth - numberOfWalk;
+			height = Oldheight - numberOfWalk;
+		}
 		break;
 	}
 }
 
 void Pane::setNumberOfWalk(int nNew)
 {
-	numberOfWalk = nNew;
+	if (isStartCountingWalk)
+		numberOfWalk = nNew;
 
 }
