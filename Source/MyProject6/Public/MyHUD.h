@@ -87,6 +87,7 @@ private:
 	class UTexture* MiniTexture5;
 	class UTexture* MiniTexture6;
 	class UTexture* MiniTexture7;
+	class UTexture* MiniTexture8;
 	
 	
 };

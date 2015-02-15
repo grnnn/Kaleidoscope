@@ -40,8 +40,11 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj6(TEXT("/Game/Material/T_Map6"));
 	MiniTexture6 = CrosshiarTexObj6.Object;
 
-	//static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj7(TEXT("/Game/Material/T_Map7"));
-	//MiniTexture7 = CrosshiarTexObj7.Object;
+	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj7(TEXT("/Game/Material/T_Map7"));
+	MiniTexture7 = CrosshiarTexObj7.Object;
+
+	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj8(TEXT("/Game/Material/T_Map8"));
+	MiniTexture8 = CrosshiarTexObj8.Object;
 	
 	
 }
@@ -167,6 +170,12 @@ void AMyHUD::InitializePane(int32 PaneNumber, int32 CameraNumber, float x, float
 		break;
 	case 6:
 		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture6);
+		break;
+	case 7:
+		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture7);
+		break;
+	case 8:
+		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture8);
 		break;
 	default:
 		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture1);
