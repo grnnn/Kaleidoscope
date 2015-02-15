@@ -181,6 +181,7 @@ void AMyProject6Character::increaseWalkStep()
 	}
 	if (MyHud)
 	{
+		int w = (int)walkStep;
 		MyHud->setWalkStep(walkStep);
 	}
 }

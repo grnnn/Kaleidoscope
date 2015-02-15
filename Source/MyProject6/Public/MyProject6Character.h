@@ -81,8 +81,11 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Walk)
+	int32 walkStep;
+
 private:
 	AMyHUD* MyHud;
-	int walkStep;
+
 };
 

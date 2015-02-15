@@ -22,7 +22,8 @@ enum EBehavior
 	MoveUp,
 	MoveDown,
 	Bigger,
-	Smaller
+	Smaller,
+	FirstPane
 };
 /**
  * 
@@ -54,12 +55,25 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Pane")
 	void InitializePane(int32 PaneNumber, int32 CameraNumber, float x, float y, float width, float height, bool isOn, EBehavior Behavior);
 
+	UFUNCTION(BlueprintCallable, Category = "Pane")
+	void DrawMyText(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition);
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Scene)
+	FString Text;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Scene)
+	float TextX;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Scene)
+	float TextY;
 	
 	//Blueprint variable
 	//CurrentScene will be set in level blueprint 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Scene)
 	UMyScene* CurrentScene;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Text)
+	FString mytext;
 	
 
 	
@@ -72,7 +86,7 @@ private:
 	class UTexture* MiniTexture4;
 	class UTexture* MiniTexture5;
 	class UTexture* MiniTexture6;
-	
+	class UTexture* MiniTexture7;
 	
 	
 };
