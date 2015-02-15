@@ -122,7 +122,8 @@ void Pane::updateOnBehavior()
 		MoveUp,
 		MoveDown,
 		Bigger,
-		Smaller
+		Smaller,
+		FirstPane
 	};
 	isStartCountingWalk = true;
 	//behaviorType = nBahaviorType;
@@ -163,7 +164,18 @@ void Pane::updateOnBehavior()
 			height = Oldheight - numberOfWalk;
 		}
 		break;
+	case FirstPane:
+		if (x_pos >= 0)
+		{
+			height = Oldheight + numberOfWalk / 4;
+			width = Oldwidth + numberOfWalk/4;
+			x_pos = Oldx_pos - numberOfWalk;
+
+
+
+		}
 	}
+	
 }
 
 void Pane::setNumberOfWalk(int nNew)

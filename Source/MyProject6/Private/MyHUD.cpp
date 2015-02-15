@@ -15,7 +15,9 @@
 
 AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-	
+
+	Text = " ";
+	TextX = TextY = 0;
 	
 	
 
@@ -37,6 +39,12 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 
 	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj6(TEXT("/Game/Material/T_Map6"));
 	MiniTexture6 = CrosshiarTexObj6.Object;
+
+	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj7(TEXT("/Game/Material/T_Map7"));
+	MiniTexture7 = CrosshiarTexObj7.Object;
+
+	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj8(TEXT("/Game/Material/T_Map8"));
+	MiniTexture8 = CrosshiarTexObj8.Object;
 	
 	
 }
@@ -53,6 +61,10 @@ void AMyHUD::DrawHUD()
 	float ScreenH = 0;
 	UTexture * nTexture;
 	//UE_LOG(LogTemp, Warning, TEXT("Your message"));
+
+	
+	FLinearColor TintColor = WhiteColor;
+
 
 	if (CurrentScene != NULL && CurrentScene->getIsActive()) // check if CurrentScene is active
 		for (int i = 0; i < 4; i++)
@@ -71,8 +83,11 @@ void AMyHUD::DrawHUD()
 
 				drawPane(nTexture, ScreenX, ScreenY, ScreenW, ScreenH);
 
+				//Super::DrawText(mytext, TintColor, 0, 0, NULL, 1, false);
 			}
 		}
+
+	Super::DrawText(Text, TintColor, TextX, TextY, NULL, 1, false);
 	
 }
 
@@ -104,6 +119,14 @@ void AMyHUD::drawPane(UTexture* Texture, float ScreenX, float ScreenY, float Scr
 		TileItem.BlendMode = FCanvas::BlendToSimpleElementBlend(BlendMode);
 		Canvas->DrawItem(TileItem);
 	}
+}
+
+
+void AMyHUD::DrawMyText(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition)
+{
+	//Super::DrawText(Text, TextColor, x, y, Font, Scale, bScalePosition);
+	
+
 }
 
 
@@ -147,6 +170,12 @@ void AMyHUD::InitializePane(int32 PaneNumber, int32 CameraNumber, float x, float
 		break;
 	case 6:
 		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture6);
+		break;
+	case 7:
+		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture7);
+		break;
+	case 8:
+		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture8);
 		break;
 	default:
 		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture1);
