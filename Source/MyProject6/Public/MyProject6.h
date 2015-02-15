@@ -3,7 +3,7 @@
 #ifndef __MYPROJECT6_H__
 #define __MYPROJECT6_H__
 
-#include "EngineMinimal.h"
+#include "Engine.h"
 
 //General Log
 DECLARE_LOG_CATEGORY_EXTERN(YourLog, Log, All);
