@@ -53,7 +53,7 @@ public:
 	//Blueprint function
 	//Initialize a new pane
 	UFUNCTION(BlueprintCallable, Category = "Pane")
-	void InitializePane(int32 PaneNumber, int32 CameraNumber, float x, float y, float width, float height, bool isOn, EBehavior Behavior);
+	void InitializePane(int32 PaneNumber, int32 CameraNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, EBehavior Behavior);
 
 	UFUNCTION(BlueprintCallable, Category = "Pane")
 	void DrawMyText(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition);

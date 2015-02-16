@@ -133,7 +133,7 @@ void AMyHUD::DrawMyText(FString & Text, FLinearColor TextColor, float x, float y
 //Blueprint function
 //Initialize a new pane
 //Will be called in level blueprint when we want to show a new pane
-void AMyHUD::InitializePane(int32 PaneNumber, int32 CameraNumber, float x, float y, float width, float height, bool isOn, EBehavior Behavior)
+void AMyHUD::InitializePane(int32 PaneNumber, int32 CameraNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, EBehavior Behavior)
 {
 	if (PaneNumber > CurrentScene->getNumberOfPane())
 	{
@@ -147,7 +147,12 @@ void AMyHUD::InitializePane(int32 PaneNumber, int32 CameraNumber, float x, float
 	CurrentScene->setHeight_atPaneNumber(PaneNumber, height);
 	CurrentScene->setIsOn_atPaneNumber(PaneNumber, isOn);
 
+
+	CurrentScene->setTexture_atPaneNumber(PaneNumber, T_MAP);
+
+	/*
 	UTexture* customeTextureMap = NULL;
+
 	switch (CameraNumber)
 	{
 	case 0:
@@ -181,7 +186,7 @@ void AMyHUD::InitializePane(int32 PaneNumber, int32 CameraNumber, float x, float
 		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture1);
 		break;
 	
-	}
+	}*/
 
 	
 	if (Behavior != None)
