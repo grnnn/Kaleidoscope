@@ -165,11 +165,11 @@ void Pane::updateOnBehavior()
 		}
 		break;
 	case FirstPane:
-		if (x_pos >= 0)
+		if (height <= 420)
 		{
 			height = Oldheight + numberOfWalk / 5;
 			width = Oldwidth + numberOfWalk/4;
-			x_pos = Oldx_pos - numberOfWalk;
+			x_pos = Oldx_pos - numberOfWalk/2;
 
 
 
