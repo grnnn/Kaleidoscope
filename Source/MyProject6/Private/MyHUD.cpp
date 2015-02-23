@@ -59,6 +59,7 @@ void AMyHUD::DrawHUD()
 	float ScreenY = 0;
 	float ScreenW = 0;
 	float ScreenH = 0;
+	float AlphaValue = 0;
 	UTexture * nTexture;
 	//UE_LOG(LogTemp, Warning, TEXT("Your message"));
 
@@ -67,7 +68,7 @@ void AMyHUD::DrawHUD()
 
 
 	if (CurrentScene != NULL && CurrentScene->getIsActive()) // check if CurrentScene is active
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 10; i++)
 		{
 			if (CurrentScene->getIsOn_atPaneNumber(i)) // only draw active pane
 			{
@@ -75,14 +76,17 @@ void AMyHUD::DrawHUD()
 				ScreenY = CurrentScene->getYpos_atPaneNumber(i);
 				ScreenW = CurrentScene->getWidth_atPaneNumber(i);
 				ScreenH = CurrentScene->getHeight_atPaneNumber(i);
+				AlphaValue = CurrentScene->getAlphaValue_atPaneNumber(i);
 				nTexture = CurrentScene->getTexture_atPaneNumber(i);
 				if (CurrentScene->getHasBahavior_atPaneNumber(i) == true)
 				{
 					CurrentScene->updateOnBehavior_atPaneNumber(i);
 				}
 
-				drawPane(nTexture, ScreenX, ScreenY, ScreenW, ScreenH);
-
+				drawPane(nTexture, ScreenX, ScreenY, ScreenW, ScreenH,AlphaValue);
+				if (AlphaValue < 255)
+					CurrentScene->setAlphaValue_atPaneNumber(i,AlphaValue+2);
+				
 				//Super::DrawText(mytext, TintColor, 0, 0, NULL, 1, false);
 			}
 		}
@@ -94,19 +98,21 @@ void AMyHUD::DrawHUD()
 //Draw a pane onto the view
 //Input: texture object to draw, X coordinate on the view, Y coordinate, width of the mini screen, height of the mini screen
 //Ouput: none
-void AMyHUD::drawPane(UTexture* Texture, float ScreenX, float ScreenY, float ScreenW, float ScreenH)
+void AMyHUD::drawPane(UTexture* Texture, float ScreenX, float ScreenY, float ScreenW, float ScreenH,int alphaValue)
 {
 	float TextureU = 0;
 	float TextureV = 0;
 	float TextureUWidth = 1;
 	float TextureVHeight = 1;
-	FLinearColor TintColor = WhiteColor;
-	EBlendMode BlendMode = BLEND_Opaque;
+	if (alphaValue > 255)
+		alphaValue = 255;
+	FLinearColor TintColor = FColor(255,255,255,alphaValue);
+	EBlendMode BlendMode = BLEND_Translucent;
 	float Scale = 1;
 	bool bScalePosition = false;
 	float Rotation = 0;
 	FVector2D RotPivot = FVector2D(0, 0);
-
+	//Canvas->SetDrawColor(255, 255, 255, 0);
 	if (IsCanvasValid_WarnIfNot() && Texture)
 	{
 		FCanvasTileItem TileItem(FVector2D(ScreenX, ScreenY), Texture->Resource, FVector2D(ScreenW, ScreenH) * Scale, FVector2D(TextureU, TextureV), FVector2D(TextureU + TextureUWidth, TextureV + TextureVHeight), TintColor);
@@ -206,7 +212,10 @@ void AMyHUD::setPaneNumberOnOff(bool isOn, int32 paneNumber)
 {
 	if (CurrentScene != NULL)
 		if (paneNumber <= CurrentScene->getNumberOfPane())
+		{
+			CurrentScene->setAlphaValue_atPaneNumber((int)paneNumber,0);
 			CurrentScene->setIsOn_atPaneNumber((int)paneNumber, isOn);
+		}
 }
 
 

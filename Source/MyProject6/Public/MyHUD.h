@@ -41,7 +41,7 @@ public:
 	virtual void DrawHUD() override;
 
 	//Draw a pane on the screen
-	void drawPane(UTexture*, float, float, float, float);
+	void drawPane(UTexture*, float, float, float, float,int);
 	//Helper function to count how many step player walk
 	void setWalkStep(int);
 

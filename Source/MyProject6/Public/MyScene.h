@@ -47,6 +47,9 @@ public:
 	int getHeight_atPaneNumber(int);
 	void setHeight_atPaneNumber(int, int);
 
+	int getAlphaValue_atPaneNumber(int);
+	void setAlphaValue_atPaneNumber(int, int);
+
 	bool getIsOn_atPaneNumber(int);
 	void setIsOn_atPaneNumber(int, bool);
 

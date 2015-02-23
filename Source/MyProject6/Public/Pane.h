@@ -15,6 +15,7 @@ class MYPROJECT6_API Pane
 	float y_pos;	// y position on the view port
 	float width;	// how big it's gonna look
 	float height;	// how big it's gonna look
+	float alphaValue;
 
 	float Oldx_pos; 
 	float Oldy_pos;
@@ -39,6 +40,9 @@ public:
 
 	float getY_pos();
 	void setY_pos(float);
+
+	float getAlphaValue();
+	void setAlphaValue(float);
 
 	bool getIsOn();
 	void setIsOn(bool);

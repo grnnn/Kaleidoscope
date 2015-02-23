@@ -9,6 +9,7 @@ Pane::Pane()
 {
 	x_pos = 0;
 	y_pos = 0;
+	alphaValue = 0;
 	numberOfWalk = 0;
 	isOn = false;
 	isStartCountingWalk = false;
@@ -48,6 +49,16 @@ void Pane::setY_pos(float nNew)
 {
 	y_pos = nNew;
 	Oldy_pos = y_pos;
+}
+
+float Pane::getAlphaValue()
+{
+	return alphaValue;
+}
+
+void Pane::setAlphaValue(float nNew)
+{
+	alphaValue = nNew;
 }
 
 bool Pane::getIsOn()

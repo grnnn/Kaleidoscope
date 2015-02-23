@@ -93,6 +93,16 @@ void UMyScene::setHeight_atPaneNumber(int panNumber, int nNew)
 	return paneCollection.at(panNumber).setHeight(nNew);
 }
 
+int UMyScene::getAlphaValue_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getAlphaValue();
+}
+
+void UMyScene::setAlphaValue_atPaneNumber(int panNumber, int nNew)
+{
+	return paneCollection.at(panNumber).setAlphaValue(nNew);
+}
+
 bool UMyScene::getIsOn_atPaneNumber(int panNumber)
 {
 	return paneCollection.at(panNumber).getIsOn();
