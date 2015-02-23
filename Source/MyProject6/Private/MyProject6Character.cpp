@@ -14,6 +14,8 @@ AMyProject6Character::AMyProject6Character(const FObjectInitializer& ObjectIniti
 
 	
 	walkStep = 0;
+
+	canNotTurn = true; 
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
@@ -68,7 +70,8 @@ void AMyProject6Character::SetupPlayerInputComponent(class UInputComponent* Inpu
 	InputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	InputComponent->BindAxis("MoveForward", this, &AMyProject6Character::MoveForward);
-	InputComponent->BindAxis("MoveRight", this, &APawn::AddControllerYawInput);
+	InputComponent->BindAxis("MoveRight", this, &AMyProject6Character::canTurn);
+	//InputComponent->BindAxis("MoveRight", this, &APawn::AddControllerYawInput);
 	//InputComponent->BindAxis("MoveRight", this, &AMyProject6Character::MoveRight);
 
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
@@ -105,6 +108,7 @@ void AMyProject6Character::TouchStopped(ETouchIndex::Type FingerIndex, FVector L
 
 void AMyProject6Character::TurnAtRate(float Rate)
 {
+	
 	// calculate delta for this frame from the rate information
 	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
 }
@@ -117,6 +121,7 @@ void AMyProject6Character::LookUpAtRate(float Rate)
 
 void AMyProject6Character::MoveForward(float Value)
 {
+
 	if ((Controller != NULL) && (Value != 0.0f))
 	{
 		// find out which way is forward
@@ -132,6 +137,9 @@ void AMyProject6Character::MoveForward(float Value)
 
 void AMyProject6Character::MoveRight(float Value)
 {
+	if (canNotTurn == true)
+		return;
+
 	if ( (Controller != NULL) && (Value != 0.0f) )
 	{
 		// find out which way is right
@@ -186,4 +194,11 @@ void AMyProject6Character::increaseWalkStep()
 	}
 }
 
-
+/** if cannotTurn boolean is true, will not do anything*/
+void AMyProject6Character::canTurn(float Rate)
+{
+	if (canNotTurn)
+		return;
+	else
+		AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
+}
