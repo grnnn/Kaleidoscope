@@ -2,6 +2,7 @@
 /DerivedDataCache
 /Intermediate
 /Saved
+Plugins\VictoryPlugin\Binaries
 *.opensdf
 *.sdf
 *.sln
