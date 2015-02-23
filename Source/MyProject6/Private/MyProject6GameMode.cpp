@@ -22,4 +22,7 @@ AMyProject6GameMode::AMyProject6GameMode(const FObjectInitializer& ObjectInitial
 	//Initialize scene
 	sceneOpenning = new UMyScene("Openning scene", 100); //openning scene with 4 panes
 	sceneOpenning->setIsActive(true);
+
+	scene2 = new UMyScene("Scene2", 100); 
+	scene2->setIsActive(true);
 }

@@ -68,11 +68,7 @@ void AMyHUD::DrawHUD()
 
 
 	if (CurrentScene != NULL && CurrentScene->getIsActive()) // check if CurrentScene is active
-<<<<<<< HEAD
-		for (int i = 0; i < 10; i++)
-=======
 		for (int i = 0; i < 100; i++)
->>>>>>> origin/master
 		{
 			if (CurrentScene->getIsOn_atPaneNumber(i)) // only draw active pane
 			{
