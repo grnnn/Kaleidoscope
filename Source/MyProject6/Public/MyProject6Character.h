@@ -70,6 +70,12 @@ protected:
 	/** Handler for when a touch input stops. */
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
+	/** Used for forbidding turning, variable can be called in blueprint*/
+	void canTurn(float);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Control)
+	bool canNotTurn;
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
@@ -86,6 +92,8 @@ public:
 
 private:
 	AMyHUD* MyHud;
+
+	
 
 };
 
