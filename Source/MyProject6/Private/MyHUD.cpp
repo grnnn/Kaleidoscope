@@ -92,7 +92,7 @@ void AMyHUD::DrawHUD()
 		}
 
 	Super::DrawText(Text, TintColor, TextX, TextY, NULL, 1, false);
-	
+	Super::DrawText(Text2, TintColor, TextX2, TextY2, NULL, 1, false);
 }
 
 //Draw a pane onto the view

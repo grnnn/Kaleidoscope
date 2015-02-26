@@ -58,14 +58,29 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Pane")
 	void DrawMyText(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition);
 
+	
+	//UFUNCTION(BlueprintCallable, Category = "Pane")
+	//void DrawMyText2(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition);
+	
+	
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Scene)
 	FString Text;
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Scene)
+	FString Text2;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Scene)
 	float TextX;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Scene)
+	float TextX2;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Scene)
 	float TextY;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Scene)
+	float TextY2;
 	
 	//Blueprint variable
 	//CurrentScene will be set in level blueprint 
