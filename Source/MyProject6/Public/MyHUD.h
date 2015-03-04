@@ -61,7 +61,8 @@ public:
 	
 	//UFUNCTION(BlueprintCallable, Category = "Pane")
 	//void DrawMyText2(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition);
-	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "HUD Propertys")
+	UFont* Font;
 	
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Scene)

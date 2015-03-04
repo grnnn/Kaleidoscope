@@ -47,6 +47,12 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	MiniTexture8 = CrosshiarTexObj8.Object;
 	
 	
+	ConstructorHelpers::FObjectFinder<UFont> FontObject(TEXT("Font'/Game/Blueprints/NewFont.NewFont'"));
+	if (FontObject.Object)
+	{
+		Font = FontObject.Object;
+	}
+	
 }
 
 //Override DrawHUD
@@ -91,8 +97,8 @@ void AMyHUD::DrawHUD()
 			}
 		}
 
-	Super::DrawText(Text, TintColor, TextX, TextY, NULL, 1, false);
-	Super::DrawText(Text2, TintColor, TextX2, TextY2, NULL, 1, false);
+	Super::DrawText(Text, TintColor, TextX, TextY, Font, 200, false);
+	Super::DrawText(Text2, TintColor, TextX2, TextY2, Font, 200, false);
 }
 
 //Draw a pane onto the view
