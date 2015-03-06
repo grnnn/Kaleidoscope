@@ -22,6 +22,8 @@ class MYPROJECT6_API Pane
 	float Oldwidth;
 	float Oldheight;
 
+	bool isMemory;
+	bool hasFadeIn; 
 	bool isOn;		// should be display or not (isTrigger?)
 	bool hasBehavior;
 	int behaviorType;
@@ -52,6 +54,12 @@ public:
 
 	float getHeight();
 	void setHeight(float);
+
+	bool getIsMemory();
+	void setIsMemory(bool);
+
+	bool getHasFadeIn();
+	void setHasFadeIn(bool);
 
 	bool getHasBehavior();
 	void setHasBehavior(bool);

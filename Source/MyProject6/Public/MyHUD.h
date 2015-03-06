@@ -53,7 +53,7 @@ public:
 	//Blueprint function
 	//Initialize a new pane
 	UFUNCTION(BlueprintCallable, Category = "Pane")
-	void InitializePane(int32 PaneNumber, int32 CameraNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, EBehavior Behavior);
+	void InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior);
 
 	UFUNCTION(BlueprintCallable, Category = "Pane")
 	void DrawMyText(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition);
@@ -96,14 +96,8 @@ public:
 private:
 
 	/** Crosshair asset pointer */
-	class UTexture* MiniTexture1;
-	class UTexture* MiniTexture2;
-	class UTexture* MiniTexture3;
-	class UTexture* MiniTexture4;
-	class UTexture* MiniTexture5;
-	class UTexture* MiniTexture6;
-	class UTexture* MiniTexture7;
-	class UTexture* MiniTexture8;
+	class UTexture* boderTexture;
+
 	
 	
 };

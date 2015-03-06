@@ -22,29 +22,9 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	
 
 	//Find the texture object in the game editor
-	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj(TEXT("/Game/Material/T_Map1"));
-	MiniTexture1 = CrosshiarTexObj.Object;
+	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj(TEXT("/Game/Material/black_border"));
+	boderTexture = CrosshiarTexObj.Object;
 
-	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj2(TEXT("/Game/Material/T_Map2"));
-	MiniTexture2 = CrosshiarTexObj2.Object;
-	
-	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj3(TEXT("/Game/Material/T_Map3"));
-	MiniTexture3 = CrosshiarTexObj3.Object;
-
-	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj4(TEXT("/Game/Material/T_Map4"));
-	MiniTexture4 = CrosshiarTexObj4.Object;
-
-	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj5(TEXT("/Game/Material/T_Map5"));
-	MiniTexture5 = CrosshiarTexObj5.Object;
-
-	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj6(TEXT("/Game/Material/T_Map6"));
-	MiniTexture6 = CrosshiarTexObj6.Object;
-
-	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj7(TEXT("/Game/Material/T_Map7"));
-	MiniTexture7 = CrosshiarTexObj7.Object;
-
-	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj8(TEXT("/Game/Material/T_Map8"));
-	MiniTexture8 = CrosshiarTexObj8.Object;
 	
 	
 	ConstructorHelpers::FObjectFinder<UFont> FontObject(TEXT("Font'/Game/Blueprints/NewFont.NewFont'"));
@@ -82,7 +62,12 @@ void AMyHUD::DrawHUD()
 				ScreenY = CurrentScene->getYpos_atPaneNumber(i);
 				ScreenW = CurrentScene->getWidth_atPaneNumber(i);
 				ScreenH = CurrentScene->getHeight_atPaneNumber(i);
-				AlphaValue = CurrentScene->getAlphaValue_atPaneNumber(i);
+				
+				if (CurrentScene->getHasFadeIn_atPaneNumber(i))
+					AlphaValue = CurrentScene->getAlphaValue_atPaneNumber(i);
+				else
+					AlphaValue = 255;
+
 				nTexture = CurrentScene->getTexture_atPaneNumber(i);
 				if (CurrentScene->getHasBahavior_atPaneNumber(i) == true)
 				{
@@ -90,6 +75,9 @@ void AMyHUD::DrawHUD()
 				}
 
 				drawPane(nTexture, ScreenX, ScreenY, ScreenW, ScreenH,AlphaValue);
+				if (CurrentScene->getIsMemory_atPaneNumber(i))
+					drawPane(boderTexture, ScreenX, ScreenY, ScreenW, ScreenH, 255);
+
 				if (AlphaValue < 255)
 					CurrentScene->setAlphaValue_atPaneNumber(i,AlphaValue+2);
 				
@@ -145,7 +133,7 @@ void AMyHUD::DrawMyText(FString & Text, FLinearColor TextColor, float x, float y
 //Blueprint function
 //Initialize a new pane
 //Will be called in level blueprint when we want to show a new pane
-void AMyHUD::InitializePane(int32 PaneNumber, int32 CameraNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, EBehavior Behavior)
+void AMyHUD::InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior)
 {
 	if (PaneNumber > CurrentScene->getNumberOfPane())
 	{
@@ -159,48 +147,12 @@ void AMyHUD::InitializePane(int32 PaneNumber, int32 CameraNumber, UTexture* T_MA
 	CurrentScene->setHeight_atPaneNumber(PaneNumber, height);
 	CurrentScene->setIsOn_atPaneNumber(PaneNumber, isOn);
 
+	CurrentScene->setIsMemory_atPaneNumber(PaneNumber, isMemory);
+	CurrentScene->setHasFadeIn_atPaneNumber(PaneNumber, hasFadeIn);
 
 	CurrentScene->setTexture_atPaneNumber(PaneNumber, T_MAP);
 
-	/*
-	UTexture* customeTextureMap = NULL;
 
-	switch (CameraNumber)
-	{
-	case 0:
-		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture1);
-		break;
-	case 1:
-		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture1);
-		break;
-	case 2:
-		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture2);
-		break;
-	case 3:
-		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture3);
-		break;
-	case 4:
-		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture4);
-		break;
-	case 5:
-		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture5);
-		break;
-	case 6:
-		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture6);
-		break;
-	case 7:
-		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture7);
-		break;
-	case 8:
-		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture8);
-		break;
-	default:
-		CurrentScene->setTexture_atPaneNumber(PaneNumber, MiniTexture1);
-		break;
-	
-	}*/
-
-	
 	if (Behavior != None)
 	{
 		CurrentScene->setHasBehavior_atPaneNumber(PaneNumber, true);

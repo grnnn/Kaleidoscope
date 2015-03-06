@@ -10,6 +10,8 @@ Pane::Pane()
 	x_pos = 0;
 	y_pos = 0;
 	alphaValue = 0;
+	hasFadeIn = false;
+	isMemory = false;
 	numberOfWalk = 0;
 	isOn = false;
 	isStartCountingWalk = false;
@@ -92,6 +94,29 @@ void Pane::setHeight(float nNew)
 	height = nNew;
 	Oldheight = height;
 }
+
+
+bool Pane::getIsMemory()
+{
+	return isMemory;
+}
+
+void Pane::setIsMemory(bool nNew)
+{
+	isMemory = nNew;
+}
+
+
+bool Pane::getHasFadeIn()
+{
+	return hasFadeIn;
+}
+
+void Pane::setHasFadeIn(bool nNew)
+{
+	hasFadeIn = nNew;
+}
+
 
 bool Pane::getHasBehavior()
 {

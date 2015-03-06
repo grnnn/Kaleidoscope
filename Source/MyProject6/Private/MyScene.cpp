@@ -103,6 +103,30 @@ void UMyScene::setAlphaValue_atPaneNumber(int panNumber, int nNew)
 	return paneCollection.at(panNumber).setAlphaValue(nNew);
 }
 
+
+bool UMyScene::getIsMemory_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getIsMemory();
+}
+
+void UMyScene::setIsMemory_atPaneNumber(int panNumber, bool nNew)
+{
+	return paneCollection.at(panNumber).setIsMemory(nNew);
+}
+
+
+bool UMyScene::getHasFadeIn_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getHasFadeIn();
+}
+
+void UMyScene::setHasFadeIn_atPaneNumber(int panNumber, bool nNew)
+{
+	return paneCollection.at(panNumber).setHasFadeIn(nNew);
+}
+
+
+
 bool UMyScene::getIsOn_atPaneNumber(int panNumber)
 {
 	return paneCollection.at(panNumber).getIsOn();

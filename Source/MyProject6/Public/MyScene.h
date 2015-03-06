@@ -50,6 +50,12 @@ public:
 	int getAlphaValue_atPaneNumber(int);
 	void setAlphaValue_atPaneNumber(int, int);
 
+	bool getIsMemory_atPaneNumber(int);
+	void setIsMemory_atPaneNumber(int, bool);
+
+	bool getHasFadeIn_atPaneNumber(int);
+	void setHasFadeIn_atPaneNumber(int, bool);
+
 	bool getIsOn_atPaneNumber(int);
 	void setIsOn_atPaneNumber(int, bool);
 
