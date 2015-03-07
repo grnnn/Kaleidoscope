@@ -179,6 +179,10 @@ void UMyScene::updateOnBehavior_atPaneNumber(int panNumber)
 {
 	paneCollection.at(panNumber).updateOnBehavior();
 }
+void UMyScene::updateViewportXY_atPaneNumber(int panNumber,float x,float y)
+{
+	paneCollection.at(panNumber).updateViewportXY(x,y);
+}
 
 
 

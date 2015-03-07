@@ -9,6 +9,13 @@ Pane::Pane()
 {
 	x_pos = 0;
 	y_pos = 0;
+
+	baseX = 1280;
+	baseY = 720;
+	viewportX = 0;
+	viewportY = 0;
+	
+
 	alphaValue = 0;
 	hasFadeIn = false;
 	isMemory = false;
@@ -163,6 +170,9 @@ void Pane::updateOnBehavior()
 	};
 	isStartCountingWalk = true;
 	//behaviorType = nBahaviorType;
+
+
+
 	switch (behaviorType)
 	{
 	case None:
@@ -201,7 +211,8 @@ void Pane::updateOnBehavior()
 		}
 		break;
 	case FirstPane:
-		if (height <= 420)
+		float limitHeight = getOffsetValue(420, viewportY, baseY);
+		if (height <= limitHeight)
 		{
 			height = Oldheight + numberOfWalk / 5;
 			width = Oldwidth + numberOfWalk/4;
@@ -219,4 +230,16 @@ void Pane::setNumberOfWalk(int nNew)
 	if (isStartCountingWalk)
 		numberOfWalk = nNew;
 
+}
+
+void Pane::updateViewportXY(float x,float y)
+{
+	viewportX = x;
+	viewportY = y;
+}
+
+float Pane::getOffsetValue(float inputValue, float startValue, float baseValue)
+{
+	float ratio = startValue / baseValue;
+	return inputValue * ratio;
 }

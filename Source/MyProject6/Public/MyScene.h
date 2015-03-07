@@ -67,6 +67,7 @@ public:
 
 	void setNumberOfWalk_atPaneNumber(int);
 	void updateOnBehavior_atPaneNumber(int);
+	void updateViewportXY_atPaneNumber(int,float, float);
 
 	UTexture* getTexture_atPaneNumber(int);
 	void setTexture_atPaneNumber(int,UTexture*);

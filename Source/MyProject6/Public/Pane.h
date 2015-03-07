@@ -22,6 +22,11 @@ class MYPROJECT6_API Pane
 	float Oldwidth;
 	float Oldheight;
 
+	float viewportX;
+	float viewportY;
+	float baseX;
+	float baseY;
+
 	bool isMemory;
 	bool hasFadeIn; 
 	bool isOn;		// should be display or not (isTrigger?)
@@ -72,6 +77,7 @@ public:
 
 	void setNumberOfWalk(int);
 	void updateOnBehavior();
-
+	void updateViewportXY(float, float);
+	float getOffsetValue(float inputValue, float startValue, float baseValue);
 	
 };

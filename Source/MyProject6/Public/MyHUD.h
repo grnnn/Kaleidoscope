@@ -45,6 +45,8 @@ public:
 	//Helper function to count how many step player walk
 	void setWalkStep(int);
 
+	float getOffsetValue(float inputValue, float startValue, float baseValue);
+
 	//Blueprint function
 	//Toggle on/off on specific pane number
 	UFUNCTION(BlueprintCallable, Category = "Pane")
@@ -98,6 +100,8 @@ private:
 	/** Crosshair asset pointer */
 	class UTexture* boderTexture;
 
-	
-	
+	float baseX;
+	float baseY;
+	FIntPoint ViewSize;
+	bool isDebug;
 };

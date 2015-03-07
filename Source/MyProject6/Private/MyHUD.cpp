@@ -18,7 +18,10 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 
 	Text = " ";
 	TextX = TextY = 0;
-	
+
+	baseX = 1280;
+	baseY = 720;
+	isDebug = false;
 	
 
 	//Find the texture object in the game editor
@@ -52,16 +55,27 @@ void AMyHUD::DrawHUD()
 	
 	FLinearColor TintColor = WhiteColor;
 
-
+	UGameViewportClient* Viewport = GetWorld()->GetGameViewport();
+	ViewSize = Viewport->Viewport->GetSizeXY();
+	if (GEngine && !isDebug)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::White, FString::Printf(TEXT("Debug Screen_Size_X = %i , Screen_Size Y = %i"), ViewSize.X, ViewSize.Y));
+		isDebug = true;
+	}
 	if (CurrentScene != NULL && CurrentScene->getIsActive()) // check if CurrentScene is active
 		for (int i = 0; i < 100; i++)
 		{
 			if (CurrentScene->getIsOn_atPaneNumber(i)) // only draw active pane
 			{
-				ScreenX = CurrentScene->getXpos_atPaneNumber(i);
-				ScreenY = CurrentScene->getYpos_atPaneNumber(i);
-				ScreenW = CurrentScene->getWidth_atPaneNumber(i);
-				ScreenH = CurrentScene->getHeight_atPaneNumber(i);
+				float x = CurrentScene->getXpos_atPaneNumber(i);
+				float y = CurrentScene->getYpos_atPaneNumber(i);
+				float w = CurrentScene->getWidth_atPaneNumber(i);
+				float h = CurrentScene->getHeight_atPaneNumber(i);
+				
+				ScreenX = getOffsetValue(x, ViewSize.X, baseX);
+				ScreenY = getOffsetValue(y, ViewSize.Y, baseY);
+				ScreenW = getOffsetValue(w, ViewSize.X, baseX);
+				ScreenH = getOffsetValue(h, ViewSize.Y, baseY);
 				
 				if (CurrentScene->getHasFadeIn_atPaneNumber(i))
 					AlphaValue = CurrentScene->getAlphaValue_atPaneNumber(i);
@@ -71,7 +85,9 @@ void AMyHUD::DrawHUD()
 				nTexture = CurrentScene->getTexture_atPaneNumber(i);
 				if (CurrentScene->getHasBahavior_atPaneNumber(i) == true)
 				{
+					CurrentScene->updateViewportXY_atPaneNumber(i,ViewSize.X,ViewSize.Y);
 					CurrentScene->updateOnBehavior_atPaneNumber(i);
+
 				}
 
 				drawPane(nTexture, ScreenX, ScreenY, ScreenW, ScreenH,AlphaValue);
@@ -187,3 +203,8 @@ void AMyHUD::setWalkStep(int w)
 		CurrentScene->setNumberOfWalk_atPaneNumber(w);
 }
 
+float AMyHUD::getOffsetValue(float inputValue,float startValue,float baseValue)
+{
+	float ratio = startValue / baseValue;
+	return inputValue * ratio;
+}
