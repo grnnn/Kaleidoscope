@@ -52,6 +52,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Pane")
 	void setPaneNumberOnOff(bool isOn, int32 paneNumber);
 
+
+	UFUNCTION(BlueprintCallable, Category = "Pane")
+	void turnOffAllPane();
+
 	//Blueprint function
 	//Initialize a new pane
 	UFUNCTION(BlueprintCallable, Category = "Pane")

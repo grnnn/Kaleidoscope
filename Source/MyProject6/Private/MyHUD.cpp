@@ -193,6 +193,13 @@ void AMyHUD::setPaneNumberOnOff(bool isOn, int32 paneNumber)
 }
 
 
+void AMyHUD::turnOffAllPane()
+{
+	if (CurrentScene != NULL && CurrentScene->getIsActive()) // check if CurrentScene is active
+		for (int i = 0; i < 100; i++)
+			CurrentScene->setIsOn_atPaneNumber(i, false);
+}
+
 //Helper function to count how many step player has walked
 //Called in MyChracter class when player moving forward/backward
 //then pass to specific pane to calculate behavior
