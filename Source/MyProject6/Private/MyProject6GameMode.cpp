@@ -25,4 +25,7 @@ AMyProject6GameMode::AMyProject6GameMode(const FObjectInitializer& ObjectInitial
 
 	scene2 = new UMyScene("Scene2", 100); 
 	scene2->setIsActive(true);
+
+	scene3 = new UMyScene("Scene3", 100);
+	scene3->setIsActive(true);
 }
