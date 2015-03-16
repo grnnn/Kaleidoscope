@@ -59,7 +59,7 @@ void AMyHUD::DrawHUD()
 	ViewSize = Viewport->Viewport->GetSizeXY();
 	if (GEngine && !isDebug)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::White, FString::Printf(TEXT("Debug Screen_Size_X = %i , Screen_Size Y = %i"), ViewSize.X, ViewSize.Y));
+		//GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::White, FString::Printf(TEXT("Debug Screen_Size_X = %i , Screen_Size Y = %i"), ViewSize.X, ViewSize.Y));
 		isDebug = true;
 	}
 	if (CurrentScene != NULL && CurrentScene->getIsActive()) // check if CurrentScene is active
