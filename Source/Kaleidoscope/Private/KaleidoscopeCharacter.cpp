@@ -14,8 +14,9 @@ AKaleidoscopeCharacter::AKaleidoscopeCharacter(const FObjectInitializer& ObjectI
 
 	
 	walkStep = 0;
+	canTurnBool = false;
+	canWalkBool = false;
 
-	canNotTurn = true; 
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
@@ -69,8 +70,8 @@ void AKaleidoscopeCharacter::SetupPlayerInputComponent(class UInputComponent* In
 	InputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	InputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
-	InputComponent->BindAxis("MoveForward", this, &AKaleidoscopeCharacter::MoveForward);
-	InputComponent->BindAxis("MoveRight", this, &AKaleidoscopeCharacter::canTurn);
+	InputComponent->BindAxis("MoveForward", this, &AKaleidoscopeCharacter::walkingControl);
+	InputComponent->BindAxis("MoveRight", this, &AKaleidoscopeCharacter::turningControl);
 	//InputComponent->BindAxis("MoveRight", this, &APawn::AddControllerYawInput);
 	//InputComponent->BindAxis("MoveRight", this, &AMyProject6Character::MoveRight);
 
@@ -119,27 +120,9 @@ void AKaleidoscopeCharacter::LookUpAtRate(float Rate)
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
 
-void AKaleidoscopeCharacter::MoveForward(float Value)
-{
-
-	if ((Controller != NULL) && (Value != 0.0f))
-	{
-		// find out which way is forward
-		const FRotator Rotation = Controller->GetControlRotation();
-		const FRotator YawRotation(0, Rotation.Yaw, 0);
-
-		// get forward vector
-		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
-		AddMovementInput(Direction, Value);
-		increaseWalkStep();
-	}
-}
-
 void AKaleidoscopeCharacter::MoveRight(float Value)
 {
-	if (canNotTurn == true)
-		return;
-
+	
 	if ( (Controller != NULL) && (Value != 0.0f) )
 	{
 		// find out which way is right
@@ -178,6 +161,39 @@ void  AMyProject6Character::TriggerNewCameraOff()
 }
 */
 
+
+
+/* ============== AKaleidoscopeCharacter::walkingControl ======================================
+If canTurn boolean is fasle, player can not walk
+Pre:  Rate: the walking speed which is set in project setting, recieveing from user input (W key)
+Post: Character walks if bool is true
+
+*/
+void AKaleidoscopeCharacter::walkingControl(float Value)
+{
+	if (!canWalkBool)
+		return;
+	else
+		this->MoveForward(Value);
+}
+
+void AKaleidoscopeCharacter::MoveForward(float Value)
+{
+
+	if ((Controller != NULL) && (Value != 0.0f))
+	{
+		// find out which way is forward
+		const FRotator Rotation = Controller->GetControlRotation();
+		const FRotator YawRotation(0, Rotation.Yaw, 0);
+
+		// get forward vector
+		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+		AddMovementInput(Direction, Value);
+		increaseWalkStep();
+	}
+}
+
+
 void AKaleidoscopeCharacter::increaseWalkStep()
 {
 	walkStep++;
@@ -194,11 +210,19 @@ void AKaleidoscopeCharacter::increaseWalkStep()
 	}
 }
 
-/** if cannotTurn boolean is true, will not do anything*/
-void AKaleidoscopeCharacter::canTurn(float Rate)
+
+/* ============== AKaleidoscopeCharacter::turningControl ======================================
+If canTurn boolean is fasle, player can not turn
+Pre:  Rate: the turning speed which is set in project setting, recieveing from user input (A/D key)
+Post: Character turns if bool is true
+
+*/
+
+void AKaleidoscopeCharacter::turningControl(float Rate)
 {
-	if (canNotTurn)
+	if (!canTurnBool)
 		return;
 	else
+		// same as TurningAtRate function
 		AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
 }

@@ -70,11 +70,15 @@ protected:
 	/** Handler for when a touch input stops. */
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
-	/** Used for forbidding turning, variable can be called in blueprint*/
-	void canTurn(float);
+	/** Used to decide player can turn or not, variable can be called in blueprint*/
+	void turningControl(float);
+	void walkingControl(float);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Control)
-	bool canNotTurn;
+	bool canTurnBool;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Control)
+	bool canWalkBool;
 
 protected:
 	// APawn interface
