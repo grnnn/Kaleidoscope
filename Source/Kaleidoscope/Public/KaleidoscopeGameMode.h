@@ -20,6 +20,15 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
 	UMyScene* scene3;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
+	UMyScene* scene4;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
+	UMyScene* scene5;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
+	UMyScene* scene6;
 };
 
 
