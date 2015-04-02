@@ -16,6 +16,7 @@ AKaleidoscopeCharacter::AKaleidoscopeCharacter(const FObjectInitializer& ObjectI
 	walkStep = 0;
 	canTurnBool = false;
 	canWalkBool = false;
+	
 
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -173,13 +174,13 @@ void AKaleidoscopeCharacter::walkingControl(float Value)
 {
 	if (!canWalkBool)
 		return;
-	else
-		this->MoveForward(Value);
+	
+	this->MoveForward(Value);
 }
 
 void AKaleidoscopeCharacter::MoveForward(float Value)
 {
-
+	
 	if ((Controller != NULL) && (Value != 0.0f))
 	{
 		// find out which way is forward
@@ -188,6 +189,7 @@ void AKaleidoscopeCharacter::MoveForward(float Value)
 
 		// get forward vector
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+		
 		AddMovementInput(Direction, Value);
 		increaseWalkStep();
 	}

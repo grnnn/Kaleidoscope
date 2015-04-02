@@ -80,6 +80,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Control)
 	bool canWalkBool;
 
+	
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
