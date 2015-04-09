@@ -25,7 +25,7 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	
 
 	//Find the texture object in the game editor
-	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj(TEXT("/Game/Material/black_border"));
+	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj(TEXT("/Game/Material/overlay2"));
 	boderTexture = CrosshiarTexObj.Object;
 
 	
