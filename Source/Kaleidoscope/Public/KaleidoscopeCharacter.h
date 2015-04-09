@@ -80,6 +80,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Control)
 	bool canWalkBool;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Control)
+	bool regularSpeedBool;
+
 	
 
 protected:
