@@ -65,24 +65,30 @@ void AMyHUD::DrawHUD()
 	if (CurrentScene != NULL && CurrentScene->getIsActive()) // check if CurrentScene is active
 		for (int i = 0; i < 100; i++)
 		{
-			if (CurrentScene->getIsOn_atPaneNumber(i)) // only draw active pane
+			//Only draw isOn pane
+			if (CurrentScene->getIsOn_atPaneNumber(i)) 
 			{
 				float x = CurrentScene->getXpos_atPaneNumber(i);
 				float y = CurrentScene->getYpos_atPaneNumber(i);
 				float w = CurrentScene->getWidth_atPaneNumber(i);
 				float h = CurrentScene->getHeight_atPaneNumber(i);
 				
+				//convert to screen size
 				ScreenX = getOffsetValue(x, ViewSize.X, baseX);
 				ScreenY = getOffsetValue(y, ViewSize.Y, baseY);
 				ScreenW = getOffsetValue(w, ViewSize.X, baseX);
 				ScreenH = getOffsetValue(h, ViewSize.Y, baseY);
 				
+				//Get alpha for fade in effect
 				if (CurrentScene->getHasFadeIn_atPaneNumber(i))
 					AlphaValue = CurrentScene->getAlphaValue_atPaneNumber(i);
 				else
 					AlphaValue = 255;
 
+				//Get texture
 				nTexture = CurrentScene->getTexture_atPaneNumber(i);
+				
+				//Get behavior
 				if (CurrentScene->getHasBahavior_atPaneNumber(i) == true)
 				{
 					CurrentScene->updateViewportXY_atPaneNumber(i,ViewSize.X,ViewSize.Y);
@@ -91,11 +97,28 @@ void AMyHUD::DrawHUD()
 				}
 
 				drawPane(nTexture, ScreenX, ScreenY, ScreenW, ScreenH,AlphaValue);
+				
+				//If memory pane, draw an overlay border
 				if (CurrentScene->getIsMemory_atPaneNumber(i))
 					drawPane(boderTexture, ScreenX, ScreenY, ScreenW, ScreenH, 255);
 
-				if (AlphaValue < 255)
-					CurrentScene->setAlphaValue_atPaneNumber(i,AlphaValue+2);
+				if (CurrentScene->getFadeOut_atPaneNumber(i))
+				{
+					CurrentScene->setAlphaValue_atPaneNumber(i, AlphaValue - 2);
+					if (AlphaValue < 1)
+					{
+						CurrentScene->setIsOn_atPaneNumber(i, false);
+						CurrentScene->setFadeOut_atPaneNumber(i, false);
+						CurrentScene->setAlphaValue_atPaneNumber(i, 255);
+					}
+						
+				}
+				else
+				{
+					//Increase alpha value overtime
+					if (AlphaValue < 255)
+						CurrentScene->setAlphaValue_atPaneNumber(i, AlphaValue + 2);
+				}
 				
 				//Super::DrawText(mytext, TintColor, 0, 0, NULL, 1, false);
 			}
@@ -149,14 +172,13 @@ void AMyHUD::DrawMyText(FString & Text, FLinearColor TextColor, float x, float y
 //Blueprint function
 //Initialize a new pane
 //Will be called in level blueprint when we want to show a new pane
-void AMyHUD::InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior)
+void AMyHUD::InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior,float x_dest, float y_dest)
 {
 	if (PaneNumber > CurrentScene->getNumberOfPane())
 	{
 		//Pane number is Out of range
 		return;
 	}
-	
 	CurrentScene->setXpost_atPaneNumber(PaneNumber, x);
 	CurrentScene->setYpost_atPaneNumber(PaneNumber, y);
 	CurrentScene->setWidth_atPaneNumber(PaneNumber, width);
@@ -172,7 +194,7 @@ void AMyHUD::InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y,
 	if (Behavior != None)
 	{
 		CurrentScene->setHasBehavior_atPaneNumber(PaneNumber, true);
-		CurrentScene->setBehaviorType_atPaneNumber(PaneNumber, Behavior);
+		CurrentScene->setBehaviorType_atPaneNumber(PaneNumber, Behavior,x_dest,y_dest);
 	}
 
 	return;
@@ -187,8 +209,15 @@ void AMyHUD::setPaneNumberOnOff(bool isOn, int32 paneNumber)
 	if (CurrentScene != NULL)
 		if (paneNumber <= CurrentScene->getNumberOfPane())
 		{
-			CurrentScene->setAlphaValue_atPaneNumber((int)paneNumber,0);
-			CurrentScene->setIsOn_atPaneNumber((int)paneNumber, isOn);
+
+			if (CurrentScene->getHasFadeIn_atPaneNumber((int)paneNumber))
+				CurrentScene->setFadeOut_atPaneNumber((int)paneNumber, true);
+			else
+				CurrentScene->setIsOn_atPaneNumber((int)paneNumber, false);
+
+			//CurrentScene->setAlphaValue_atPaneNumber((int)paneNumber,0);
+			//CurrentScene->setFadeOut_atPaneNumber((int)paneNumber, true);
+			//CurrentScene->setIsOn_atPaneNumber((int)paneNumber, isOn);
 		}
 }
 
@@ -197,7 +226,13 @@ void AMyHUD::turnOffAllPane()
 {
 	if (CurrentScene != NULL && CurrentScene->getIsActive()) // check if CurrentScene is active
 		for (int i = 0; i < 100; i++)
-			CurrentScene->setIsOn_atPaneNumber(i, false);
+			if (CurrentScene->getIsOn_atPaneNumber(i))
+			{
+				if (CurrentScene->getHasFadeIn_atPaneNumber(i))
+					CurrentScene->setFadeOut_atPaneNumber(i, true);
+				else
+					CurrentScene->setIsOn_atPaneNumber(i, false);
+			}
 }
 
 //Helper function to count how many step player has walked

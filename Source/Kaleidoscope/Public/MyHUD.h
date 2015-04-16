@@ -17,12 +17,7 @@ UENUM(BlueprintType, Category = "Behavior")
 enum EBehavior
 {
 	None,
-	MoveRight,
-	MoveLeft,
-	MoveUp,
-	MoveDown,
-	Bigger,
-	Smaller,
+	Custom,
 	FirstPane
 };
 /**
@@ -59,7 +54,7 @@ public:
 	//Blueprint function
 	//Initialize a new pane
 	UFUNCTION(BlueprintCallable, Category = "Pane")
-	void InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior);
+		void InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior,float x_dest, float y_dest);
 
 	UFUNCTION(BlueprintCallable, Category = "Pane")
 	void DrawMyText(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition);

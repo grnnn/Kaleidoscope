@@ -126,6 +126,16 @@ void UMyScene::setHasFadeIn_atPaneNumber(int panNumber, bool nNew)
 }
 
 
+bool UMyScene::getFadeOut_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getFadeOut();
+}
+
+void UMyScene::setFadeOut_atPaneNumber(int panNumber, bool nNew)
+{
+	return paneCollection.at(panNumber).setFadeOut(nNew);
+}
+
 
 bool UMyScene::getIsOn_atPaneNumber(int panNumber)
 {
@@ -152,9 +162,9 @@ int UMyScene::getBahaviorType_atPaneNumber(int panNumber)
 	return paneCollection.at(panNumber).getBehaviorType();
 }
 
-void UMyScene::setBehaviorType_atPaneNumber(int panNumber, int nNew)
+void UMyScene::setBehaviorType_atPaneNumber(int panNumber, int nNew, float x_dest,float y_dest)
 {
-	return paneCollection.at(panNumber).setBehaviorType(nNew);
+	return paneCollection.at(panNumber).setBehaviorType(nNew,x_dest,y_dest);
 }
 
 UTexture* UMyScene::getTexture_atPaneNumber(int panNumber)

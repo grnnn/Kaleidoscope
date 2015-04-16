@@ -21,6 +21,7 @@ Pane::Pane()
 	isMemory = false;
 	numberOfWalk = 0;
 	isOn = false;
+	fadeOut = false;
 	isStartCountingWalk = false;
 }
 
@@ -124,6 +125,16 @@ void Pane::setHasFadeIn(bool nNew)
 	hasFadeIn = nNew;
 }
 
+bool Pane::getFadeOut()
+{
+	return fadeOut;
+}
+
+void Pane::setFadeOut(bool nNew)
+{
+	fadeOut = nNew;
+}
+
 
 bool Pane::getHasBehavior()
 {
@@ -140,9 +151,11 @@ int Pane::getBehaviorType()
 	return behaviorType;
 }
 
-void Pane::setBehaviorType(int nNew)
+void Pane::setBehaviorType(int nNew,float x_new,float y_new)
 {
 	behaviorType = nNew;
+	x_dest = x_new;
+	y_dest = y_new;
 }
 
 UTexture* Pane::getMyTexture()
@@ -160,12 +173,7 @@ void Pane::updateOnBehavior()
 	enum local
 	{
 		None,
-		MoveRight,
-		MoveLeft,
-		MoveUp,
-		MoveDown,
-		Bigger,
-		Smaller,
+		Custom,
 		FirstPane
 	};
 	isStartCountingWalk = true;
@@ -178,38 +186,20 @@ void Pane::updateOnBehavior()
 	case None:
 		isStartCountingWalk = false;
 		break;
-	case MoveRight:
-		if (x_pos < Oldx_pos + 20)
+	case Custom:
+		if (x_pos < x_dest)
 			x_pos++;
-		break;
-	case MoveLeft:
-		if (x_pos > 0)
+		else if (x_pos > x_dest)
 			x_pos--;
-		break;
-	case MoveUp:
-		if (y_pos > 0)
+
+		if (y_pos < y_dest)
+			y_pos++;
+		else if (y_pos > y_dest)
 			y_pos--;
+		
+		
 		break;
-	case MoveDown:
-		if (y_pos < Oldy_pos + 20)
-			x_pos++;
-		break;
-	case Bigger:
-		if (height < Oldheight*4/3)
-		{
-			y_pos = Oldy_pos - numberOfWalk;
-			width = Oldwidth + numberOfWalk;
-			height = Oldheight + numberOfWalk;
-		}
-		break;
-	case Smaller:
-		if (height > Oldheight * 3 / 4)
-		{
-			y_pos = Oldy_pos + numberOfWalk;
-			width = Oldwidth - numberOfWalk;
-			height = Oldheight - numberOfWalk;
-		}
-		break;
+	
 	case FirstPane:
 		float limitHeight = getOffsetValue(420, viewportY, baseY);
 		if (height <= limitHeight)

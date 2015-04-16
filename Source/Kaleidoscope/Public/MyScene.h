@@ -56,6 +56,9 @@ public:
 	bool getHasFadeIn_atPaneNumber(int);
 	void setHasFadeIn_atPaneNumber(int, bool);
 
+	bool getFadeOut_atPaneNumber(int);
+	void setFadeOut_atPaneNumber(int, bool);
+
 	bool getIsOn_atPaneNumber(int);
 	void setIsOn_atPaneNumber(int, bool);
 
@@ -63,7 +66,7 @@ public:
 	void setHasBehavior_atPaneNumber(int, bool);
 
 	int getBahaviorType_atPaneNumber(int);
-	void setBehaviorType_atPaneNumber(int, int);
+	void setBehaviorType_atPaneNumber(int, int,float,float);
 
 	void setNumberOfWalk_atPaneNumber(int);
 	void updateOnBehavior_atPaneNumber(int);

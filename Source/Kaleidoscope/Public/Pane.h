@@ -17,6 +17,9 @@ class KALEIDOSCOPE_API Pane
 	float height;	// how big it's gonna look
 	float alphaValue;
 
+	float x_dest;
+	float y_dest;
+
 	float Oldx_pos; 
 	float Oldy_pos;
 	float Oldwidth;
@@ -29,7 +32,9 @@ class KALEIDOSCOPE_API Pane
 
 	bool isMemory;
 	bool hasFadeIn; 
+	//bool hasFadeOut;
 	bool isOn;		// should be display or not (isTrigger?)
+	bool fadeOut;
 	bool hasBehavior;
 	int behaviorType;
 	bool isStartCountingWalk;
@@ -66,11 +71,14 @@ public:
 	bool getHasFadeIn();
 	void setHasFadeIn(bool);
 
+	bool getFadeOut();
+	void setFadeOut(bool);
+
 	bool getHasBehavior();
 	void setHasBehavior(bool);
 
 	int getBehaviorType();
-	void setBehaviorType(int);
+	void setBehaviorType(int,float,float);
 
 	UTexture* getMyTexture();
 	void setMyTexture(UTexture*);
