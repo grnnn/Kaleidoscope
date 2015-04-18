@@ -205,9 +205,9 @@ void Pane::updateOnBehavior()
 		limitHeight = getOffsetValue(420, viewportY, baseY);
 		if (height <= limitHeight)
 		{
-			height = Oldheight + numberOfWalk / 5;
-			width = Oldwidth + numberOfWalk/4;
-			x_pos = Oldx_pos - numberOfWalk/2;
+			height = Oldheight + numberOfWalk/1.2 ;
+			width = Oldwidth + numberOfWalk;
+			x_pos = Oldx_pos - numberOfWalk*1.5;// 2;
 
 
 
