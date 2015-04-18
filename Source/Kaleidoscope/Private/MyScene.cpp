@@ -157,6 +157,38 @@ void UMyScene::setHasBehavior_atPaneNumber(int panNumber, bool nNew)
 	return paneCollection.at(panNumber).setHasBehavior(nNew);
 }
 
+
+bool UMyScene::getIsSpecial_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getIsSpecial();
+}
+
+void UMyScene::setIsSpecial_atPaneNumber(int panNumber, bool nNew)
+{
+	return paneCollection.at(panNumber).setIsSpecial(nNew);
+}
+
+
+bool UMyScene::getIsUpper_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getIsUpper();
+}
+
+void UMyScene::setIsUpper_atPaneNumber(int panNumber, bool nNew)
+{
+	return paneCollection.at(panNumber).setIsUpper(nNew);
+}
+
+bool UMyScene::getIsLower_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getIsLower();
+}
+
+void UMyScene::setIsLower_atPaneNumber(int panNumber, bool nNew)
+{
+	return paneCollection.at(panNumber).setIsLower(nNew);
+}
+
 int UMyScene::getBahaviorType_atPaneNumber(int panNumber)
 {
 	return paneCollection.at(panNumber).getBehaviorType();

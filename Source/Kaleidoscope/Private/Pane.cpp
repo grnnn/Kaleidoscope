@@ -15,7 +15,9 @@ Pane::Pane()
 	viewportX = 0;
 	viewportY = 0;
 	
-
+	isSpecial = false;
+	isUpper = false;
+	isLower = false;
 	alphaValue = 0;
 	hasFadeIn = false;
 	isMemory = false;
@@ -145,6 +147,39 @@ void Pane::setHasBehavior(bool nNew)
 {
 	hasBehavior = nNew;
 }
+
+
+bool Pane::getIsSpecial()
+{
+	return isSpecial;
+}
+
+void Pane::setIsSpecial(bool nNew)
+{
+	isSpecial = nNew;
+}
+
+bool Pane::getIsUpper()
+{
+	return isUpper;
+}
+
+void Pane::setIsUpper(bool nNew)
+{
+	isUpper = nNew;
+}
+
+
+bool Pane::getIsLower()
+{
+	return isLower;
+}
+
+void Pane::setIsLower(bool nNew)
+{
+	isLower = nNew;
+}
+
 
 int Pane::getBehaviorType()
 {

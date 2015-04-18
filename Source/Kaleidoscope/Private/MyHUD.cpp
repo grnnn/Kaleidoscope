@@ -96,11 +96,19 @@ void AMyHUD::DrawHUD()
 
 				}
 
-				drawPane(nTexture, ScreenX, ScreenY, ScreenW, ScreenH,AlphaValue);
+				if (CurrentScene->getIsSpecial_atPaneNumber(i))
+				{
+					if (CurrentScene->getIsUpper_atPaneNumber(i))
+						drawPane(nTexture, ScreenX, ScreenY, ScreenW, ScreenH, AlphaValue, true, true);
+					else
+						drawPane(nTexture, ScreenX, ScreenY, ScreenW, ScreenH, AlphaValue, true, false);
+				}
+				else
+					drawPane(nTexture, ScreenX, ScreenY, ScreenW, ScreenH, AlphaValue, false,false);
 				
 				//If memory pane, draw an overlay border
 				if (CurrentScene->getIsMemory_atPaneNumber(i))
-					drawPane(boderTexture, ScreenX, ScreenY, ScreenW, ScreenH, 255);
+					drawPane(boderTexture, ScreenX, ScreenY, ScreenW, ScreenH, 255,false,false);
 
 				if (CurrentScene->getFadeOut_atPaneNumber(i))
 				{
@@ -131,12 +139,32 @@ void AMyHUD::DrawHUD()
 //Draw a pane onto the view
 //Input: texture object to draw, X coordinate on the view, Y coordinate, width of the mini screen, height of the mini screen
 //Ouput: none
-void AMyHUD::drawPane(UTexture* Texture, float ScreenX, float ScreenY, float ScreenW, float ScreenH,int alphaValue)
+void AMyHUD::drawPane(UTexture* Texture, float ScreenX, float ScreenY, float ScreenW, float ScreenH,int alphaValue,bool isSpecial,bool isUpper)
 {
 	float TextureU = 0;
 	float TextureV = 0;
 	float TextureUWidth = 1;
 	float TextureVHeight = 1;
+	
+	if (isSpecial)
+	{
+		if (isUpper)
+		{
+			TextureU = 0;
+			TextureV = 0.5f;
+			TextureUWidth = 1;
+			TextureVHeight = .5f;
+		}
+		else
+		{
+			TextureU = 0;
+			TextureV = 0;
+			TextureUWidth = 1.0f;
+			TextureVHeight = 0.5f;
+		}
+	}
+	
+	
 	if (alphaValue > 255)
 		alphaValue = 255;
 	FLinearColor TintColor = FColor(255,255,255,alphaValue);
@@ -199,6 +227,39 @@ void AMyHUD::InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y,
 
 	return;
 	
+}
+
+
+void AMyHUD::InitializeSpecialPane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior, float x_dest, float y_dest, bool isUpper, bool isLower)
+{
+	if (PaneNumber > CurrentScene->getNumberOfPane())
+	{
+		//Pane number is Out of range
+		return;
+	}
+	CurrentScene->setIsSpecial_atPaneNumber(PaneNumber, true);
+	CurrentScene->setIsUpper_atPaneNumber(PaneNumber, isUpper);
+	CurrentScene->setIsLower_atPaneNumber(PaneNumber, isLower);
+
+	CurrentScene->setXpost_atPaneNumber(PaneNumber, x);
+	CurrentScene->setYpost_atPaneNumber(PaneNumber, y);
+	CurrentScene->setWidth_atPaneNumber(PaneNumber, width);
+	CurrentScene->setHeight_atPaneNumber(PaneNumber, height);
+	CurrentScene->setIsOn_atPaneNumber(PaneNumber, isOn);
+
+	CurrentScene->setIsMemory_atPaneNumber(PaneNumber, isMemory);
+	CurrentScene->setHasFadeIn_atPaneNumber(PaneNumber, hasFadeIn);
+
+	CurrentScene->setTexture_atPaneNumber(PaneNumber, T_MAP);
+
+
+	if (Behavior != None)
+	{
+		CurrentScene->setHasBehavior_atPaneNumber(PaneNumber, true);
+		CurrentScene->setBehaviorType_atPaneNumber(PaneNumber, Behavior, x_dest, y_dest);
+	}
+
+	return;
 }
 
 //Blueprint function

@@ -37,7 +37,7 @@ public:
 	virtual void DrawHUD() override;
 
 	//Draw a pane on the screen
-	void drawPane(UTexture*, float, float, float, float,int);
+	void drawPane(UTexture*, float, float, float, float,int,bool,bool);
 	//Helper function to count how many step player walk
 	void setWalkStep(int);
 
@@ -55,7 +55,11 @@ public:
 	//Blueprint function
 	//Initialize a new pane
 	UFUNCTION(BlueprintCallable, Category = "Pane")
-		void InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior,float x_dest, float y_dest);
+	void InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior,float x_dest, float y_dest);
+
+	UFUNCTION(BlueprintCallable, Category = "Pane")
+	void InitializeSpecialPane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior, float x_dest, float y_dest,bool isUpper,bool isLower);
+
 
 	UFUNCTION(BlueprintCallable, Category = "Pane")
 	void DrawMyText(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition);

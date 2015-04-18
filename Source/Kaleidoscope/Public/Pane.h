@@ -30,6 +30,10 @@ class KALEIDOSCOPE_API Pane
 	float baseX;
 	float baseY;
 
+	bool isSpecial;
+	bool isUpper;
+	bool isLower;
+
 	bool isMemory;
 	bool hasFadeIn; 
 	//bool hasFadeOut;
@@ -79,6 +83,17 @@ public:
 
 	int getBehaviorType();
 	void setBehaviorType(int,float,float);
+
+
+	bool getIsSpecial();
+	void setIsSpecial(bool);
+
+	bool getIsUpper();
+	void setIsUpper(bool);
+
+	bool getIsLower();
+	void setIsLower(bool);
+
 
 	UTexture* getMyTexture();
 	void setMyTexture(UTexture*);

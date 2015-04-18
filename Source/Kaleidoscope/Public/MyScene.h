@@ -65,6 +65,17 @@ public:
 	bool getHasBahavior_atPaneNumber(int);
 	void setHasBehavior_atPaneNumber(int, bool);
 
+	bool getIsSpecial_atPaneNumber(int);
+	void setIsSpecial_atPaneNumber(int, bool);
+
+	bool getIsUpper_atPaneNumber(int);
+	void setIsUpper_atPaneNumber(int, bool);
+
+	bool getIsLower_atPaneNumber(int);
+	void setIsLower_atPaneNumber(int, bool);
+
+
+
 	int getBahaviorType_atPaneNumber(int);
 	void setBehaviorType_atPaneNumber(int, int,float,float);
 
