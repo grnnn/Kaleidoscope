@@ -174,12 +174,13 @@ void Pane::updateOnBehavior()
 	{
 		None,
 		Custom,
-		FirstPane
+		FirstPane,
+		LastPane
 	};
 	isStartCountingWalk = true;
 	//behaviorType = nBahaviorType;
-
-
+	
+	float limitHeight;
 
 	switch (behaviorType)
 	{
@@ -201,13 +202,25 @@ void Pane::updateOnBehavior()
 		break;
 	
 	case FirstPane:
-		float limitHeight = getOffsetValue(420, viewportY, baseY);
+		limitHeight = getOffsetValue(420, viewportY, baseY);
 		if (height <= limitHeight)
 		{
 			height = Oldheight + numberOfWalk / 5;
 			width = Oldwidth + numberOfWalk/4;
 			x_pos = Oldx_pos - numberOfWalk/2;
 
+
+
+		}
+		break;
+	case LastPane:
+		limitHeight = getOffsetValue(100, viewportY, baseY);
+		if (height >= limitHeight)
+		{
+			height = Oldheight - numberOfWalk / 5;
+			width = Oldwidth - numberOfWalk / 4;
+			x_pos = Oldx_pos - numberOfWalk / 2;
+			y_pos = Oldy_pos + numberOfWalk / 4;
 
 
 		}
