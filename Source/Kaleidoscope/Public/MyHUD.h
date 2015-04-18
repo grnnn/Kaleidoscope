@@ -18,7 +18,8 @@ enum EBehavior
 {
 	None,
 	Custom,
-	FirstPane
+	FirstPane,
+	LastPane
 };
 /**
  * 
