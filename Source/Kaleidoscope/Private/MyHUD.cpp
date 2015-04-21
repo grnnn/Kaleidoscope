@@ -112,7 +112,8 @@ void AMyHUD::DrawHUD()
 
 				if (CurrentScene->getFadeOut_atPaneNumber(i))
 				{
-					CurrentScene->setAlphaValue_atPaneNumber(i, AlphaValue - 2);
+					float fadeOutSpeed = CurrentScene->getFadeOutSpeed_atPaneNumber(i);
+					CurrentScene->setAlphaValue_atPaneNumber(i, AlphaValue - fadeOutSpeed);
 					if (AlphaValue < 1)
 					{
 						CurrentScene->setIsOn_atPaneNumber(i, false);
@@ -125,7 +126,10 @@ void AMyHUD::DrawHUD()
 				{
 					//Increase alpha value overtime
 					if (AlphaValue < 255)
-						CurrentScene->setAlphaValue_atPaneNumber(i, AlphaValue + 2);
+					{
+						float fadeInSpeed = CurrentScene->getFadeInSpeed_atPaneNumber(i);
+						CurrentScene->setAlphaValue_atPaneNumber(i, AlphaValue + fadeInSpeed);
+					}
 				}
 				
 				//Super::DrawText(mytext, TintColor, 0, 0, NULL, 1, false);
@@ -200,7 +204,7 @@ void AMyHUD::DrawMyText(FString & Text, FLinearColor TextColor, float x, float y
 //Blueprint function
 //Initialize a new pane
 //Will be called in level blueprint when we want to show a new pane
-void AMyHUD::InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior,float x_dest, float y_dest)
+void AMyHUD::InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, float fadeInSpeed, float fadeOutSpeed, EBehavior Behavior, float x_dest, float y_dest, float speed)
 {
 	if (PaneNumber > CurrentScene->getNumberOfPane())
 	{
@@ -218,6 +222,9 @@ void AMyHUD::InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y,
 
 	CurrentScene->setTexture_atPaneNumber(PaneNumber, T_MAP);
 
+	CurrentScene->setFadeInSpeed_atPaneNumber(PaneNumber, fadeInSpeed);
+	CurrentScene->setFadeOutSpeed_atPaneNumber(PaneNumber, fadeOutSpeed);
+	CurrentScene->setSpeed_atPaneNumber(PaneNumber, speed);
 
 	if (Behavior != None)
 	{

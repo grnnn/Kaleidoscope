@@ -126,6 +126,41 @@ void UMyScene::setHasFadeIn_atPaneNumber(int panNumber, bool nNew)
 }
 
 
+float UMyScene::getFadeInSpeed_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getFadeInSpeed();
+}
+
+void UMyScene::setFadeInSpeed_atPaneNumber(int panNumber, float nNew)
+{
+	return paneCollection.at(panNumber).setFadeInSpeed(nNew);
+}
+
+
+float UMyScene::getFadeOutSpeed_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getFadeOutSpeed();
+}
+
+void UMyScene::setFadeOutSpeed_atPaneNumber(int panNumber, float nNew)
+{
+	return paneCollection.at(panNumber).setFadeOutSpeed(nNew);
+}
+
+
+
+float UMyScene::getSpeed_atPaneNumber(int panNumber)
+{
+	return paneCollection.at(panNumber).getSpeed();
+}
+
+void UMyScene::setSpeed_atPaneNumber(int panNumber, float nNew)
+{
+	return paneCollection.at(panNumber).setSpeed(nNew);
+}
+
+
+
 bool UMyScene::getFadeOut_atPaneNumber(int panNumber)
 {
 	return paneCollection.at(panNumber).getFadeOut();

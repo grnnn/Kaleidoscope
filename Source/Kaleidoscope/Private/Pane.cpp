@@ -14,7 +14,8 @@ Pane::Pane()
 	baseY = 720;
 	viewportX = 0;
 	viewportY = 0;
-	
+	speed = 0;
+
 	isSpecial = false;
 	isUpper = false;
 	isLower = false;
@@ -137,6 +138,37 @@ void Pane::setFadeOut(bool nNew)
 	fadeOut = nNew;
 }
 
+float Pane::getFadeInSpeed()
+{
+	return fadeInSpeed;
+}
+
+void Pane::setFadeInSpeed(float nNew)
+{
+	fadeInSpeed = nNew;
+}
+
+
+float Pane::getFadeOutSpeed()
+{
+	return fadeOutSpeed;
+}
+
+void Pane::setFadeOutSpeed(float nNew)
+{
+	fadeOutSpeed = nNew;
+}
+
+
+float Pane::getSpeed()
+{
+	return speed;
+}
+
+void Pane::setSpeed(float nNew)
+{
+	speed = nNew;
+}
 
 bool Pane::getHasBehavior()
 {
@@ -224,14 +256,14 @@ void Pane::updateOnBehavior()
 		break;
 	case Custom:
 		if (x_pos < x_dest)
-			x_pos++;
+			x_pos += speed;
 		else if (x_pos > x_dest)
-			x_pos--;
+			x_pos -= speed;
 
 		if (y_pos < y_dest)
-			y_pos++;
+			y_pos += speed;
 		else if (y_pos > y_dest)
-			y_pos--;
+			y_pos -= speed;
 		
 		
 		break;

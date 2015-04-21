@@ -55,7 +55,7 @@ public:
 	//Blueprint function
 	//Initialize a new pane
 	UFUNCTION(BlueprintCallable, Category = "Pane")
-	void InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior,float x_dest, float y_dest);
+		void InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, float fadeInSpeed, float fadeOutSpeed, EBehavior Behavior, float x_dest, float y_dest, float speed);
 
 	UFUNCTION(BlueprintCallable, Category = "Pane")
 	void InitializeSpecialPane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior, float x_dest, float y_dest,bool isUpper,bool isLower);

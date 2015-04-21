@@ -62,6 +62,16 @@ public:
 	bool getIsOn_atPaneNumber(int);
 	void setIsOn_atPaneNumber(int, bool);
 
+	float getFadeInSpeed_atPaneNumber(int);
+	void setFadeInSpeed_atPaneNumber(int, float);
+
+	float getFadeOutSpeed_atPaneNumber(int);
+	void setFadeOutSpeed_atPaneNumber(int, float);
+
+
+	float getSpeed_atPaneNumber(int);
+	void setSpeed_atPaneNumber(int, float);
+
 	bool getHasBahavior_atPaneNumber(int);
 	void setHasBehavior_atPaneNumber(int, bool);
 

@@ -30,6 +30,10 @@ class KALEIDOSCOPE_API Pane
 	float baseX;
 	float baseY;
 
+	float fadeInSpeed;
+	float fadeOutSpeed;
+	float speed;
+
 	bool isSpecial;
 	bool isUpper;
 	bool isLower;
@@ -77,6 +81,15 @@ public:
 
 	bool getFadeOut();
 	void setFadeOut(bool);
+
+	float getFadeInSpeed();
+	void setFadeInSpeed(float);
+
+	float getFadeOutSpeed();
+	void setFadeOutSpeed(float);
+
+	float getSpeed();
+	void setSpeed(float);
 
 	bool getHasBehavior();
 	void setHasBehavior(bool);
