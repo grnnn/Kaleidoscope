@@ -258,7 +258,9 @@ void AMyHUD::InitializeSpecialPane(int32 PaneNumber, UTexture* T_MAP, float x, f
 	CurrentScene->setHasFadeIn_atPaneNumber(PaneNumber, hasFadeIn);
 
 	CurrentScene->setTexture_atPaneNumber(PaneNumber, T_MAP);
-
+	CurrentScene->setFadeInSpeed_atPaneNumber(PaneNumber, 2);
+	CurrentScene->setFadeOutSpeed_atPaneNumber(PaneNumber, 2);
+	CurrentScene->setSpeed_atPaneNumber(PaneNumber, 1);
 
 	if (Behavior != None)
 	{
