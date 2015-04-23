@@ -204,13 +204,23 @@ void AMyHUD::DrawMyText(FString & Text, FLinearColor TextColor, float x, float y
 //Blueprint function
 //Initialize a new pane
 //Will be called in level blueprint when we want to show a new pane
-void AMyHUD::InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, float fadeInSpeed, float fadeOutSpeed, EBehavior Behavior, float x_dest, float y_dest, float speed)
+void AMyHUD::InitializePane(int32 PaneNumber, AActor* Camera, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, float fadeInSpeed, float fadeOutSpeed, EBehavior Behavior, float x_dest, float y_dest, float speed)
 {
 	if (PaneNumber > CurrentScene->getNumberOfPane())
 	{
 		//Pane number is Out of range
 		return;
 	}
+	//USceneCaptureComponent2D = 
+
+	USceneComponent *myscene = (USceneComponent*)Camera->GetRootComponent()->GetChildComponent(3);
+	USceneCaptureComponent2D *mycapture = (USceneCaptureComponent2D*)myscene;
+	mycapture->bCaptureEveryFrame = true;
+	UTexture* T_MAP = (UTexture*)mycapture->TextureTarget;
+	//T_MAP->
+
+	CurrentScene->setmycapture_atPaneNumber(PaneNumber, mycapture);
+
 	CurrentScene->setXpost_atPaneNumber(PaneNumber, x);
 	CurrentScene->setYpost_atPaneNumber(PaneNumber, y);
 	CurrentScene->setWidth_atPaneNumber(PaneNumber, width);
@@ -276,6 +286,8 @@ void AMyHUD::InitializeSpecialPane(int32 PaneNumber, UTexture* T_MAP, float x, f
 //input: bool on/off, pane number
 void AMyHUD::setPaneNumberOnOff(bool isOn, int32 paneNumber)
 {
+	
+	//UTexture* T_MAP = (UTexture*)mycapture->TextureTarget;
 	if (CurrentScene != NULL)
 		if (paneNumber <= CurrentScene->getNumberOfPane())
 		{
@@ -283,7 +295,11 @@ void AMyHUD::setPaneNumberOnOff(bool isOn, int32 paneNumber)
 			if (CurrentScene->getHasFadeIn_atPaneNumber((int)paneNumber))
 				CurrentScene->setFadeOut_atPaneNumber((int)paneNumber, true);
 			else
+			{
 				CurrentScene->setIsOn_atPaneNumber((int)paneNumber, false);
+				USceneCaptureComponent2D *mycapture = CurrentScene->getmycapture_atPaneNumber(paneNumber);
+				mycapture->bCaptureEveryFrame = false;
+			}
 
 			//CurrentScene->setAlphaValue_atPaneNumber((int)paneNumber,0);
 			//CurrentScene->setFadeOut_atPaneNumber((int)paneNumber, true);
@@ -301,7 +317,11 @@ void AMyHUD::turnOffAllPane()
 				if (CurrentScene->getHasFadeIn_atPaneNumber(i))
 					CurrentScene->setFadeOut_atPaneNumber(i, true);
 				else
+				{
 					CurrentScene->setIsOn_atPaneNumber(i, false);
+					USceneCaptureComponent2D *mycapture = CurrentScene->getmycapture_atPaneNumber(i);
+					mycapture->bCaptureEveryFrame = false;
+				}
 			}
 }
 

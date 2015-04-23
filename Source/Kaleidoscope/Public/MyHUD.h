@@ -46,7 +46,7 @@ public:
 	//Blueprint function
 	//Toggle on/off on specific pane number
 	UFUNCTION(BlueprintCallable, Category = "Pane")
-	void setPaneNumberOnOff(bool isOn, int32 paneNumber);
+		void setPaneNumberOnOff(bool isOn, int32 paneNumber);
 
 
 	UFUNCTION(BlueprintCallable, Category = "Pane")
@@ -55,7 +55,7 @@ public:
 	//Blueprint function
 	//Initialize a new pane
 	UFUNCTION(BlueprintCallable, Category = "Pane")
-		void InitializePane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, float fadeInSpeed, float fadeOutSpeed, EBehavior Behavior, float x_dest, float y_dest, float speed);
+		void InitializePane(int32 PaneNumber, AActor* Camera, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, float fadeInSpeed, float fadeOutSpeed, EBehavior Behavior, float x_dest, float y_dest, float speed);
 
 	UFUNCTION(BlueprintCallable, Category = "Pane")
 	void InitializeSpecialPane(int32 PaneNumber, UTexture* T_MAP, float x, float y, float width, float height, bool isOn, bool isMemory, bool hasFadeIn, EBehavior Behavior, float x_dest, float y_dest,bool isUpper,bool isLower);

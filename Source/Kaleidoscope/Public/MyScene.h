@@ -96,6 +96,10 @@ public:
 	UTexture* getTexture_atPaneNumber(int);
 	void setTexture_atPaneNumber(int,UTexture*);
 
+	USceneCaptureComponent2D *getmycapture_atPaneNumber(int panNumber){ return paneCollection.at(panNumber).getMycapture(); }
 
+	void setmycapture_atPaneNumber(int panNumber, USceneCaptureComponent2D *newcapture){
+		paneCollection.at(panNumber).setMycapture(newcapture);
+	}
 	
 };

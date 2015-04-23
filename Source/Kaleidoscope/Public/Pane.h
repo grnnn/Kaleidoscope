@@ -48,6 +48,7 @@ class KALEIDOSCOPE_API Pane
 	bool isStartCountingWalk;
 	int numberOfWalk;
 	class UTexture* myTexture; //the content to be display
+	USceneCaptureComponent2D *mycapture;
 	
 
 public:
@@ -110,6 +111,12 @@ public:
 
 	UTexture* getMyTexture();
 	void setMyTexture(UTexture*);
+
+
+	USceneCaptureComponent2D *getMycapture(){ return mycapture; }
+	void setMycapture(USceneCaptureComponent2D *newcapture){ mycapture = newcapture; }
+
+	//void setCaptureFrame(mycapture->)
 
 	void setNumberOfWalk(int);
 	void updateOnBehavior();
