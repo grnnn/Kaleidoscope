@@ -213,10 +213,25 @@ void AMyHUD::InitializePane(int32 PaneNumber, AActor* Camera, float x, float y, 
 	}
 	//USceneCaptureComponent2D = 
 
-	USceneComponent *myscene = (USceneComponent*)Camera->GetRootComponent()->GetChildComponent(3);
-	USceneCaptureComponent2D *mycapture = (USceneCaptureComponent2D*)myscene;
-	mycapture->bCaptureEveryFrame = true;
-	UTexture* T_MAP = (UTexture*)mycapture->TextureTarget;
+
+	int maxChild = Camera->GetRootComponent()->GetNumChildrenComponents();
+	USceneComponent *myscene = NULL;
+	USceneCaptureComponent2D *mycapture = NULL;
+	UTexture* T_MAP = NULL;
+	for (int i = 0; i < maxChild; i++)
+	{
+		myscene = (USceneComponent*)Camera->GetRootComponent()->GetChildComponent(i);
+		mycapture = (USceneCaptureComponent2D*)myscene;
+		if (mycapture)
+		{
+			mycapture->bCaptureEveryFrame = true;
+			T_MAP = (UTexture*)mycapture->TextureTarget;
+		}
+	}
+	//USceneComponent *myscene = (USceneComponent*)Camera->GetRootComponent()->GetChildComponent(3);
+	//USceneCaptureComponent2D *mycapture = (USceneCaptureComponent2D*)myscene;
+	//mycapture->bCaptureEveryFrame = true;
+	//UTexture* T_MAP = (UTexture*)mycapture->TextureTarget;
 	//T_MAP->
 
 	CurrentScene->setmycapture_atPaneNumber(PaneNumber, mycapture);
