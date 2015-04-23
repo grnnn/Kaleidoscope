@@ -13,7 +13,7 @@ public:
 	AKaleidoscopeGameMode(const FObjectInitializer& ObjectInitializer);
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
-	UMyScene* sceneOpenning;
+	UMyScene* sceneOpening;
 
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
@@ -26,10 +26,36 @@ public:
 	UMyScene* scene4;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
+	UMyScene* puzzleScene;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
+	UMyScene* endScene;
+
+
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
+	UMyScene* scene2actual;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
+	UMyScene* scene3actual;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
+	UMyScene* scene4actual;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
 	UMyScene* scene5;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
 	UMyScene* scene6;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
+	UMyScene* scene7;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
+	UMyScene* scene8;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
+	UMyScene* scene9;
 };
 
 
