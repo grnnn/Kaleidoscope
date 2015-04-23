@@ -212,8 +212,10 @@ void AMyHUD::InitializePane(int32 PaneNumber, AActor* Camera, float x, float y, 
 		return;
 	}
 	//USceneCaptureComponent2D = 
+	if (!Camera)
+		return;
 
-
+	bool check = false;
 	int maxChild = Camera->GetRootComponent()->GetNumChildrenComponents();
 	USceneComponent *myscene = NULL;
 	USceneCaptureComponent2D *mycapture = NULL;
@@ -221,19 +223,34 @@ void AMyHUD::InitializePane(int32 PaneNumber, AActor* Camera, float x, float y, 
 	for (int i = 0; i < maxChild; i++)
 	{
 		myscene = (USceneComponent*)Camera->GetRootComponent()->GetChildComponent(i);
-		mycapture = (USceneCaptureComponent2D*)myscene;
+		if (myscene->IsA(USceneCaptureComponent2D::StaticClass()))
+		{
+			mycapture = (USceneCaptureComponent2D*)myscene;
+			mycapture->bCaptureEveryFrame = true;
+			T_MAP = (UTexture*)mycapture->TextureTarget;
+			if (T_MAP)
+			{
+				check = true;
+				break;
+			}
+		}
+		
+		/*mycapture = (USceneCaptureComponent2D*)myscene;
 		if (mycapture)
 		{
 			mycapture->bCaptureEveryFrame = true;
 			T_MAP = (UTexture*)mycapture->TextureTarget;
-		}
+			if (T_MAP)
+				break;
+		}*/
 	}
 	//USceneComponent *myscene = (USceneComponent*)Camera->GetRootComponent()->GetChildComponent(3);
 	//USceneCaptureComponent2D *mycapture = (USceneCaptureComponent2D*)myscene;
 	//mycapture->bCaptureEveryFrame = true;
 	//UTexture* T_MAP = (UTexture*)mycapture->TextureTarget;
 	//T_MAP->
-
+	if (!check)
+		return;
 	CurrentScene->setmycapture_atPaneNumber(PaneNumber, mycapture);
 
 	CurrentScene->setXpost_atPaneNumber(PaneNumber, x);
@@ -313,7 +330,8 @@ void AMyHUD::setPaneNumberOnOff(bool isOn, int32 paneNumber)
 			{
 				CurrentScene->setIsOn_atPaneNumber((int)paneNumber, false);
 				USceneCaptureComponent2D *mycapture = CurrentScene->getmycapture_atPaneNumber(paneNumber);
-				mycapture->bCaptureEveryFrame = false;
+				if (mycapture)
+					mycapture->bCaptureEveryFrame = false;
 			}
 
 			//CurrentScene->setAlphaValue_atPaneNumber((int)paneNumber,0);
@@ -335,7 +353,8 @@ void AMyHUD::turnOffAllPane()
 				{
 					CurrentScene->setIsOn_atPaneNumber(i, false);
 					USceneCaptureComponent2D *mycapture = CurrentScene->getmycapture_atPaneNumber(i);
-					mycapture->bCaptureEveryFrame = false;
+					if (mycapture)
+						mycapture->bCaptureEveryFrame = false;
 				}
 			}
 }
