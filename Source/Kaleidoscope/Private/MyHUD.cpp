@@ -329,9 +329,10 @@ void AMyHUD::setPaneNumberOnOff(bool isOn, int32 paneNumber)
 			else
 			{
 				CurrentScene->setIsOn_atPaneNumber((int)paneNumber, false);
-				USceneCaptureComponent2D *mycapture = CurrentScene->getmycapture_atPaneNumber(paneNumber);
-				if (mycapture)
-					mycapture->bCaptureEveryFrame = false;
+				CurrentScene->turnOffCapture_atPaneNumber((int)paneNumber);
+				//USceneCaptureComponent2D *mycapture = CurrentScene->getmycapture_atPaneNumber(paneNumber);
+				//if (mycapture)
+				//	mycapture->bCaptureEveryFrame = false;
 			}
 
 			//CurrentScene->setAlphaValue_atPaneNumber((int)paneNumber,0);
@@ -352,9 +353,10 @@ void AMyHUD::turnOffAllPane()
 				else
 				{
 					CurrentScene->setIsOn_atPaneNumber(i, false);
-					USceneCaptureComponent2D *mycapture = CurrentScene->getmycapture_atPaneNumber(i);
-					if (mycapture)
-						mycapture->bCaptureEveryFrame = false;
+					CurrentScene->turnOffCapture_atPaneNumber(i);
+					//USceneCaptureComponent2D *mycapture = CurrentScene->getmycapture_atPaneNumber(i);
+					//if (mycapture)
+					//	mycapture->bCaptureEveryFrame = false;
 				}
 			}
 }

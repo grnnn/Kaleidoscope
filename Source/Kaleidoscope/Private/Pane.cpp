@@ -26,6 +26,7 @@ Pane::Pane()
 	isOn = false;
 	fadeOut = false;
 	isStartCountingWalk = false;
+	mycapture = NULL;
 }
 
 //Contructor with UTexture

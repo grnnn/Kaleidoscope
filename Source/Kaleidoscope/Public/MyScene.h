@@ -101,5 +101,9 @@ public:
 	void setmycapture_atPaneNumber(int panNumber, USceneCaptureComponent2D *newcapture){
 		paneCollection.at(panNumber).setMycapture(newcapture);
 	}
+
+	void turnOffCapture_atPaneNumber(int panNumber){
+		paneCollection.at(panNumber).turnOffCapture();
+	}
 	
 };

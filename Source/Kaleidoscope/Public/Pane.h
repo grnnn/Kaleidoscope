@@ -115,7 +115,10 @@ public:
 
 	USceneCaptureComponent2D *getMycapture(){ return mycapture; }
 	void setMycapture(USceneCaptureComponent2D *newcapture){ mycapture = newcapture; }
-
+	void turnOffCapture(){ 
+		if (mycapture)
+			mycapture->bCaptureEveryFrame = false; 
+	}
 	//void setCaptureFrame(mycapture->)
 
 	void setNumberOfWalk(int);
