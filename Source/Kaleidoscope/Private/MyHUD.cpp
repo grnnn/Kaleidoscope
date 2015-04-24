@@ -116,6 +116,7 @@ void AMyHUD::DrawHUD()
 					CurrentScene->setAlphaValue_atPaneNumber(i, AlphaValue - fadeOutSpeed);
 					if (AlphaValue < 1)
 					{
+						CurrentScene->turnOffCapture_atPaneNumber(i);
 						CurrentScene->setIsOn_atPaneNumber(i, false);
 						CurrentScene->setFadeOut_atPaneNumber(i, false);
 						CurrentScene->setAlphaValue_atPaneNumber(i, 255);
@@ -325,7 +326,10 @@ void AMyHUD::setPaneNumberOnOff(bool isOn, int32 paneNumber)
 		{
 
 			if (CurrentScene->getHasFadeIn_atPaneNumber((int)paneNumber))
+			{
 				CurrentScene->setFadeOut_atPaneNumber((int)paneNumber, true);
+				//CurrentScene->turnOffCapture_atPaneNumber((int)paneNumber);
+			}
 			else
 			{
 				CurrentScene->setIsOn_atPaneNumber((int)paneNumber, false);
@@ -349,7 +353,11 @@ void AMyHUD::turnOffAllPane()
 			if (CurrentScene->getIsOn_atPaneNumber(i))
 			{
 				if (CurrentScene->getHasFadeIn_atPaneNumber(i))
+				{
+					
 					CurrentScene->setFadeOut_atPaneNumber(i, true);
+					//CurrentScene->turnOffCapture_atPaneNumber(i);
+				}
 				else
 				{
 					CurrentScene->setIsOn_atPaneNumber(i, false);
