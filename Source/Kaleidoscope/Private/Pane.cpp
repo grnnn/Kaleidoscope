@@ -16,6 +16,8 @@ Pane::Pane()
 	viewportY = 0;
 	speed = 0;
 
+	limitX = limitY = 0;
+
 	isSpecial = false;
 	isUpper = false;
 	isLower = false;
@@ -256,15 +258,27 @@ void Pane::updateOnBehavior()
 		isStartCountingWalk = false;
 		break;
 	case Custom:
-		if (x_pos < x_dest)
+		if (x_pos < x_dest && (limitX == 0 || limitX == 1))
+		{
 			x_pos += speed;
-		else if (x_pos > x_dest)
+			limitX = 1;
+		}
+		else if (x_pos > x_dest && (limitX == 0 || limitX == -1))
+		{
 			x_pos -= speed;
+			limitX = -1;
+		}
 
-		if (y_pos < y_dest)
+		if (y_pos < y_dest && (limitY == 0 || limitY == 1))
+		{
 			y_pos += speed;
-		else if (y_pos > y_dest)
+			limitY = 1;
+		}
+		else if (y_pos > y_dest && (limitY == 0 || limitY == -1))
+		{
 			y_pos -= speed;
+			limitY = -1;
+		}
 		
 		
 		break;

@@ -30,6 +30,9 @@ class KALEIDOSCOPE_API Pane
 	float baseX;
 	float baseY;
 
+	int limitX;
+	int limitY;
+
 	float fadeInSpeed;
 	float fadeOutSpeed;
 	float speed;
