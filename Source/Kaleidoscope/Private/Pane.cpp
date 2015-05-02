@@ -252,7 +252,10 @@ void Pane::updateOnBehavior()
 	
 	dx = Oldx_pos - x_dest;
 	dy = Oldy_pos - y_dest;
-	theta = atan(dy / dx);// *180 / PI;
+	if (Oldx_pos == x_dest)
+		theta = PI/2;
+	else
+		theta = atan(dy / dx);// *180 / PI;
 
 	float limitHeight;
 
