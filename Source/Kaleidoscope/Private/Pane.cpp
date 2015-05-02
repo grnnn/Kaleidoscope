@@ -2,7 +2,7 @@
 
 #include "Kaleidoscope.h"
 #include "Pane.h"
-
+#include <math.h> 
 //Default contructor
 //
 Pane::Pane()
@@ -250,6 +250,10 @@ void Pane::updateOnBehavior()
 	isStartCountingWalk = true;
 	//behaviorType = nBahaviorType;
 	
+	dx = Oldx_pos - x_dest;
+	dy = Oldy_pos - y_dest;
+	theta = atan(dy / dx);// *180 / PI;
+
 	float limitHeight;
 
 	switch (behaviorType)
@@ -258,25 +262,28 @@ void Pane::updateOnBehavior()
 		isStartCountingWalk = false;
 		break;
 	case Custom:
+		
+
+		
 		if (x_pos < x_dest && (limitX == 0 || limitX == 1))
 		{
-			x_pos += speed;
+			x_pos += speed*cos(theta);
 			limitX = 1;
 		}
 		else if (x_pos > x_dest && (limitX == 0 || limitX == -1))
 		{
-			x_pos -= speed;
+			x_pos -= speed*cos(theta);
 			limitX = -1;
 		}
 
 		if (y_pos < y_dest && (limitY == 0 || limitY == 1))
 		{
-			y_pos += speed;
+			y_pos += speed*sin(theta);
 			limitY = 1;
 		}
 		else if (y_pos > y_dest && (limitY == 0 || limitY == -1))
 		{
-			y_pos -= speed;
+			y_pos -= speed*sin(theta);
 			limitY = -1;
 		}
 		

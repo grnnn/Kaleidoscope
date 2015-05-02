@@ -103,6 +103,7 @@ private:
 
 	/** Crosshair asset pointer */
 	class UTexture* boderTexture;
+	class UTexture* mainboderTexture;
 
 	float baseX;
 	float baseY;
