@@ -28,6 +28,9 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj(TEXT("/Game/Material/overlay2"));
 	boderTexture = CrosshiarTexObj.Object;
 
+	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj2(TEXT("/Game/Material/main_border"));
+	mainboderTexture = CrosshiarTexObj2.Object;
+
 	
 	
 	ConstructorHelpers::FObjectFinder<UFont> FontObject(TEXT("Font'/Game/Blueprints/NewFont.NewFont'"));
@@ -109,6 +112,8 @@ void AMyHUD::DrawHUD()
 				//If memory pane, draw an overlay border
 				if (CurrentScene->getIsMemory_atPaneNumber(i))
 					drawPane(boderTexture, ScreenX, ScreenY, ScreenW, ScreenH, 255,false,false);
+				else
+					drawPane(mainboderTexture, ScreenX, ScreenY, ScreenW, ScreenH, 255, false, false);
 
 				if (CurrentScene->getFadeOut_atPaneNumber(i))
 				{
