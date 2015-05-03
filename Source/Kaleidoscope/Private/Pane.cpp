@@ -266,7 +266,6 @@ void Pane::updateOnBehavior()
 		break;
 	case Custom:
 		
-
 		
 		if (x_pos < x_dest && (limitX == 0 || limitX == 1))
 		{
