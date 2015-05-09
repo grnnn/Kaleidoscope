@@ -252,7 +252,10 @@ void Pane::updateOnBehavior()
 	
 	dx = Oldx_pos - x_dest;
 	dy = Oldy_pos - y_dest;
-	if (Oldx_pos == x_dest)
+
+	if (dx * dy < 0)
+		theta = atan(-dy / dx);
+	else if (Oldx_pos == x_dest)
 		theta = PI/2;
 	else
 		theta = atan(dy / dx);// *180 / PI;
