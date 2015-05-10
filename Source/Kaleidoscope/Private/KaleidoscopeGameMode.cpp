@@ -63,4 +63,7 @@ AKaleidoscopeGameMode::AKaleidoscopeGameMode(const FObjectInitializer& ObjectIni
 	scene9 = new UMyScene("Scene3", 100);
 	scene9->setIsActive(true);
 
+	scene10 = new UMyScene("Scene3", 100);
+	scene10->setIsActive(true);
+
 }

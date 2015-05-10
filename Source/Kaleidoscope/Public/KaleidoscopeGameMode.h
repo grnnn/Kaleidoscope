@@ -56,6 +56,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
 	UMyScene* scene9;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
+	UMyScene* scene10;
 };
 
 
