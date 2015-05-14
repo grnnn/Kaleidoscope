@@ -96,6 +96,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Text)
 	FString mytext;
+
+	UFUNCTION(BlueprintCallable, Category = "Letter")
+	FString getLetterText();
 	
 
 	
@@ -109,4 +112,6 @@ private:
 	float baseY;
 	FIntPoint ViewSize;
 	bool isDebug;
+	int letterCount;
+	FString letterText;
 };

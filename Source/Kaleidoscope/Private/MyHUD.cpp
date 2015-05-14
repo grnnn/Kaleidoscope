@@ -389,3 +389,11 @@ float AMyHUD::getOffsetValue(float inputValue,float startValue,float baseValue)
 	float ratio = startValue / baseValue;
 	return inputValue * ratio;
 }
+
+FString AMyHUD::getLetterText()
+{
+	letterCount += 1;
+	letterText = FString::FromInt(letterCount) + "/6 Letters Found";
+	return letterText;
+
+}
