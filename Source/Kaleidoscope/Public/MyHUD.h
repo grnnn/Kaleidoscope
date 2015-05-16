@@ -38,6 +38,9 @@ public:
 
 	//Draw a pane on the screen
 	void drawPane(UTexture*, float, float, float, float,int,bool,bool);
+
+	void drawSubtitle(UTexture* Texture, float ScreenX, float ScreenY, float ScreenW, float ScreenH, int alphaValue);
+
 	//Helper function to count how many step player walk
 	void setWalkStep(int);
 
@@ -63,6 +66,14 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Pane")
 	void DrawMyText(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition);
+
+	UFUNCTION(BlueprintCallable, Category = "Pane")
+	void DisplaySubtitle(UTexture* subtitle, float x, float y, float width, float height);
+
+	UFUNCTION(BlueprintCallable, Category = "Pane")
+	void TurnOffSubtitle();
+
+
 
 	UFUNCTION(BlueprintCallable, Category = "Screen")
 	void SetScreenSize(int32 newX, int32 newY);
@@ -123,5 +134,21 @@ private:
 
 	int letterCount;
 	FString letterText;
+
+	class UTexture* subtitleTexture;
+	float duration;
+	float subDuration;
+	float subX;
+	float subY;
+	float subW;
+	float subH;
+	float subAlpha;
+	bool subOut;
+
+	class UTexture* newSubtitleTexture;
+	float newSubX;
+	float newSubY;
+	float newSubW;
+	float newSubH;
 
 };
