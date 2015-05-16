@@ -25,7 +25,10 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	screenX = baseX;
 	screenY = baseY;
 	isDebug = false;
-	
+	subtitleTexture = NULL;
+	newSubtitleTexture = NULL;
+	duration = 0;
+	subOut = false;
 	
 	//Find the texture object in the game editor
 	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj(TEXT("/Game/Material/overlay3"));
@@ -153,7 +156,49 @@ void AMyHUD::DrawHUD()
 				
 				//Super::DrawText(mytext, TintColor, 0, 0, NULL, 1, false);
 			}
+
+			
+			
+
 		}
+
+	if (subtitleTexture != NULL && !subOut)
+	{
+
+		newSubtitleTexture = subtitleTexture;
+		drawSubtitle(subtitleTexture, subX, subY, subW, subH, subAlpha);
+		if (subAlpha < 255)
+			subAlpha += 3;
+
+
+	}
+	else if (subtitleTexture != NULL && subOut)
+	{
+		subtitleTexture = NULL;
+		subAlpha = 0;
+		/*
+		subAlpha -= 1;
+		if (subAlpha < 0)
+		{
+			subAlpha = 0;
+			if (newSubtitleTexture)
+			{
+
+				subtitleTexture = newSubtitleTexture;
+				subX = newSubX;
+				subY = newSubY;
+				subW = newSubW;
+				subH = newSubH;
+			}
+			else
+			{
+				subtitleTexture = NULL;
+			}
+			subOut = false;
+		}
+		
+		drawSubtitle(subtitleTexture, subX, subY, subW, subH, subAlpha);*/
+	}
 
 	Super::DrawText(Text, TintColor, TextX, TextY, Font, 200, false);
 	Super::DrawText(Text2, TintColor, TextX2, TextY2, Font, 200, false);
@@ -211,6 +256,36 @@ void AMyHUD::drawPane(UTexture* Texture, float ScreenX, float ScreenY, float Scr
 	}
 }
 
+void AMyHUD::drawSubtitle(UTexture* Texture, float ScreenX, float ScreenY, float ScreenW, float ScreenH, int alphaValue)
+{
+	float TextureU = 0;
+	float TextureV = 0;
+	float TextureUWidth = 1;
+	float TextureVHeight = 1;
+	//GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::White, FString::Printf(TEXT("Debug Screen_Size_X = %i"), alphaValue));
+
+	if (alphaValue > 255)
+		alphaValue = 255;
+	FLinearColor TintColor = FColor(255, 255, 255, alphaValue);
+	EBlendMode BlendMode = BLEND_Translucent;
+	float Scale = 1;
+	bool bScalePosition = false;
+	float Rotation = 0;
+	FVector2D RotPivot = FVector2D(0, 0);
+	//Canvas->SetDrawColor(255, 255, 255, 0);
+	if (IsCanvasValid_WarnIfNot() && Texture)
+	{
+		FCanvasTileItem TileItem(FVector2D(ScreenX, ScreenY), Texture->Resource, FVector2D(ScreenW, ScreenH) * Scale, FVector2D(TextureU, TextureV), FVector2D(TextureU + TextureUWidth, TextureV + TextureVHeight), TintColor);
+		TileItem.Rotation = FRotator(0, Rotation, 0);
+		TileItem.PivotPoint = RotPivot;
+		if (bScalePosition)
+		{
+			TileItem.Position *= Scale;
+		}
+		TileItem.BlendMode = FCanvas::BlendToSimpleElementBlend(BlendMode);
+		Canvas->DrawItem(TileItem);
+	}
+}
 
 void AMyHUD::DrawMyText(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition)
 {
@@ -331,6 +406,38 @@ void AMyHUD::InitializeSpecialPane(int32 PaneNumber, UTexture* T_MAP, float x, f
 
 	return;
 }
+
+
+void AMyHUD::DisplaySubtitle(UTexture* subtitle, float x, float y, float width, float height)
+{
+	
+	int PaneNumber = 100;
+	
+
+	subtitleTexture = subtitle;
+	subX = x;
+	subY = y;
+	subW = width;
+	subH = height;
+	if (subtitleTexture != newSubtitleTexture)
+	{
+		//GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::White, FString::Printf(TEXT("AAAAAAAAAAAAAAAAAAAAA")));
+		subAlpha = 0;
+	}
+	
+
+
+
+	return;
+}
+
+
+void AMyHUD::TurnOffSubtitle()
+{
+	//subtitleTexture = NULL;
+	subOut = true;
+}
+
 
 //Blueprint function
 //Toggle on/off on specific pane number
