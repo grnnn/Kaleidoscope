@@ -87,8 +87,19 @@ UGameUserSettings* AKaleidoscopeGameMode::GetGameUserSettings()
 	return nullptr;
 }
 
-void AKaleidoscopeGameMode::changeRes(int32 x, int32 y)
+void AKaleidoscopeGameMode::changeRes(FString res)
 {
+	int32 x, y;
+
+	if (res.Equals("1024x576"))
+		x = 1024, y = 576;
+	else if (res.Equals("1280x720"))
+		x = 1280, y = 720;
+	else if (res.Equals("1600x900"))
+		x = 1600, y = 900;
+	else if (res.Equals("1920x1080"))
+		x = 1920, y = 1080;
+	
 	//int32 Width = 1600, Height = 900;
 	UGameUserSettings* Settings = GetGameUserSettings(); // note we are using the function defined above
 	screenX = x;

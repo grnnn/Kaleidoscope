@@ -511,8 +511,18 @@ float AMyHUD::getOffsetValue(float inputValue,float startValue,float baseValue)
 }
 
 
-void AMyHUD::SetScreenSize(int32 newX, int32 newY)
+void AMyHUD::SetScreenSize(FString res)
 {
+	int32 newX, newY;
+	if (res.Equals("1024x576"))
+		newX = 1024, newY = 576;
+	else if (res.Equals("1280x720"))
+		newX = 1280, newY = 720;
+	else if (res.Equals("1600x900"))
+		newX = 1600, newY = 900;
+	else if (res.Equals("1920x1080"))
+		newX = 1920, newY = 1080;
+
 	screenX = newX;
 	screenY = newY;
 }

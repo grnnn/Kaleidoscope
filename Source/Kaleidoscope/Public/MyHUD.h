@@ -76,7 +76,7 @@ public:
 
 
 	UFUNCTION(BlueprintCallable, Category = "Screen")
-	void SetScreenSize(int32 newX, int32 newY);
+	void SetScreenSize(FString res);
 
 
 	

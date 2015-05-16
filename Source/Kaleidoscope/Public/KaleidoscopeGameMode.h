@@ -14,7 +14,7 @@ public:
 	UGameUserSettings* GetGameUserSettings();
 
 	UFUNCTION(BlueprintCallable, Category = "Screen")
-	void changeRes(int32 x, int32 y);
+	void changeRes(FString res);
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
 	UMyScene* sceneOpening;
