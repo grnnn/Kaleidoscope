@@ -110,7 +110,7 @@ void AMyHUD::DrawHUD()
 				//Get behavior
 				if (CurrentScene->getHasBahavior_atPaneNumber(i) == true)
 				{
-					CurrentScene->updateViewportXY_atPaneNumber(i,ViewSize.X,ViewSize.Y);
+					CurrentScene->updateViewportXY_atPaneNumber(i, screenX, screenY);
 					CurrentScene->updateOnBehavior_atPaneNumber(i);
 
 				}
