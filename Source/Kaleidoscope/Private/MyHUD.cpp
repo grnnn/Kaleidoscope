@@ -110,7 +110,7 @@ void AMyHUD::DrawHUD()
 				//Get behavior
 				if (CurrentScene->getHasBahavior_atPaneNumber(i) == true)
 				{
-					CurrentScene->updateViewportXY_atPaneNumber(i,ViewSize.X,ViewSize.Y);
+					CurrentScene->updateViewportXY_atPaneNumber(i, screenX, screenY);
 					CurrentScene->updateOnBehavior_atPaneNumber(i);
 
 				}
@@ -168,36 +168,24 @@ void AMyHUD::DrawHUD()
 		newSubtitleTexture = subtitleTexture;
 		drawSubtitle(subtitleTexture, subX, subY, subW, subH, subAlpha);
 		if (subAlpha < 255)
-			subAlpha += 3;
+			subAlpha += 2;
 
 
 	}
 	else if (subtitleTexture != NULL && subOut)
 	{
-		subtitleTexture = NULL;
-		subAlpha = 0;
-		/*
-		subAlpha -= 1;
+		//subtitleTexture = NULL;
+		//subAlpha = 0;
+		
+		subAlpha -= 2;
 		if (subAlpha < 0)
 		{
 			subAlpha = 0;
-			if (newSubtitleTexture)
-			{
-
-				subtitleTexture = newSubtitleTexture;
-				subX = newSubX;
-				subY = newSubY;
-				subW = newSubW;
-				subH = newSubH;
-			}
-			else
-			{
-				subtitleTexture = NULL;
-			}
 			subOut = false;
+			subtitleTexture = NULL;
 		}
-		
-		drawSubtitle(subtitleTexture, subX, subY, subW, subH, subAlpha);*/
+		if (subtitleTexture)
+			drawSubtitle(subtitleTexture, subX, subY, subW, subH, subAlpha);
 	}
 
 	Super::DrawText(Text, TintColor, TextX, TextY, Font, 200, false);
