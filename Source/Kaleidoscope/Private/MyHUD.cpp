@@ -7,7 +7,8 @@
 #include "CanvasItem.h"
 #include "CanvasTypes.h"
 #include "UnrealClient.h"
-
+#include "OptionsScripts.h"
+#include "Classes/GameFramework/GameUserSettings.h"
 
 
 
@@ -21,9 +22,11 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 
 	baseX = 1280;
 	baseY = 720;
+	screenX = baseX;
+	screenY = baseY;
 	isDebug = false;
 	
-
+	
 	//Find the texture object in the game editor
 	static ConstructorHelpers::FObjectFinder<UTexture> CrosshiarTexObj(TEXT("/Game/Material/overlay3"));
 	boderTexture = CrosshiarTexObj.Object;
@@ -57,13 +60,17 @@ void AMyHUD::DrawHUD()
 
 	
 	FLinearColor TintColor = WhiteColor;
+	//float x1 = GetLastConfirmedScreenResolution();
+	//float x = OptionsScripts::screenX;
 
 	UGameViewportClient* Viewport = GetWorld()->GetGameViewport();
-	ViewSize = Viewport->Viewport->GetSizeXY();
+	//ViewSize = Viewport->Viewport->GetSizeXY();
+	
 	if (GEngine && !isDebug)
 	{
 		//GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::White, FString::Printf(TEXT("Debug Screen_Size_X = %i , Screen_Size Y = %i"), ViewSize.X, ViewSize.Y));
-		isDebug = true;
+		//GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::White, FString::Printf(TEXT("Debug Screen_Size_X = %i , Screen_Size Y = %i"), screenX, screenY));
+		//isDebug = true;
 	}
 	if (CurrentScene != NULL && CurrentScene->getIsActive()) // check if CurrentScene is active
 		for (int i = 0; i < 100; i++)
@@ -77,10 +84,16 @@ void AMyHUD::DrawHUD()
 				float h = CurrentScene->getHeight_atPaneNumber(i);
 				
 				//convert to screen size
-				ScreenX = getOffsetValue(x, ViewSize.X, baseX);
-				ScreenY = getOffsetValue(y, ViewSize.Y, baseY);
-				ScreenW = getOffsetValue(w, ViewSize.X, baseX);
-				ScreenH = getOffsetValue(h, ViewSize.Y, baseY);
+				//ScreenX = getOffsetValue(x, ViewSize.X, baseX);
+				//ScreenY = getOffsetValue(y, ViewSize.Y, baseY);
+				//ScreenW = getOffsetValue(w, ViewSize.X, baseX);
+				//ScreenH = getOffsetValue(h, ViewSize.Y, baseY);
+
+
+				ScreenX = getOffsetValue(x, screenX, baseX);
+				ScreenY = getOffsetValue(y, screenY, baseY);
+				ScreenW = getOffsetValue(w, screenX, baseX);
+				ScreenH = getOffsetValue(h, screenY, baseY);
 				
 				//Get alpha for fade in effect
 				if (CurrentScene->getHasFadeIn_atPaneNumber(i))
@@ -388,6 +401,13 @@ float AMyHUD::getOffsetValue(float inputValue,float startValue,float baseValue)
 {
 	float ratio = startValue / baseValue;
 	return inputValue * ratio;
+}
+
+
+void AMyHUD::SetScreenSize(int32 newX, int32 newY)
+{
+	screenX = newX;
+	screenY = newY;
 }
 
 FString AMyHUD::getLetterText()

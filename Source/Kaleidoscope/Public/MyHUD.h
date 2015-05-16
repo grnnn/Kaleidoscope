@@ -64,6 +64,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Pane")
 	void DrawMyText(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition);
 
+	UFUNCTION(BlueprintCallable, Category = "Screen")
+	void SetScreenSize(int32 newX, int32 newY);
+
+
 	
 	//UFUNCTION(BlueprintCallable, Category = "Pane")
 	//void DrawMyText2(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition);
@@ -112,6 +116,12 @@ private:
 	float baseY;
 	FIntPoint ViewSize;
 	bool isDebug;
+
+
+	int32 screenX;
+	int32 screenY;
+
 	int letterCount;
 	FString letterText;
+
 };
