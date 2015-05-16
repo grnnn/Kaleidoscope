@@ -11,6 +11,10 @@ class AKaleidoscopeGameMode : public AGameMode
 
 public:
 	AKaleidoscopeGameMode(const FObjectInitializer& ObjectInitializer);
+	UGameUserSettings* GetGameUserSettings();
+
+	UFUNCTION(BlueprintCallable, Category = "Screen")
+	void changeRes(int32 x, int32 y);
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
 	UMyScene* sceneOpening;
@@ -59,6 +63,24 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Scene)
 	UMyScene* scene10;
+
+
+	int32 screenX;
+	int32 screenY;
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
 };
 
 

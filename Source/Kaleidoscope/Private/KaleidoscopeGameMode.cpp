@@ -66,4 +66,41 @@ AKaleidoscopeGameMode::AKaleidoscopeGameMode(const FObjectInitializer& ObjectIni
 	scene10 = new UMyScene("Scene3", 100);
 	scene10->setIsActive(true);
 
+	screenX = 1280;
+	screenY = 720;
+
+	
+
+	// ...
+
+	
+
+}
+
+
+UGameUserSettings* AKaleidoscopeGameMode::GetGameUserSettings()
+{
+	if (GEngine != nullptr)
+	{
+		return GEngine->GameUserSettings;
+	}
+	return nullptr;
+}
+
+void AKaleidoscopeGameMode::changeRes(int32 x, int32 y)
+{
+	//int32 Width = 1600, Height = 900;
+	UGameUserSettings* Settings = GetGameUserSettings(); // note we are using the function defined above
+	screenX = x;
+	screenY = y;
+	if (Settings != nullptr)
+	{
+		Settings->RequestResolutionChange(x, y, EWindowMode::Type::WindowedFullscreen, false); // we can choose to ignore the command line arguments, this is probably best when the game UI sets the mode after startup
+		Settings->ConfirmVideoMode();
+
+		// Save the requested settings to our local data now
+		Settings->SetScreenResolution(Settings->GetLastConfirmedScreenResolution());
+		Settings->SetFullscreenMode(Settings->GetLastConfirmedFullscreenMode());
+		Settings->SaveSettings();
+	}
 }
