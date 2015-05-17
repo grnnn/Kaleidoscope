@@ -7,7 +7,7 @@
 #include "CanvasItem.h"
 #include "CanvasTypes.h"
 #include "UnrealClient.h"
-#include "OptionsScripts.h"
+
 #include "Classes/GameFramework/GameUserSettings.h"
 
 
