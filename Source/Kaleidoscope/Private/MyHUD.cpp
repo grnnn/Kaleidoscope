@@ -27,6 +27,8 @@ AMyHUD::AMyHUD(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitia
 	isDebug = false;
 	subtitleTexture = NULL;
 	newSubtitleTexture = NULL;
+	fadeInEffect = false;
+	fadeOutEffect = false;
 	duration = 0;
 	subOut = false;
 	
@@ -167,17 +169,20 @@ void AMyHUD::DrawHUD()
 
 		newSubtitleTexture = subtitleTexture;
 		drawSubtitle(subtitleTexture, subX, subY, subW, subH, subAlpha);
-		if (subAlpha < 255)
+		if (subAlpha < 255 && fadeInEffect)
 			subAlpha += 2;
-
+		else if (subAlpha < 255 && !fadeInEffect)
+			subAlpha = 255;
 
 	}
 	else if (subtitleTexture != NULL && subOut)
 	{
 		//subtitleTexture = NULL;
 		//subAlpha = 0;
-		
-		subAlpha -= 2;
+		if (fadeOutEffect)
+			subAlpha -= 2;
+		else
+			subAlpha = 0;
 		if (subAlpha < 0)
 		{
 			subAlpha = 0;
@@ -396,12 +401,13 @@ void AMyHUD::InitializeSpecialPane(int32 PaneNumber, UTexture* T_MAP, float x, f
 }
 
 
-void AMyHUD::DisplaySubtitle(UTexture* subtitle, float x, float y, float width, float height)
+void AMyHUD::DisplaySubtitle(UTexture* subtitle, float x, float y, float width, float height, bool fadeIn, bool fadeOut)
 {
 	
 	int PaneNumber = 100;
 	
-
+	fadeInEffect = fadeIn;
+	fadeOutEffect = fadeOut;
 	subtitleTexture = subtitle;
 	subX = x;
 	subY = y;

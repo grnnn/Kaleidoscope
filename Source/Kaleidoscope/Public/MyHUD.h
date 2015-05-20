@@ -68,7 +68,7 @@ public:
 	void DrawMyText(FString & Text, FLinearColor TextColor, float x, float y, UFont * Font, float Scale, bool bScalePosition);
 
 	UFUNCTION(BlueprintCallable, Category = "Pane")
-	void DisplaySubtitle(UTexture* subtitle, float x, float y, float width, float height);
+	void DisplaySubtitle(UTexture* subtitle, float x, float y, float width, float height, bool fadeIn, bool fadeOut);
 
 	UFUNCTION(BlueprintCallable, Category = "Pane")
 	void TurnOffSubtitle();
@@ -144,6 +144,8 @@ private:
 	float subH;
 	float subAlpha;
 	bool subOut;
+	bool fadeInEffect;
+	bool fadeOutEffect;
 
 	class UTexture* newSubtitleTexture;
 	float newSubX;
