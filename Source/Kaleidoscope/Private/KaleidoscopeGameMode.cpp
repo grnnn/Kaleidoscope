@@ -91,6 +91,8 @@ void AKaleidoscopeGameMode::changeRes(FString res)
 {
 	int32 x, y;
 
+	x = 1280, y = 720;
+
 	if (res.Equals("1024x576"))
 		x = 1024, y = 576;
 	else if (res.Equals("1280x720"))
