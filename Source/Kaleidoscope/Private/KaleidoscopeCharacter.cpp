@@ -181,7 +181,8 @@ void AKaleidoscopeCharacter::walkingControl(float Value)
 
 void AKaleidoscopeCharacter::MoveForward(float Value)
 {
-	
+	if (Value < 0)
+		return;
 	if ((Controller != NULL) && (Value != 0.0f))
 	{
 		if (!regularSpeedBool) Value -= 0.1f;
