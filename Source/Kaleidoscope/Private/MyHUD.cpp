@@ -193,7 +193,7 @@ void AMyHUD::DrawHUD()
 			subAlpha -= 2;
 		else
 			subAlpha = 0;
-		if (subAlpha < 0)
+		if (subAlpha <= 0)
 		{
 			subAlpha = 0;
 			subOut = false;
