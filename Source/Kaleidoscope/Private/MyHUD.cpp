@@ -168,7 +168,13 @@ void AMyHUD::DrawHUD()
 	{
 
 		newSubtitleTexture = subtitleTexture;
-		drawSubtitle(subtitleTexture, subX, subY, subW, subH, subAlpha);
+
+		ScreenX = getOffsetValue(subX, screenX, baseX);
+		ScreenY = getOffsetValue(subY, screenY, baseY);
+		ScreenW = getOffsetValue(subW, screenX, baseX);
+		ScreenH = getOffsetValue(subH, screenY, baseY);
+
+		drawSubtitle(subtitleTexture, ScreenX, ScreenY, ScreenW, ScreenH, subAlpha);
 		if (subAlpha < 255 && fadeInEffect)
 			subAlpha += 2;
 		else if (subAlpha < 255 && !fadeInEffect)
@@ -179,6 +185,10 @@ void AMyHUD::DrawHUD()
 	{
 		//subtitleTexture = NULL;
 		//subAlpha = 0;
+		ScreenX = getOffsetValue(subX, screenX, baseX);
+		ScreenY = getOffsetValue(subY, screenY, baseY);
+		ScreenW = getOffsetValue(subW, screenX, baseX);
+		ScreenH = getOffsetValue(subH, screenY, baseY);
 		if (fadeOutEffect)
 			subAlpha -= 2;
 		else
@@ -190,7 +200,7 @@ void AMyHUD::DrawHUD()
 			subtitleTexture = NULL;
 		}
 		if (subtitleTexture)
-			drawSubtitle(subtitleTexture, subX, subY, subW, subH, subAlpha);
+			drawSubtitle(subtitleTexture, ScreenX, ScreenY, ScreenW, ScreenH, subAlpha);
 	}
 
 	Super::DrawText(Text, TintColor, TextX, TextY, Font, 200, false);
@@ -255,7 +265,7 @@ void AMyHUD::drawSubtitle(UTexture* Texture, float ScreenX, float ScreenY, float
 	float TextureV = 0;
 	float TextureUWidth = 1;
 	float TextureVHeight = 1;
-	//GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::White, FString::Printf(TEXT("Debug Screen_Size_X = %i"), alphaValue));
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::White, FString::Printf(TEXT("Debug Screen_Size_X = %i"), alphaValue));
 
 	if (alphaValue > 255)
 		alphaValue = 255;
