@@ -108,7 +108,7 @@ void AKaleidoscopeGameMode::changeRes(FString res)
 	screenY = y;
 	if (Settings != nullptr)
 	{
-		Settings->RequestResolutionChange(x, y, EWindowMode::Type::WindowedFullscreen, false); // we can choose to ignore the command line arguments, this is probably best when the game UI sets the mode after startup
+		Settings->RequestResolutionChange(x, y, EWindowMode::Type::Fullscreen, false); // we can choose to ignore the command line arguments, this is probably best when the game UI sets the mode after startup
 		Settings->ConfirmVideoMode();
 
 		// Save the requested settings to our local data now
