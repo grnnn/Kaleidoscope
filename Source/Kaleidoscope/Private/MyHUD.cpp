@@ -265,7 +265,7 @@ void AMyHUD::drawSubtitle(UTexture* Texture, float ScreenX, float ScreenY, float
 	float TextureV = 0;
 	float TextureUWidth = 1;
 	float TextureVHeight = 1;
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::White, FString::Printf(TEXT("Debug Screen_Size_X = %i"), alphaValue));
+	//GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::White, FString::Printf(TEXT("Debug Screen_Size_X = %i"), alphaValue));
 
 	if (alphaValue > 255)
 		alphaValue = 255;
