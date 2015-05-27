@@ -78,6 +78,9 @@ protected:
 	bool canTurnBool;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Control)
+	bool canJogBool;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Control)
 	bool canWalkBool;
 
 protected:

@@ -16,6 +16,7 @@ AKaleidoscopeCharacter::AKaleidoscopeCharacter(const FObjectInitializer& ObjectI
 	walkStep = 0;
 	canTurnBool = false;
 	canWalkBool = false;
+	canJogBool = false;
 	
 
 	// Set size for collision capsule
@@ -173,6 +174,9 @@ Post: Character walks if bool is true
 void AKaleidoscopeCharacter::walkingControl(float Value)
 {
 	if (!canWalkBool)
+		return;
+
+	if (!canJogBool && Value > 0.4f)
 		return;
 	
 	this->MoveForward(Value);
