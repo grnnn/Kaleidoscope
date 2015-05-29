@@ -173,10 +173,18 @@ Post: Character walks if bool is true
 */
 void AKaleidoscopeCharacter::walkingControl(float Value)
 {
+	// full running speed is used as a development tool
+	if (Value == 1.0f)
+		this->MoveForward(Value);
+
+
 	if (!canWalkBool)
 		return;
 
-	if (!canJogBool && (Value > 0.4f && Value < 1.0f))
+	// jogging value is defined in project setting, current value is 0.55 (05/29/2015)
+	// if the value is greater than 0.3 (walking speed) but jogging is not allowed yet, return nothing
+
+	if (!canJogBool && Value > 0.3f)
 		return;
 	
 	this->MoveForward(Value);
