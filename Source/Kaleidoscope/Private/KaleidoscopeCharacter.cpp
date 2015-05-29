@@ -177,13 +177,11 @@ void AKaleidoscopeCharacter::walkingControl(float Value)
 	if (Value == 1.0f)
 		this->MoveForward(Value);
 
-
 	if (!canWalkBool)
 		return;
 
 	// jogging value is defined in project setting, current value is 0.55 (05/29/2015)
 	// if the value is greater than 0.3 (walking speed) but jogging is not allowed yet, return nothing
-
 	if (!canJogBool && Value > 0.3f)
 		return;
 	
