@@ -185,16 +185,18 @@ void AKaleidoscopeCharacter::walkingControl(float Value)
 	if (!canJogBool && Value > 0.3f)
 		return;
 	
+	if (Value == 0.3f || Value == 0.55f)
 	this->MoveForward(Value);
 }
 
 void AKaleidoscopeCharacter::MoveForward(float Value)
 {
-	
+	// for controller
 	if (Value < 0 && canJogBool)
-		Value = 0.55;
+		Value = 0.55f;
 	else if (Value < 0)
 		return;
+
 	if ((Controller != NULL) && (Value != 0.0f))
 	{
 
