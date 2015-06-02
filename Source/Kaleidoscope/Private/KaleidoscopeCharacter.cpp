@@ -17,6 +17,8 @@ AKaleidoscopeCharacter::AKaleidoscopeCharacter(const FObjectInitializer& ObjectI
 	canTurnBool = false;
 	canWalkBool = false;
 	canJogBool = false;
+	cppDevelopmentTool = false;
+
 	
 
 	// Set size for collision capsule
@@ -61,6 +63,13 @@ void AKaleidoscopeCharacter::SetupPlayerInputComponent(class UInputComponent* In
 
 	// Set up gameplay key bindings
 	check(InputComponent);
+
+	if (cppDevelopmentTool){
+		canTurnBool = true;
+		canWalkBool = true;
+		canJogBool = true;
+	}
+		
 
 	
 	//InputComponent->BindAction("EKey", IE_Pressed, this, &AMyProject6Character::TriggerNewCameraOn);
@@ -174,7 +183,7 @@ Post: Character walks if bool is true
 void AKaleidoscopeCharacter::walkingControl(float Value)
 {
 	// full running speed is used as a development tool
-	if (Value == 1.0f)
+	if (Value == 1.0f || cppDevelopmentTool)
 		this->MoveForward(Value);
 
 	if (!canWalkBool)
@@ -186,7 +195,7 @@ void AKaleidoscopeCharacter::walkingControl(float Value)
 		return;
 	
 	if (Value == 0.3f || Value == 0.55f)
-	this->MoveForward(Value);
+		this->MoveForward(Value);
 }
 
 void AKaleidoscopeCharacter::MoveForward(float Value)
