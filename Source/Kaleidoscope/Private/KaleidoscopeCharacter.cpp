@@ -194,7 +194,7 @@ void AKaleidoscopeCharacter::walkingControl(float Value)
 	if (!canJogBool && Value > 0.3f)
 		return;
 	
-	if (Value == 0.3f || Value == 0.55f)
+	if (Value == 0.3f || Value == 0.55f || Value <= 0)
 		this->MoveForward(Value);
 }
 
@@ -202,13 +202,19 @@ void AKaleidoscopeCharacter::MoveForward(float Value)
 {
 	// for controller
 	if (Value < 0 && canJogBool)
+	{
 		Value = 0.55f;
+		
+	}
 	else if (Value < 0)
+	{
+		//Value = 0.55f;
 		return;
+	}
 
 	if ((Controller != NULL) && (Value != 0.0f))
 	{
-
+		//GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::White, FString::Printf(TEXT("CCC")));
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
