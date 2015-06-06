@@ -29,6 +29,7 @@ Pane::Pane()
 	fadeOut = false;
 	isStartCountingWalk = false;
 	mycapture = NULL;
+	temp = 0;
 }
 
 //Contructor with UTexture
@@ -296,13 +297,17 @@ void Pane::updateOnBehavior()
 		break;
 	
 	case FirstPane:
+		temp = numberOfWalk * 2;
 		limitHeight = getOffsetValue(420, viewportY, baseY);
 		if (height <= limitHeight)
 		{
-			height = Oldheight + numberOfWalk/4;// 1.2;
-			width = Oldwidth + numberOfWalk/3.4;
-			x_pos = Oldx_pos - numberOfWalk/2.2  ; // *1.5;// 2;
+			height = Oldheight + temp/4.0; //floor(temp/ 4);// 1.2;
+			width = Oldwidth + temp/3.4;//floor(temp/ 3.4);
+			x_pos = Oldx_pos - temp/ 2.2; // *1.5;// 2;
 
+			//height = floor(height);
+			//width = floor(width);
+			//x_pos = floor(x_pos);
 
 
 		}

@@ -57,7 +57,7 @@ class KALEIDOSCOPE_API Pane
 	int numberOfWalk;
 	class UTexture* myTexture; //the content to be display
 	USceneCaptureComponent2D *mycapture;
-	
+	float temp;
 
 public:
 	Pane();
